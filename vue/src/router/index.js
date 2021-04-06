@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
+import VolumeSearch from '../views/VolumeSearch.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -26,7 +27,15 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/search',
+      name: 'volume-search',
+      component: VolumeSearch,
+      meta: {
+        requiresAuth: false
       }
     },
     {
