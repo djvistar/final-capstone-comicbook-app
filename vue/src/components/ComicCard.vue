@@ -16,6 +16,7 @@
       <div id = "name">{{ issue.name }}</div>
       <div id = "volume">{{issue.volume.name}}</div>
       <div id ="issue_number">Issue # {{ issue.issue_number }}</div>
+      <div id="summary">{{issue.description}}</div>
   </div>
   </div>
   </div>
@@ -57,14 +58,15 @@ props: {
   
 }
 .comic-card-info{
-  /* display: grid; */
+  display: grid; 
   background-color: #F0F0F0;
-  /* grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
   "image name"
   "image volume"
-  "image issue_number" */
+  "image issue_number"
+  "summary summary"
 
 }
 
@@ -76,5 +78,8 @@ props: {
 }
 #volume{
   grid-area: volume;
+}
+#summary{
+  grid-area: summary;
 }
 </style>
