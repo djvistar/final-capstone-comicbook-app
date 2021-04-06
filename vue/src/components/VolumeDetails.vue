@@ -6,12 +6,17 @@
       <p># of Issues: {{ volume.count_of_issues }}</p>
       <p>{{volume.publisher.name}}</p>
     </div>
+    <issue-list></issue-list>
   </div>
 </template>
 
 <script>
+import IssueList from "@/components/IssueList";
 export default {
 name: 'volume-details',
+components:{
+  IssueList
+},
 props: {
     volume: Object,
   },

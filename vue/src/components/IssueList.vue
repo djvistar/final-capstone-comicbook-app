@@ -8,18 +8,18 @@
 </template>
 
 <script>
-//import VolumeDetails from "../components/VolumeDetails";
+import VolumeDetails from "../components/VolumeDetails";
 import ComicCard from "../components/ComicCard";
-import VolumeDetails from './VolumeDetails.vue';
+
 export default {
 name: "issue-list",
-computed:{
-    comics(){
-        return this.$store.state.VolumeDetails.filter((comic) =>{
-            return comic.VolumeDetails.id == id; //garbage code- needs rework to correct variable, placeholder
-        })
-    }
-},
+// computed:{
+//     comics(){
+//         return this.$store.state.VolumeDetails.filter((comic) =>{
+//             return comic.VolumeDetails.volume.id ; //garbage code- needs rework to correct variable, placeholder
+//         })
+//     }
+//},
 data(){
     
     //check api for issue search params
@@ -27,7 +27,7 @@ return;
 },
 components:{
     ComicCard,
-   // VolumeDetails
+    VolumeDetails
 }
 }
 </script>

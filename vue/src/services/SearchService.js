@@ -15,7 +15,7 @@ export default {
     },
     searchIssuesByVolume(volumeID){
         volumeID = 'volume:'+volumeID; //fix this, needs volume id grabbed from click event on volume results.
-        return axios.get('http://comicvine.gamespot.com/api/issues/'+ apiKey+issuesInVolume+','+volumeID);
+        return axios.get('http://comicvine.gamespot.com/api/issues/'+ apiKey + issuesInVolume +','+ volumeID);
     }
 }
 
