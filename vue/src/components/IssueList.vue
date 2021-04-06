@@ -1,14 +1,14 @@
 <template>
   <div class="issue-list">
 <!--<comic-card v-for= "comic in volume" v-bind:comic="comic" />  -->
-  <volume-details></volume-details>
+  <volume-card></volume-card>
   <comic-card></comic-card>
   
   </div>
 </template>
 
 <script>
-import VolumeDetails from "../components/VolumeDetails";
+import VolumeCard from "../components/VolumeCard";
 import ComicCard from "../components/ComicCard";
 
 export default {
@@ -27,14 +27,14 @@ return;
 },
 components:{
     ComicCard,
-    VolumeDetails
+    VolumeCard
 }
 }
 </script>
 
 <style>
 .vo
-VolumeDetailslume-card-main img {
+.volume-card-main img {
   width: 150px;
 }
 .volume-card-main {

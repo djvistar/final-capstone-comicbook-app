@@ -14,7 +14,7 @@
         <br />
         <button class="btn btn-submit">Submit</button>
       </form>
-      <volume-details
+      <volume-card
         v-bind:volume="volume"
         v-for="volume in volumes"
         v-bind:key="volume.id"
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import VolumeDetails from "@/components/VolumeDetails.vue"
+import VolumeCard from "@/components/VolumeCard.vue"
 import SearchService from "@/services/SearchService.js"
 
 export default {
     name:"volume-search",
 components:{
-VolumeDetails
+VolumeCard
 },
 data(){
     return{
@@ -63,6 +63,7 @@ searchVolumes() {
           this.volumes.sort(function (a, b) {
             return b.count_of_issues - a.count_of_issues;
           });
+          this.$store.state.volumeResults = this.volumes;
         })
         .catch((error) => {
           // handle an error

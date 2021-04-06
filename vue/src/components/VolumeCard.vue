@@ -1,21 +1,23 @@
 <template>
   <div class="volume-card-main">
+    <router-link v-bind:to="{name: 'issue-list', params: {id: volume.id}}">
+      <div class="single-volume-card">
     <img v-on:click.prevent="searchIssuesByVolume" v-bind:src="volume.image.small_url" />
     <div class="card-info">
       <h3>{{ volume.name }}</h3>
       <p># of Issues: {{ volume.count_of_issues }}</p>
       <p>{{volume.publisher.name}}</p>
     </div>
-    <issue-list></issue-list>
+      </div></router-link>
   </div>
 </template>
 
 <script>
-import IssueList from "@/components/IssueList";
+
 export default {
-name: 'volume-details',
+name: 'volume-card',
 components:{
-  IssueList
+
 },
 props: {
     volume: Object,
@@ -33,5 +35,8 @@ props: {
 .volume-card-main {
   display: flex;
   background-color: lightgray;
+}
+.single-card{
+  display: block;
 }
 </style>

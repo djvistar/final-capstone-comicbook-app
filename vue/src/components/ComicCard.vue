@@ -1,5 +1,5 @@
 <template>
-  <div class="issue-card-main"><!-- need v-bind -->
+  <div class="comic-card-main"><!-- need v-bind -->
   <!--
        <router-link v-bind:to="{name: 'book-details'}"><h2 class="book-title">{{ book.title }}</h2></router-link>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
@@ -21,7 +21,7 @@
 export default {
 name: 'comic-card',
 props: {
-    comic: Object,
+    issue: Object,
     //for add to collection
     // enableAdd:{
     //     type:Boolean,
@@ -32,11 +32,12 @@ props: {
 </script>
 
 <style>
-.volume-card-main img {
+.comic-card-main img {
   width: 150px;
 }
-.volume-card-main {
+.comic-card-main {
   display: flex;
   background-color: lightgray;
+  margin: 10px;
 }
 </style>

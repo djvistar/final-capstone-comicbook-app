@@ -40,7 +40,7 @@ const router = new Router({
       }
     },
     {
-      path: '/issues',
+      path: '/volume/:id',
       name: 'issue-list',
       component: IssueList,
       meta: {
