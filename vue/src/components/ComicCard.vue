@@ -1,5 +1,7 @@
 <template>
-  <div class="comic-card-main"><!-- need v-bind -->
+  
+  <div class = "container">
+    <div class="comic-card-main"><!-- need v-bind -->
   <!--
        <router-link v-bind:to="{name: 'book-details'}"><h2 class="book-title">{{ book.title }}</h2></router-link>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
@@ -12,8 +14,9 @@
     <div class="comic-card-info">
       <img id = "image" v-bind:src="issue.image.small_url" />
       <div id = "name">{{ issue.name }}</div>
+      <div id = "volume">{{issue.volume.name}}</div>
       <div id ="issue_number">Issue # {{ issue.issue_number }}</div>
-      <div id = "volume">{{issue.volume}}</div>
+  </div>
   </div>
   </div>
 </template>
@@ -33,40 +36,38 @@ props: {
 </script>
 
 <style>
+.container{
+  background-color: #e63030;
+  
+}
 .comic-card-main img {
-  width: 150px;
+  
+  grid-area: image;
 }
 .comic-card-main {
-  display: flex;
-  justify-content:space-evenly ;
   background-color: lightgray;
-  margin: 10px;
-    padding: 40px 55px;
+  padding: 40px 55px;
   margin: 15px 0;
   background-color: #00AFEF;
-  color: #fff;
+  color: rgb(0, 0, 0);
   border: solid 1px #777;
+  display: flex;
+  justify-content:space-evenly ;
+  padding: 10px;
   
 }
 .comic-card-info{
-  display: grid;
-  
+  /* display: grid; */
   background-color: #F0F0F0;
-  display: flex;
-  justify-content:space-evenly ;
-
-  grid-area: card;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
   "image name"
-  "image issue_number"
   "image volume"
+  "image issue_number" */
 
 }
-#image{
-  grid-area: image;
-}
+
 #name{
   grid-area:name;
 }
