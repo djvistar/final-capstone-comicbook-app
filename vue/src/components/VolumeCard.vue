@@ -2,7 +2,7 @@
   <div class="volume-card-main">
     <router-link v-bind:to="{name: 'issue-list', params: {id: volume.id}}">
       <div class="single-volume-card">
-    <img v-on:click.prevent="searchIssuesByVolume" v-bind:src="volume.image.small_url" />
+    <img v-bind:src="volume.image.small_url" />
     <div class="card-info">
       <h3>{{ volume.name }}</h3>
       <p># of Issues: {{ volume.count_of_issues }}</p>
