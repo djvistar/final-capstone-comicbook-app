@@ -39,5 +39,10 @@ props: {
   display: flex;
   background-color: lightgray;
   margin: 10px;
+  
+}
+.card-info{
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
 }
 </style>
