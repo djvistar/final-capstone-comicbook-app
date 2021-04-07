@@ -10,13 +10,13 @@ public interface CollectionDAO {
 
 	public void saveCollection(Collection collection);
 	
-	public void getCollectionById(int collectionId);
+	public Collection getCollectionById(int collectionId);
 	
 	List<Collection> listAllCollectionsByUserId(Long userId);
 	
 	List<Collection> listCollectionByUsername(String username);
 	
-	public void  addComicToCollection(User user, int comicId, int collectionId);
+	public void  addComicToCollection(int comicId, int collectionId);
 	
 	public void deleteComicFromCollection(int comicId, int collectionId);
 	
