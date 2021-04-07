@@ -66,8 +66,16 @@ export default {
 
 <style>
 .issue-list-main{
+<<<<<<< HEAD
     display:flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+=======
+  display:flex;
+  flex-basis: auto;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+>>>>>>> 36390e71383dc8cb94ef5c6751a26901cebde7c4
 }
 </style>

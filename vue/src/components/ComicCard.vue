@@ -40,6 +40,7 @@ props: {
 <style>
 
 .comic-card-main img {
+
   max-width: 120px;
   grid-area: image;
 }

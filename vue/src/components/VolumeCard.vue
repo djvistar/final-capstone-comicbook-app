@@ -31,6 +31,7 @@ props: {
 
 <style>
 .volume-card-main img {
+<<<<<<< HEAD
   width: 150px;
   height: 300px;
 }
@@ -38,14 +39,33 @@ props: {
   width: 150px;
   display: flex;
   background-color: lightgray;
+=======
+  width: 138px;
+  height: 213px;
+}
+.volume-card-main {
+  width: 150px;
+  height: 350px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding:2px;
+  border: solid 3px black;
+
+>>>>>>> 36390e71383dc8cb94ef5c6751a26901cebde7c4
 }
 .single-card{
   display: block;
 }
+<<<<<<< HEAD
 .card-info{
   
   
 }
+=======
+
+>>>>>>> 36390e71383dc8cb94ef5c6751a26901cebde7c4
 #publisher{
   grid-area: pub;
   font-size: 1vw;
