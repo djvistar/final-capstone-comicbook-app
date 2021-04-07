@@ -58,7 +58,10 @@ h1 {
 }
 
 .footer {
+<<<<<<< HEAD
+=======
   
+>>>>>>> 36390e71383dc8cb94ef5c6751a26901cebde7c4
   position: fixed;
   bottom: 0;
   left: 0;
