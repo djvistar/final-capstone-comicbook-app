@@ -78,10 +78,18 @@ searchVolumes() {
 </script>
 
 <style>
+.comic-search-main{
+  padding: 15px;
+}
   .volume-results{
 
- display:flex;
+  display:flex;
+  flex-basis: auto;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  align-content: space-around;
+}
+.searchForm{
+  padding:10px;
 }
 </style>

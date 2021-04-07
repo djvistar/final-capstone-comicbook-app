@@ -31,21 +31,24 @@ props: {
 
 <style>
 .volume-card-main img {
-  width: 150px;
-  height: 300px;
+  width: 138px;
+  height: 213px;
 }
 .volume-card-main {
   width: 150px;
+  height: 350px;
   display: flex;
+  align-content: center;
+  justify-content: center;
   background-color: lightgray;
+  padding:2px;
+  border: solid 3px black;
+
 }
 .single-card{
   display: block;
 }
-.card-info{
-  
-  
-}
+
 #publisher{
   grid-area: pub;
   font-size: 1vw;

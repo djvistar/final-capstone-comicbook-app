@@ -58,6 +58,7 @@ h1 {
 }
 
 .footer {
+  
   position: fixed;
   bottom: 0;
   left: 0;
