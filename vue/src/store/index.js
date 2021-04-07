@@ -22,6 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     volumeResults: [],
     activeVolume: 0,
+    isLoggedIn: false,
   },
   mutations: {
     SET_ACTIVE_VOLUME(state, id) {

@@ -2,7 +2,13 @@
   <div class="header-main">
     <div class="header-image-box">
       <img src="../assets/app-logo-temp-300-150.png" />
-      <div id="login-box">LOG IN / REGISTER</div>
+      <div id="login-box">
+        <div id="not-logged" v-if="!loggedIn">
+          <router-link v-bind:to="{ name: 'login' }">LOG IN</router-link>
+          / <router-link :to="{ name: 'register' }">REGISTER</router-link>
+        </div>
+        <div id="logged" v-if="loggedIn">Hi, User!</div>
+      </div>
     </div>
     <navigation />
   </div>
@@ -10,10 +16,17 @@
 
 <script>
 import Navigation from "@/components/Navigation.vue";
+
 export default {
   name: "the-header",
+  
+  
+  
   data() {
-    return {};
+    return {
+      loggedIn: this.$store.state.isLoggedIn,
+      
+    };
   },
   components: {
     Navigation,
@@ -43,8 +56,12 @@ export default {
   width: 150px;
   height: 75px;
   margin: 20px;
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: lightgray;
+  border-radius: 10px;
 }
 .header-main img {
   margin: 20px;

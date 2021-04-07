@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <the-header class="header" />
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
-    </div>
+    </div> -->
     <router-view />
     <the-footer class="footer" />
   </div>
@@ -31,6 +31,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  background-color: lightskyblue;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

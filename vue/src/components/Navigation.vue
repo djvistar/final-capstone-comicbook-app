@@ -1,26 +1,40 @@
 <template>
   <div id="nav-main">
-    <a href="#">LINK 1</a>
+    <div id="nav-not-logged" v-if="!loggedIn">
+      <router-link v-bind:to="{ name: 'home' }">HOME</router-link>
+      <router-link v-bind:to="{ name: 'volume-search' }">SEARCH</router-link>
       <a href="#">LINK 1</a>
-    <a href="#">LINK 1</a>
-    <a href="#">LINK 1</a>
+      <a href="#">LINK 1</a>
+      <a href="#">LINK 1</a>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'navigation',
+  name: "navigation",
+  data() {
+    return {
+      loggedIn: this.$store.state.isLoggedIn,
+    };
+  },
 };
 </script>
 
 <style>
-#nav-main {
-    background-color: #00cbff;
-    min-height: 50px;
-    width: 100%;
-    display: flex;
-    padding: 0;
-    justify-content:space-around;
-    align-items: center;
+#nav-not-logged,
+#nav-logged {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+#nav-not-logged {
+  background-color: #00cbff;
+}
+#nav-logged {
+  background-color: lightcoral;
 }
 </style>
