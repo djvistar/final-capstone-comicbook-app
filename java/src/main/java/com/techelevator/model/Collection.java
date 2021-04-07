@@ -17,6 +17,14 @@ public class Collection {
 		this.username = username;
 	}
 	
+	
+
+	public Collection() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	//getters and setters
 	public int getCollectionId() {
 		return collectionId;
