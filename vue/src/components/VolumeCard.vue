@@ -36,7 +36,7 @@ props: {
 }
 .volume-card-main {
   width: 150px;
-  height: 350px;
+  height: 375px;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -45,22 +45,40 @@ props: {
   border: solid 3px black;
 
 }
-.single-card{
-  display: block;
+.single-volume-card{
+
+  padding: 10px;
 }
+.volume-card a:hover, a:visited, a:link, a:active{
+  
+  color: #020202;
+  text-decoration: none;
+  margin: 10px;
+}
+/* .volume-card{
+  display:grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "image"
+  "image"
+  "image"
+  "pub"
+  "count"
+  "volume";
+} */
 
 #publisher{
   grid-area: pub;
-  font-size: 1vw;
+  font-size: .5vw;
 }
 #vol-name{
   grid-area: volume;
   word-wrap: break-word;
-  font-size: 1vw;
+  font-size: .9vw;
 }
 #issue-count{
   grid-area: count;
-  font-size: 1vw;
+  font-size: .75vw;
 }
 #image{
   grid-area: image;
