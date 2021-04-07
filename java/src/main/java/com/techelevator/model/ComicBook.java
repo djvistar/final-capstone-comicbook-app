@@ -9,19 +9,19 @@ public class ComicBook {
 	private int issueNumber;
 	private String publisher;
 	private String image;
-	private String description;
+	private String comicDescription;
 	private int volumeNumber;
 	
 	//constructor
 	public ComicBook(int comicId, String title, String issueTitle, int issueNumber, 
-			String publisher, String image, String description, int volumeNumber) {
+			String publisher, String image, String comicDescription, int volumeNumber) {
 		this.comicId = comicId;
 		this.title = title;
 		this.issueTitle = issueTitle;
 		this.issueNumber = issueNumber;
 		this.publisher = publisher;
 		this.image = image;
-		this.description = description;
+		this.comicDescription = comicDescription;
 		this.volumeNumber = volumeNumber;
 	}
 	
@@ -63,11 +63,11 @@ public class ComicBook {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getDescription() {
-		return description;
+	public String getComicDescription() {
+		return comicDescription;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setComicDescription(String comicDescription) {
+		this.comicDescription = comicDescription;
 	}
 	public int getVolumeNumber() {
 		return volumeNumber;

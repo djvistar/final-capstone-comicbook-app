@@ -5,7 +5,7 @@ public class Collection {
 	private int collectionId;
 	private int userId;
 	private String name;
-	private String description;
+	private String collectionDescription;
 	private String username;
 	
 	//constructor
@@ -13,7 +13,7 @@ public class Collection {
 		this.collectionId = collectionId;
 		this.userId = userId;
 		this.name = name;
-		this.description = description;
+		this.collectionDescription = collectionDescription;
 		this.username = username;
 	}
 	
@@ -36,11 +36,11 @@ public class Collection {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescription() {
-		return description;
+	public String getCollectionDescription() {
+		return collectionDescription;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCollectionDescription(String collectionDescription) {
+		this.collectionDescription= collectionDescription;
 	}
 	
 	public String getUsername() {
