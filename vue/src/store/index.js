@@ -18,9 +18,8 @@ if (currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    // Reset this code once login works!!
-    // token: currentToken || '',
-    token: '',
+
+    token: currentToken || '',
     user: currentUser || {},
     volumeResults: [],
     activeVolume: 0,
