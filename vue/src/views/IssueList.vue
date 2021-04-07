@@ -1,6 +1,9 @@
 <template>
+  <div>
+    <h2>RESULTS</h2>
+  
   <div class="issue-list-main">
-    RESULTS
+    
     <br />
 
     <comic-card
@@ -8,6 +11,7 @@
       v-for="issue in issues"
       v-bind:key="issue.id"
     />
+  </div>
   </div>
 </template>
 
@@ -63,4 +67,9 @@ export default {
 </script>
 
 <style>
+.issue-list-main{
+    display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 </style>

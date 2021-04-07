@@ -1,6 +1,6 @@
 <template>
   
-  <div class = "container">
+  
     <div class="comic-card-main"><!-- need v-bind -->
   <!--
        <router-link v-bind:to="{name: 'book-details'}"><h2 class="book-title">{{ book.title }}</h2></router-link>
@@ -16,10 +16,11 @@
       <div id = "name">{{ issue.name }}</div>
       <div id = "volume">{{issue.volume.name}}</div>
       <div id ="issue_number">Issue # {{ issue.issue_number }}</div>
-      <div id="summary">{{issue.description}}</div>
+      
+    </div>
   </div>
-  </div>
-  </div>
+  
+  
 </template>
 
 <script>
@@ -37,36 +38,33 @@ props: {
 </script>
 
 <style>
-.container{
-  background-color: #e63030;
-  
-}
+
 .comic-card-main img {
-  
+  max-width: 120px;
   grid-area: image;
 }
 .comic-card-main {
-  background-color: lightgray;
-  padding: 40px 55px;
+  max-width: 240px;
+  max-height: 480px;
   margin: 15px 0;
+  padding: 10px;
   background-color: #00AFEF;
   color: rgb(0, 0, 0);
   border: solid 1px #777;
-  display: flex;
-  justify-content:space-evenly ;
-  padding: 10px;
+
+  
   
 }
 .comic-card-info{
   display: grid; 
   background-color: #F0F0F0;
-   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
   "image name"
   "image volume"
   "image issue_number"
-  "summary summary"
+  
 
 }
 
