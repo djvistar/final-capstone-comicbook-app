@@ -3,8 +3,6 @@
     <h2>RESULTS</h2>
   
   <div class="issue-list-main">
-    
-    <br />
 
     <comic-card
       v-bind:issue="issue"
@@ -70,6 +68,6 @@ export default {
 .issue-list-main{
     display:flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 </style>
