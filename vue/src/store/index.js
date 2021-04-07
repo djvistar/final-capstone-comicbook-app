@@ -12,16 +12,25 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
 export default new Vuex.Store({
   state: {
-    token: currentToken || '',
-    user: currentUser || {}
+    // Reset this code once login works!!
+    // token: currentToken || '',
+    token: '',
+    user: currentUser || {},
+    volumeResults: [],
+    activeVolume: 0,
+    isLoggedIn: false,
   },
   mutations: {
+    SET_ACTIVE_VOLUME(state, id) {
+      state.activeVolume = id;
+    },
+
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
@@ -29,7 +38,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
