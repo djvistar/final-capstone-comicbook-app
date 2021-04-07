@@ -14,9 +14,11 @@ public interface CollectionDAO {
 	
 	List<Collection> listAllCollectionsByUserId(Long userId);
 	
-	List<Collection> lstCollectionByUsername(String username);
+	List<Collection> listCollectionByUsername(String username);
 	
 	public void  addComicToCollection(User user, int comicId, int collectionId);
+	
+	public void deleteComicFromCollection(int comicId, int collectionId);
 	
 	public void deleteCollection(int CollectionId);
 	
