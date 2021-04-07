@@ -8,7 +8,7 @@ import com.techelevator.model.User;
 public interface ComicBookDAO {
 
 	
-	public void saveComic(ComicBook comicBook);
+	public void saveComic(ComicBook comic);
 	
     List<ComicBook> listAllComicBooks();
 	
