@@ -4,8 +4,8 @@
       <div class="single-volume-card">
     
     <div class="card-info">
-      <img id="image" v-bind:src="volume.image.small_url" />
       <h3 id=vol-name>{{ volume.name }}</h3>
+      <img id="image" v-bind:src="volume.image.small_url" />
       <p id="issue-count"># of Issues: {{ volume.count_of_issues }}</p>
       <p id="publisher">{{volume.publisher.name}}</p>
     </div>
@@ -35,19 +35,20 @@ props: {
   height: 213px;
 }
 .volume-card-main {
-  width: 150px;
-  height: 375px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  background-color: lightgray;
-  padding:2px;
-  border: solid 3px black;
+flex: 10 calc(20% - 10px);
+height: 375px;
+
 
 }
 .single-volume-card{
+  align-content: center;
+  justify-content: center;
+  height: 90%;
+  width: 90%;
+  background-color: lightgray;
+  border: solid 3px black;
+  
 
-  padding: 10px;
 }
 .volume-card a:hover, a:visited, a:link, a:active{
   
@@ -56,17 +57,11 @@ props: {
   margin: 10px;
 }
 
-/* .volume-card{
-  display:grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-  "image"
-  "image"
-  "image"
-  "pub"
-  "count"
-  "volume";
-} */
+.volume-card{
+display:grid;
+grid-rows:1fr;
+
+}
 
 #publisher{
   grid-area: pub;
@@ -75,11 +70,12 @@ props: {
 #vol-name{
   grid-area: volume;
   word-wrap: break-word;
-  font-size: .9vw;
+  font-size: 24px;
+  font-size:1.25em;
+  
 }
 #issue-count{
   grid-area: count;
-  font-size: .75vw;
 }
 #image{
   grid-area: image;
