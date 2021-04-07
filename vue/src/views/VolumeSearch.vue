@@ -14,11 +14,13 @@
         <br />
         <button class="btn btn-submit">Submit</button>
       </form>
+      <div class= "volume-results">
       <volume-card
         v-bind:volume="volume"
         v-for="volume in volumes"
         v-bind:key="volume.id"
       />
+      </div>
     </div>
   </div>
   </div>
@@ -76,5 +78,10 @@ searchVolumes() {
 </script>
 
 <style>
+  .volume-results{
 
+ display:flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
 </style>
