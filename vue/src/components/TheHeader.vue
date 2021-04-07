@@ -3,11 +3,11 @@
     <div class="header-image-box">
       <img src="../assets/app-logo-temp-300-150.png" />
       <div id="login-box">
-        <div id="not-logged" v-if="!loggedIn">
+        <div id="not-logged" v-if="$store.state.token == ''">
           <router-link v-bind:to="{ name: 'login' }">LOG IN</router-link>
           / <router-link :to="{ name: 'register' }">REGISTER</router-link>
         </div>
-        <div id="logged" v-if="loggedIn">Hi, User!</div>
+        <div id="logged" v-if="$store.state.token != ''">Hi, User!</div>
       </div>
     </div>
     <navigation />
