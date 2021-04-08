@@ -4,7 +4,7 @@
     <br />
     <collections-list v-if="$store.state.showAllCollections" />
     <collection-nav v-if="!$store.state.showAllCollections" />
-    <single-collection v-if="!$store.state.showAllCollections" collectionId="" />
+    <single-collection v-if="!$store.state.showAllCollections" v-bind:collectionId="$store.state.activeCollection" />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     CollectionsList,
     SingleCollection,
     CollectionNav,
+    
   },
   methods: {
     toggleShowAllCollections() {

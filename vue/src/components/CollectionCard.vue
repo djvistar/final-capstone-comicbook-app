@@ -3,7 +3,7 @@
     <div id="card-box">
       {{ collection.name }}
       <br />
-      <button v-on:click="selectActiveCollection(collection.id)">View</button>
+      <button v-on:click="selectActiveCollection(collection.collectionId)">View</button>
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
   methods: {
     selectActiveCollection(id) {
       this.$store.commit("SET_ACTIVE_COLLECTION", id);
+      console.log(this.$store.state.activeCollection);
       this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
     },
   },

@@ -27,7 +27,14 @@ export default new Vuex.Store({
     activeCollection: 0,
     activeIssue: 0,
     showAllCollections: true,
-
+    currentCollection:
+    {
+      collectionId: 222,
+      userId: 2,
+      name: "Spider-man Stuff",
+      collectionDescription: "Behold. My Spider-man stuff.",
+      username: "em",
+    },
     userCollections: [
       {
         collectionId: 222,

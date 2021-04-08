@@ -1,15 +1,5 @@
 <template>
   <div class="comic-card-main">
-    <!-- need v-bind -->
-    <!--
-       <router-link v-bind:to="{name: 'book-details'}"><h2 class="book-title">{{ book.title }}</h2></router-link>
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-    <h3 class="book-author">{{ book.author }}</h3>
-    <div class="button-container" v-if="! enableAdd">
-        <button class="mark-read" v-on:click.prevent="setRead(true)" v-if=" ! book.read">Mark Read</button>
-        <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
- -->
-
     <div class="comic-card-info">
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="name">{{ issue.name }}</div>
@@ -21,14 +11,9 @@
 
 <script>
 export default {
-  name: "comic-card",
+  name: "comic-card-api",
   props: {
     issue: Object,
-    //for add to collection
-    // enableAdd:{
-    //     type:Boolean,
-    //     default:false
-    // }
   },
 };
 </script>
