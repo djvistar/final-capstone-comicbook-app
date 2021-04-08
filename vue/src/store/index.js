@@ -44,14 +44,46 @@ export default new Vuex.Store({
         username: "em",
       },
     ],
+
+    collectionContents: [
+      {
+        id: 1,
+        title: "HardCoded",
+        number: 22,
+        volumeName: "SpiderGuy",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      },
+      {
+        id: 2,
+        title: "HardCodedAgain",
+        number: 23,
+        volumeName: "SpiderGuy",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      },
+      {
+        id: 3,
+        title: "StillHardCoded",
+        number: 25,
+        volumeName: "SpiderGuy",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      }
+
+    ]
   },
   mutations: {
     SET_ACTIVE_VOLUME(state, id) {
       state.activeVolume = id;
     },
+    SET_ACTIVE_COLLECTION(state, id) {
+      state.activeCollection = id;
+    },
 
     TOGGLE_SHOW_ALL_COLLECTIONS(state) {
       state.showAllCollections = !state.showAllCollections;
+    },
+
+    RESET_SHOW_ALL_COLLECTIONS(state) {
+      state.showAllCollections = true;
     },
 
     SET_AUTH_TOKEN(state, token) {

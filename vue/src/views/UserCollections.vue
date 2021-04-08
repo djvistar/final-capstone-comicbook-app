@@ -28,6 +28,9 @@ export default {
       this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
     },
   },
+  created() {
+    this.$store.commit("RESET_SHOW_ALL_COLLECTIONS");
+  },
 };
 </script>
 

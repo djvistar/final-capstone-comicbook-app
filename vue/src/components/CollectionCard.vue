@@ -1,6 +1,10 @@
 <template>
   <div class="collection-card-main">
-    {{ collection.name }}
+    <div id="card-box">
+      {{ collection.name }}
+      <br />
+      <button v-on:click="selectActiveCollection(collection.id)">View</button>
+    </div>
   </div>
 </template>
 
@@ -9,9 +13,20 @@ export default {
   name: "collection-card",
   props: {
     collection: Object,
-  }
+  },
+  methods: {
+    selectActiveCollection(id) {
+      this.$store.commit("SET_ACTIVE_COLLECTION", id);
+      this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
+    },
+  },
 };
 </script>
 
 <style>
+#card-box {
+  width: 150px;
+  height: 250px;
+  background-color: lightgreen;
+}
 </style>
