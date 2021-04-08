@@ -55,11 +55,11 @@ height: 375px;
   color: #020202;
   text-decoration: none;
   margin: 10px;
+  
 }
 
 .volume-card{
-display:grid;
-grid-rows:1fr;
+
 
 }
 
