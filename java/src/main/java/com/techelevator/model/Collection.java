@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Collection {
 
 	private int collectionId;
@@ -7,6 +9,7 @@ public class Collection {
 	private String name;
 	private String collectionDescription;
 	private String username;
+	private List<ComicBook> comicsInCollection;
 	
 	//constructor
 	public Collection (int collectionId, int userId, String name, String description, String username) {
@@ -57,6 +60,22 @@ public class Collection {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+
+
+	public List<ComicBook> getComicsInCollection() {
+		return comicsInCollection;
+	}
+
+
+
+	public void setComicsInCollection(List<ComicBook> comicsInCollection) {
+		this.comicsInCollection = comicsInCollection;
+	}
+
+
+
+
 	
 	
 	
