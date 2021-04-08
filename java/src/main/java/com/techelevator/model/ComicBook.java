@@ -27,6 +27,10 @@ public class ComicBook {
 	
 	//getters and setters
 	
+	public ComicBook() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getComicId() {
 		return comicId;
 	}

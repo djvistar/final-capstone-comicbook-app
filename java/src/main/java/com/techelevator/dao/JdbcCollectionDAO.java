@@ -25,9 +25,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	
 	
-	
-	
-	
 
 	@Override
 	public void saveCollection(Collection collection) {
@@ -39,6 +36,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 				collection.getName(), collection.getCollectionDescription());	
 		
 	}
+	
+	
 
 	@Override
 	public Collection getCollectionById(int collectionId) {
@@ -57,6 +56,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		
 	}
 
+	
 
 	@Override
 	public List<Collection> listAllCollectionsByUserId(Long userId) {
@@ -74,12 +74,24 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	}
 
 	
+	
 	@Override
 	public List<Collection> listCollectionByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Collection> collections = new ArrayList<>();
+		
+		String sqlGetCollectionsByUsername = "SELECT ";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
+			while(results.next()) {
+				collections.add(mapRowToCollection(results));
+			
+		}
+		
+		return collections;
 	}
+	
 
+	
 	@Override
 	public void addComicToCollection(int comicId, int collectionId) {
 		// TODO Auto-generated method stub
@@ -89,25 +101,39 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		jdbcTemplate.update(sqlAddComicToCollection, comicId, collectionId);
 		
 	}
+	
+	
 
 	@Override
 	public void deleteComicFromCollection(int comicId, int collectionId) {
 		// TODO Auto-generated method stub
+		String sqlDeleteComicFromCollection = "DELETE FROM   ";
+		jdbcTemplate.update(sqlDeleteComicFromCollection, comicId, collectionId);
 		
 	}
 
+	
+	
 	@Override
-	public void deleteCollection(int CollectionId) {
+	public void deleteCollection(int collectionId) {
 		// TODO Auto-generated method stub
-		
+		String sqlDeleteCollection = "DELETE FROM collection WHERE collecttion_id = ?";
+		jdbcTemplate.update(sqlDeleteCollection, collectionId);
 	}
 
 	@Override
 	public void updateCollection(Collection collection) {
 		// TODO Auto-generated method stub
+		String sqlUpdateCollection = "UPDATE collection " +
+		                             "SET user_d =?, name = ?, collection_description = ? " +
+				                      "WHERE collection_id =? ";
+		jdbcTemplate.update(sqlUpdateCollection, collection.getUserId(), collection.getName(),
+				            collection.getCollectionDescription(), collection.getCollectionId());
 		
 	}
 
+	
+	
 	private Collection mapRowToCollection(SqlRowSet results) {
 		// TODO Auto-generated method stub
 		
@@ -115,7 +141,9 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		
 		collection.setCollectionId(results.getInt("collection_id"));
 		collection.setUserId(results.getInt("user_id"));
-		
+		collection.setName(results.getString("name"));
+		collection.setCollectionDescription(results.getString("collection_description"));
+		collection.setUsername(results.getString("username"));
 		
 		return collection;
 	}

@@ -20,7 +20,7 @@ public interface CollectionDAO {
 	
 	public void deleteComicFromCollection(int comicId, int collectionId);
 	
-	public void deleteCollection(int CollectionId);
+	public void deleteCollection(int collectionId);
 	
 	public void updateCollection(Collection collection);
 	

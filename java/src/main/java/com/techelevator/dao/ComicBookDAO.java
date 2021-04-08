@@ -12,7 +12,7 @@ public interface ComicBookDAO {
 	
     List<ComicBook> listAllComicBooks();
 	
-	List<ComicBook> listAllComicByCollectionId(int collectionId);
+	List<ComicBook> listComicsByCollectionId(int collectionId);
 	
 	public void deleteComic(int comicId);
 	
