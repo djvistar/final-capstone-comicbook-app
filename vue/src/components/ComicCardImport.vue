@@ -11,7 +11,8 @@
 
 <script>
 export default {
-  name: "comic-card-api",
+  //It doesn't like 'API', so we'll call it an import
+  name: "comic-card-import",
   props: {
     issue: Object,
   },

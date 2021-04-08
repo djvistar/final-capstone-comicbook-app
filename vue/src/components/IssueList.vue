@@ -2,14 +2,14 @@
   <div class="issue-list">
 <!--<comic-card v-for= "comic in volume" v-bind:comic="comic" />  -->
   <volume-card></volume-card>
-  <comic-card-api></comic-card-api>
+  <comic-card-import></comic-card-import>
   
   </div>
 </template>
 
 <script>
 import VolumeCard from "../components/VolumeCard";
-import ComicCardAPI from "../components/ComicCardAPI";
+import ComicCardImport from "../components/ComicCardImport.vue";
 
 export default {
 name: "issue-list",
@@ -26,7 +26,7 @@ data(){
 return;
 },
 components:{
-    ComicCardAPI,
+    ComicCardImport,
     VolumeCard
 }
 }

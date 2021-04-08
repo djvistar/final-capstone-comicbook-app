@@ -3,7 +3,7 @@
     <h2>RESULTS</h2>
 
     <div class="issue-list-main">
-      <comic-card-api
+      <comic-card-import
         v-bind:issue="issue"
         v-for="issue in issues"
         v-bind:key="issue.id"
@@ -14,11 +14,11 @@
 
 <script>
 import SearchService from "@/services/SearchService.js";
-import ComicCardAPI from "@/components/ComicCardAPI.vue";
+import ComicCardImport from "@/components/ComicCardImport.vue";
 export default {
   name: "issue-list",
   components: {
-    ComicCardAPI,
+    ComicCardImport,
   },
   data() {
     return {

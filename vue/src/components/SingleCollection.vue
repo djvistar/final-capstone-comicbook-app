@@ -1,26 +1,25 @@
 <template>
   <div class="single-collection-main">
     <h2>SINGLE COLLECTION</h2>
-   <h3>Collection Name:  {{collectionInfo.name }}</h3>
-   <p>Collection ID: {{collectionId}}</p>
-   <p>Collection Size: {{ collectionContents.length}}</p>
-   <comic-card-db />
-       <p
+    <h3>Collection Name: {{ collectionInfo.name }}</h3>
+    <p>Collection ID: {{ collectionId }}</p>
+    <p>Collection Size: {{ collectionContents.length }}</p>
+    <comic-card-server
       v-bind:issue="issue"
       v-for="issue in collectionContents"
       v-bind:key="issue.id"
-    >Hi</p>
+    />
     <br />
     TEST
   </div>
 </template>
 
 <script>
-import ComicCardDB from "../components/ComicCardDB.vue";
+import ComicCardServer from "../components/ComicCardServer.vue";
 export default {
   name: "single-collection",
   props: ["collectionId"],
-  components: {ComicCardDB},
+  components: { ComicCardServer },
   data() {
     return {
       collectionInfo: this.$store.state.currentCollection,
