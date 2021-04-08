@@ -27,12 +27,29 @@ export default new Vuex.Store({
     activeCollection: 0,
     activeIssue: 0,
     showAllCollections: true,
+
+    userCollections: [
+      {
+        collectionId: 222,
+        userId: 2,
+        name: "Spider-man Stuff",
+        collectionDescription: "Behold. My Spider-man stuff.",
+        username: "em",
+      },
+      {
+        collectionId: 223,
+        userId: 2,
+        name: "Fables Stuff",
+        collectionDescription: "It's Fables!",
+        username: "em",
+      },
+    ],
   },
   mutations: {
     SET_ACTIVE_VOLUME(state, id) {
       state.activeVolume = id;
     },
-    
+
     TOGGLE_SHOW_ALL_COLLECTIONS(state) {
       state.showAllCollections = !state.showAllCollections;
     },

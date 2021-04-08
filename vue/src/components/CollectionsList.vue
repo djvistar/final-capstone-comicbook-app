@@ -1,8 +1,11 @@
 <template>
   <div class="collections-list-main">
     <h2>LIST OF MY COLLECTIONS</h2>
-    <collection-card  /> 
-
+   <collection-card
+        v-bind:collection="collection"
+        v-for="collection in $store.state.userCollections"
+        v-bind:key="collection.id"
+      />
   </div>
 </template>
 
@@ -10,40 +13,20 @@
 import CollectionCard from "../components/CollectionCard.vue";
 export default {
   name: "collections-list",
+  components: { CollectionCard },
 
-  components: [
-    CollectionCard,
-  ],
-  
   data() {
     return {
-      userCollections: [
-    {
-      collectionId: 222,
-      userId: 2,
-      name: "Spider-man Stuff",
-      collectionDescription: "Behold. My Spider-man stuff.",
-      username: "em",
-    },
-    {
-      collectionId: 223,
-      userId: 2,
-      name: "Spider-man Stuff",
-      collectionDescription: "Behold. My Spider-man stuff.",
-      username: "em",
-    },
-  ],
-    }
+      
+    };
   },
-  
+
   computed: {
     // listUsersCollections() {
-
     // }
-  }
+  },
 };
 </script>
 
 <style>
-
 </style>

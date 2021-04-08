@@ -1,5 +1,6 @@
 <template>
   <div class="collection-nav-main">COLLECTION NAV</div>
+  
 </template>
 
 <script>

@@ -12,12 +12,11 @@
 import CollectionsList from "../components/CollectionsList.vue";
 import SingleCollection from "../components/SingleCollection.vue";
 import CollectionNav from "../components/CollectionNav.vue";
+
 export default {
   name: "user-collections",
   data() {
-    return {
-      
-    };
+    return {};
   },
   components: {
     CollectionsList,
