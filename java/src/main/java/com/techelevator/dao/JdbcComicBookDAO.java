@@ -27,8 +27,8 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	public void saveComic(ComicBook comic) {
 		// TODO Auto-generated method stub
 		
-		String sqlSaveComic= "INSERT INTO comic () " +
-		                       "VALUES () ";
+		String sqlSaveComic= "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
 		
 		jdbcTemplate.update(sqlSaveComic, comic.getTitle(), comic.getIssueTitle(),
 				comic.getIssueNumber(), comic.getPublisher(), comic.getImage(), comic.getComicDescription());
@@ -37,10 +37,10 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	
 
 	@Override
-	public List<ComicBook> listAllComicBooks() {
+	public List<ComicBook> listAllComicBooks() { //do we want this as everything in our db issue wise?
 		// TODO Auto-generated method stub
 		List<ComicBook> allComics = new ArrayList<>();
-		String sqlGetAllComics = "SELECT * FROM comic ";
+		String sqlGetAllComics = "SELECT * FROM issue ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllComics);
 		while(results.next()) {
 			allComics.add(mapRowToComicBook(results));
@@ -57,7 +57,9 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 		// TODO Auto-generated method stub
 		List<ComicBook> comicBooks = new ArrayList<>();
 		
-		String sqlGetComicsByCollectionId = "SELECT ";
+		String sqlGetComicsByCollectionId = "select * from issue " + 
+				"Join collections on issue.issue_id = collections.issue_id " + 
+				"where collection_id = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetComicsByCollectionId, collectionId);
 		while(results.next()) {
@@ -74,7 +76,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	public void deleteComic(int comicId) {
 		// TODO Auto-generated method stub
 		
-		String sqlDeleteComic = "DELETE FROM comic WHERE comic_id = ? ";
+		String sqlDeleteComic = "DELETE FROM issue WHERE issue_id = ? ";
 		jdbcTemplate.update(sqlDeleteComic, comicId);
 		
 	}
@@ -82,10 +84,10 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	
 
 	@Override
-	public void updateComic(ComicBook comic) {
+	public void updateComic(ComicBook comic) {//will need to update publisher and description once added to DB
 		// TODO Auto-generated method stub
-		String sqlUpdateComic = "UPDATE comic " +
-		"SET title = ?, issue_title = ?, issue_number = ?, publisher = ?, comic_description = ? " +
+		String sqlUpdateComic = "UPDATE issue " +
+		"SET issue_id = ?, issue_name = ?, issue_number = ?, volume_id = ?, volume_name = ?, cover_url= ? "+ //publisher = ?, comic_description = ? " +
 				"WHERE comic_id = ? ";
 		jdbcTemplate.update(sqlUpdateComic, comic.getTitle(), comic.getIssueTitle(), comic.getIssueNumber(),
 				comic.getPublisher(), comic.getComicDescription(),comic.getComicId());
@@ -96,7 +98,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	@Override
 	public ComicBook getComicById(int comicId) {
 		ComicBook comic = new ComicBook();
-		String sql = "SELECT * FROM comic WHERE comic_id = ? ";
+		String sql = "SELECT * FROM issues WHERE issue_id = ? ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicId);
 		if(results.next()) {
 			comic = mapRowToComicBook(results);
@@ -112,7 +114,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	}
 	
 	
-	private ComicBook mapRowToComicBook(SqlRowSet results) {
+	private ComicBook mapRowToComicBook(SqlRowSet results) { // will need to revisit for further functionality once DB updated
 		ComicBook comicBook = new ComicBook();
 		
 		comicBook.setComicId(results.getInt("comic_id"));
