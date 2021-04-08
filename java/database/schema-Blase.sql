@@ -1,11 +1,12 @@
 BEGIN TRANSACTION;
 
-DROP SEQUENCE IF EXISTS seq_user_id;
-DROP SEQUENCE IF EXISTS seq_collection_id;
+
 DROP TABLE IF EXISTS user_collections;
 DROP TABLE IF EXISTS collections;
 DROP TABLE IF EXISTS issue;
 DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS seq_user_id;
+DROP SEQUENCE IF EXISTS seq_collection_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -40,7 +41,7 @@ Constraint PK_issue PRIMARY KEY (issue_id)
 
 CREATE TABLE collections(
 collection_id int DEFAULT nextval('seq_collection_id'::regclass) NOT NULL,
-issue_id int NOT NULL,
+issue_id int,
 Constraint PK_Collections PRIMARY KEY (collection_id),
 Constraint FK_collections Foreign Key (issue_id) REFERENCES issue(issue_id)     
 );
