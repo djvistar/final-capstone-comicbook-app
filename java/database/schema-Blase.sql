@@ -1,11 +1,13 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS user_collections;
 DROP TABLE IF EXISTS collections;
-DROP TABLE IF EXISTS issue;
+DROP TABLE IF EXISTS user_collections;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS issue;
+
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_collection_id;
+DROP SEQUENCE IF EXISTS seq_inventory_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -14,6 +16,12 @@ CREATE SEQUENCE seq_user_id
   CACHE 1;
   
   CREATE SEQUENCE seq_collection_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+  
+  CREATE SEQUENCE seq_inventory_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
@@ -40,7 +48,6 @@ Constraint PK_issue PRIMARY KEY (issue_id)
 );
 --user_collections created third, reliant only on USERS
 CREATE TABLE user_collections (
-        collection_pk int NOT NULL,
         collection_id int NOT NULL,
         user_id int NOT NULL,
         Constraint PK_userCollection PRIMARY KEY (collection_id),
@@ -49,7 +56,7 @@ CREATE TABLE user_collections (
 );
 --Collections created 4th reliant on and references both issues and user collections
 CREATE TABLE collections(
-inventory_id int NOT NULL,
+inventory_id int DEFAULT nextval('seq_inventory_id'::regclass) NOT NULL,
 collection_id int NOT NULL,
 issue_id int,
 Constraint PK_invID Primary Key (inventory_id),
