@@ -16,9 +16,9 @@ public interface ComicBookDAO {
 	
 	public void deleteComic(int comicId);
 	
-	public void updateComic(ComicBook comicBook);
+	public void updateComic(ComicBook comic);
 	
-	public void getComicById(int comicId);
+	public ComicBook getComicById(int comicId);
 	
 
 }

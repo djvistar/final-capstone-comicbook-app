@@ -67,22 +67,47 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 		
 		return comicBooks;
 	}
+	
+	
 
 	@Override
 	public void deleteComic(int comicId) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void updateComic(ComicBook comicBook) {
-		// TODO Auto-generated method stub
+		String sqlDeleteComic = "DELETE FROM comic WHERE comic_id = ? ";
+		jdbcTemplate.update(sqlDeleteComic, comicId);
 		
 	}
+	
+	
 
 	@Override
-	public void getComicById(int comicId) {
+	public void updateComic(ComicBook comic) {
 		// TODO Auto-generated method stub
+		String sqlUpdateComic = "UPDATE comic " +
+		"SET title = ?, issue_title = ?, issue_number = ?, publisher = ?, comic_description = ? " +
+				"WHERE comic_id = ? ";
+		jdbcTemplate.update(sqlUpdateComic, comic.getTitle(), comic.getIssueTitle(), comic.getIssueNumber(),
+				comic.getPublisher(), comic.getComicDescription(),comic.getComicId());
+		
+	}
+	
+
+	@Override
+	public ComicBook getComicById(int comicId) {
+		ComicBook comic = new ComicBook();
+		String sql = "SELECT * FROM comic WHERE comic_id = ? ";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicId);
+		if(results.next()) {
+			comic = mapRowToComicBook(results);
+			
+		}else {
+			
+			System.out.println("Comic not found!");
+		}
+		
+		
+		return comic;
 		
 	}
 	
