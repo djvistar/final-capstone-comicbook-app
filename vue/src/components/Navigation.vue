@@ -7,7 +7,7 @@
       <router-link :to="{ name: 'register' }">REGISTER</router-link>
     </div>
     <div id="nav-logged" v-if="$store.state.token != ''">
-      <a href="#">MY DASHBOARD</a>
+      <router-link v-bind:to="{ name: 'dashboard' }">MY DASHBOARD</router-link>
       <router-link v-bind:to="{ name: 'volume-search' }">SEARCH</router-link>
       <a href="#">ABOUT</a>
       <router-link :to="{ name: 'logout' }">LOG OUT</router-link>

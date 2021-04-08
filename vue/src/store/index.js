@@ -19,11 +19,13 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
 
-    token: currentToken || '',
+    token: 'true',
+    //token: currentToken || '',
     user: currentUser || {},
     volumeResults: [],
     activeVolume: 0,
-    isLoggedIn: false,
+    activeCollection: 0,
+    activeIssue: 0,
   },
   mutations: {
     SET_ACTIVE_VOLUME(state, id) {

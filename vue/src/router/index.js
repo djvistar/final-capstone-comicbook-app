@@ -7,6 +7,8 @@ import Register from '../views/Register.vue'
 import VolumeSearch from '../views/VolumeSearch.vue'
 import store from '../store/index'
 import IssueList from '../views/IssueList.vue'
+import Dashboard from '../views/Dashboard.vue'
+import UserCollections from '../views/UserCollections.vue'
 
 Vue.use(Router)
 
@@ -35,6 +37,22 @@ const router = new Router({
       path: '/search',
       name: 'volume-search',
       component: VolumeSearch,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/collections',
+      name: 'user-collections',
+      component: UserCollections,
       meta: {
         requiresAuth: false
       }
