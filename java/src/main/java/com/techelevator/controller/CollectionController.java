@@ -81,6 +81,16 @@ public class CollectionController {
 		collectionDAO.deleteCollection(collectionId);
 	}
 	
+	@RequestMapping(value = "/{id}/{comicId}/save", method = RequestMethod.POST)
+	public void addComicToCollection(@PathVariable int collectionId, @PathVariable int comicId) {
+		collectionDAO.addComicToCollection(comicId, collectionId);
+	}
+	
+	@RequestMapping(value = "/{id}/{comicId}", method = RequestMethod.DELETE)
+	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
+		collectionDAO.deleteComicFromCollection(comicId, collectionId);
+	}
+	
 	
 	
 	
