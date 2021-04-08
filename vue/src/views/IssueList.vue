@@ -1,25 +1,24 @@
 <template>
   <div>
     <h2>RESULTS</h2>
-  
-  <div class="issue-list-main">
 
-    <comic-card
-      v-bind:issue="issue"
-      v-for="issue in issues"
-      v-bind:key="issue.id"
-    />
-  </div>
+    <div class="issue-list-main">
+      <comic-card-api
+        v-bind:issue="issue"
+        v-for="issue in issues"
+        v-bind:key="issue.id"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import SearchService from "@/services/SearchService.js";
-import ComicCard from "@/components/ComicCard.vue";
+import ComicCardAPI from "@/components/ComicCardAPI.vue";
 export default {
   name: "issue-list",
   components: {
-    ComicCard,
+    ComicCardAPI,
   },
   data() {
     return {
@@ -65,8 +64,8 @@ export default {
 </script>
 
 <style>
-.issue-list-main{
-  display:flex;
+.issue-list-main {
+  display: flex;
   flex-basis: auto;
   flex-flow: row wrap;
   justify-content: space-evenly;
