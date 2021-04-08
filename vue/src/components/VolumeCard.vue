@@ -50,7 +50,7 @@ height: 375px;
   
 
 }
-.volume-card a:hover, a:visited, a:link, a:active{
+.volume-card a:hover, .volume-card a:visited, .volume-card a:link, .volume-card a:active{
   
   color: #020202;
   text-decoration: none;
@@ -58,7 +58,7 @@ height: 375px;
   
 }
 
-.volume-card{
+.volume-card {
 
 
 }

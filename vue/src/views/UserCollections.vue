@@ -2,9 +2,10 @@
   <div class="user-collections-main">
    <h1>USER COLLECTIONS</h1>
     <br />
-    <collections-list  v-if="showAllCollections" />
-    <collection-nav  v-if="!showAllCollections" />
-    <single-collection  v-if="!showAllCollections" />
+    <collections-list  v-if="$store.state.showAllCollections" />
+    <collection-nav  v-if="!$store.state.showAllCollections" />
+    <single-collection  v-if="!$store.state.showAllCollections" />
+    
 
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
   name: "user-collections",
   data() {
     return {
-      showAllCollections: false,
+      
     };
   },
   components: {
@@ -25,6 +26,11 @@ export default {
     SingleCollection,
     CollectionNav,
   },
+  methods: {
+      toggleShowAllCollections() {
+          this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
+      }
+  }
 };
 </script>
 

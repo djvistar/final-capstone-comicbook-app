@@ -26,10 +26,15 @@ export default new Vuex.Store({
     activeVolume: 0,
     activeCollection: 0,
     activeIssue: 0,
+    showAllCollections: true,
   },
   mutations: {
     SET_ACTIVE_VOLUME(state, id) {
       state.activeVolume = id;
+    },
+    
+    TOGGLE_SHOW_ALL_COLLECTIONS(state) {
+      state.showAllCollections = !state.showAllCollections;
     },
 
     SET_AUTH_TOKEN(state, token) {
