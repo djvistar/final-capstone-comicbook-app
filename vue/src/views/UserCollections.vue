@@ -4,7 +4,7 @@
     <br />
     <collections-list v-if="$store.state.showAllCollections" />
     <collection-nav v-if="!$store.state.showAllCollections" />
-    <single-collection v-if="!$store.state.showAllCollections" value="" />
+    <single-collection v-if="!$store.state.showAllCollections" collectionId="" />
   </div>
 </template>
 

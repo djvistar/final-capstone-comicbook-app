@@ -11,9 +11,7 @@
 <script>
 export default {
   name: "collection-card",
-  props: {
-    collection: Object,
-  },
+  props: {collection: Object},
   methods: {
     selectActiveCollection(id) {
       this.$store.commit("SET_ACTIVE_COLLECTION", id);
