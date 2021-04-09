@@ -9,6 +9,7 @@ import store from '../store/index'
 import IssueList from '../views/IssueList.vue'
 import Dashboard from '../views/Dashboard.vue'
 import UserCollections from '../views/UserCollections.vue'
+import Collection from '../views/Collection.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,14 @@ const router = new Router({
       path: '/collections',
       name: 'user-collections',
       component: UserCollections,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/collection/:id',
+      name: 'collection',
+      component: Collection,
       meta: {
         requiresAuth: false
       }
