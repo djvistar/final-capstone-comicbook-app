@@ -23,14 +23,17 @@ export default {
 <style  >
 
   .img-card{
-  display: flex;
-  margin: 3px;     
+  
+  margin: 3px; 
+  padding: 5px; 
+   
   }
   img{
    
-width: 20%;
+width: 18%;
 height: auto;
-margin: 3px;
+margin: 10px;
+padding: 20px;
   }
   
 .home {
@@ -43,6 +46,7 @@ background-color: rgba(89, 162, 247, 0.938);
    
  }
   h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    margin-top:1%;
    font-size: 40px;
  }
