@@ -54,6 +54,7 @@ export default {
   text-shadow: 1px 1px 0 #444;
   word-wrap: break-word;
   font-size: 1vw;
+  
 }
 
 #issue_number {

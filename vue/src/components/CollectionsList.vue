@@ -59,4 +59,5 @@ export default {
 .collections-list-main {
   margin: 0;
 }
+
 </style>
