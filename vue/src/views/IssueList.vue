@@ -39,7 +39,7 @@ export default {
   created() {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
-    SearchService.searchIssuesByVolume(this.volume.id)
+    SearchService.searchIssuesByVolume(activeVolumeID)
       .then((response) => {
         this.issues = response.data.results;
       })

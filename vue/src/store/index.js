@@ -28,6 +28,7 @@ export default new Vuex.Store({
     activeIssue: 0,
     showAllCollections: true,
     currentCollection: [],
+    issuesFromSearch: [],
     userCollections: [
       {
         collectionId: 222,
@@ -106,13 +107,13 @@ export default new Vuex.Store({
     },
     DELETE_COLLECTION(state, id) {
       for (var i = 0; i < state.userCollections.length; i++) {
-
         if (state.userCollections[i].collectionId === id) {
-
           state.userCollections.splice(i, 1);
         }
-
       }
+    },
+    ADD_ISSUE_RESULTS(state,issues) {
+      state.issuesFromSearch = issues;
     },
 
     TOGGLE_SHOW_ALL_COLLECTIONS(state) {
