@@ -47,25 +47,28 @@ export default new Vuex.Store({
     ],
     collection222Contents: [
       {
-        id: 1,
+        id: 1234,
         title: "HardCoded",
         number: 22,
         volumeName: "SpiderGuy",
         imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+
       },
       {
-        id: 2,
+        id: 5463,
         title: "HardCodedAgain",
         number: 23,
         volumeName: "SpiderGuy",
         imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+
       },
       {
-        id: 3,
+        id: 3256,
         title: "StillHardCoded",
         number: 25,
         volumeName: "SpiderGuy",
         imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+
       },
 
     ],
@@ -112,7 +115,7 @@ export default new Vuex.Store({
         }
       }
     },
-    ADD_ISSUE_RESULTS(state,issues) {
+    ADD_ISSUE_RESULTS(state, issues) {
       state.issuesFromSearch = issues;
     },
 

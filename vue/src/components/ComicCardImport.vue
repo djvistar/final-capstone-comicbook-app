@@ -1,14 +1,11 @@
 <template>
   <div class="comic-card-import-main">
     <div class="comic-card-info">
-      <button>Temp</button>
+      <button>Add Issue</button>
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
       <div id="name" class="issue-title">{{ issue.name }}</div>
-      
-
-      
     </div>
   </div>
 </template>
@@ -17,9 +14,15 @@
 export default {
   //It doesn't like 'API', so we'll call it an import
   name: "comic-card-import",
+  data() {
+    return {
+      isInCollection: false,
+    };
+  },
   props: {
     issue: Object,
   },
+  created: function (){},
 };
 </script>
 

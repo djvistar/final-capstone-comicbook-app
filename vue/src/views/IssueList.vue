@@ -36,7 +36,7 @@ export default {
   //     );
   //   },
   // },
-  created() {
+  created: function () {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
     SearchService.searchIssuesByVolume(activeVolumeID)

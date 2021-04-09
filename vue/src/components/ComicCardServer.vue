@@ -6,6 +6,7 @@
       <div>Series: {{ issue.volumeName }}</div>
       <div>Issue # {{ issue.number }}</div>
       <div class="issue-title">Issue Title: {{ issue.title }}</div>
+      
     </div>
   </div>
 </template>
