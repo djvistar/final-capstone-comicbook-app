@@ -19,8 +19,8 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
 
-    // token: 'true',
-    token: currentToken || '',
+    token: 'true',
+    // token: currentToken || '',
     user: currentUser || {},
     volumeResults: [],
     activeVolume: 0,
@@ -103,6 +103,16 @@ export default new Vuex.Store({
     },
     ADD_COLLECTION(state, collection) {
       state.userCollections.push(collection);
+    },
+    DELETE_COLLECTION(state, id) {
+      for (var i = 0; i < state.userCollections.length; i++) {
+
+        if (state.userCollections[i].collectionId === id) {
+
+          state.userCollections.splice(i, 1);
+        }
+
+      }
     },
 
     TOGGLE_SHOW_ALL_COLLECTIONS(state) {

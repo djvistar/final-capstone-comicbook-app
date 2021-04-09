@@ -2,11 +2,12 @@
   <div class="collections-list-main">
     <h2>LIST OF MY COLLECTIONS</h2>
     <!-- MODAL -->
-    <button type="button" class="btn" @click="showModal">New Collection</button>
+    <div id="empty-collection" v-if="$store.state.userCollections.length == 0">Uh-Oh! You should probably add a collection!</div>
+    <br /><button type="button" class="btn" @click="showModal">New Collection</button>
     <add-collection-modal
       v-show="isModalVisible"
       @close="closeModal"
-      header="test"
+      header="Add Collection"
     />
 
     <br />

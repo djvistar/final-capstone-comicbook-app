@@ -2,6 +2,7 @@
   <div class="collection-nav-main">
     COLLECTION NAV
     <br />
+
     <!-- <form v-on:submit.prevent="selectActiveCollection()" id="collectionNav">
       <label for="user-collections">View a Collection: </label>
       <select id="user-collections" name="user-collections">
@@ -24,8 +25,10 @@
 </template>
 
 <script>
+
 export default {
   name: "collection-nav",
+  
   data() {
     return {
       selectedCollection: 0,

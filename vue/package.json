@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@innologica/vue-dropdown-menu": "^0.1.4",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "vue": "^2.6.12",

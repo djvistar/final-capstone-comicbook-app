@@ -1,27 +1,13 @@
 <template>
   <div class="modal-backdrop">
     <div class="modal">
-      <!-- <header class="modal-header">
-        <slot name="header"> Add a New Collection! </slot>
-      </header> -->
-
       <section class="modal-body">
         <slot name="body">
-          <p>Add a New Collection!</p>
-          <form v-on:submit.prevent="submitCollection" class="collectionForm">
-            <div class="form-group">
-              <label for="collectionName">Collection Name:</label>
-              <br />
-              <input
-                id="collectionName"
-                type="text"
-                class="form-control"
-                v-model="newCollectionName"
-              />
-            </div>
+          <p>Delete This Collection?</p>
+          <form v-on:submit.prevent="deleteCollection(id)" class="collectionForm">
             <br />
-            <button class="btn btn-submit" @click="close">Submit</button>
-            <button class="btn" type="button" @click="close">Cancel</button>
+            <button class="btn btn-submit" @click="close">Yes!</button>
+            <button class="btn" type="button" @click="close">No!</button>
           </form>
         </slot>
       </section>
@@ -30,25 +16,19 @@
 </template>
 <script>
 export default {
-  name: "add-collection-modal",
+  name: "delete-collection-modal",
+  props: ["id"],
   data() {
     return {
-      newCollectionName: "",
+      collectionId: 0,
     };
   },
   methods: {
     close() {
       this.$emit("close");
     },
-    submitCollection() {
-      let newCollection = {
-        collectionId: 225,
-        userId: 2,
-        name: this.newCollectionName,
-        collectionDescription: "",
-        username: "em",
-      };
-      this.$store.commit("ADD_COLLECTION", newCollection);
+    deleteCollection(id) {
+      this.$store.commit("DELETE_COLLECTION", id);
     },
   },
 };
