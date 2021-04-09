@@ -16,6 +16,7 @@
       </select>
       <input type="submit" />
     </form> -->
+
     <button v-on:click="resetShowAllCollections()">
       Back to All Collections
     </button>
@@ -33,7 +34,7 @@ export default {
   methods: {
     resetShowAllCollections() {
       this.$store.commit("RESET_SHOW_ALL_COLLECTIONS");
-      this.$router.push('../collections');
+      this.$router.push("../collections");
     },
     selectActiveCollection() {
       console.log();
