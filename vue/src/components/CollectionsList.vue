@@ -9,7 +9,7 @@
       header="test"
     />
 
-    <br /><br />
+    <br />
     <div class="collection-area">
       <collection-card
         v-bind:collection="collection"
