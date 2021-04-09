@@ -28,7 +28,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public void saveCollection(Collection collection) {
-		// TODO Auto-generated method stub
 		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id) " +
 		                           "VALUES (?,?) ";
 		
@@ -60,7 +59,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public List<Collection> listAllCollectionsByUserId(Long userId) {
-		// TODO Auto-generated method stub
 		
 		List<Collection> collections = new ArrayList<>();
 		
@@ -77,7 +75,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	@Override
 	public List<Collection> listCollectionByUsername(String username) {
-		// TODO Auto-generated method stub
 		List<Collection> collections = new ArrayList<>();
 		
 		String sqlGetCollectionsByUsername = "SELECT collection_id FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = '?'";
@@ -94,7 +91,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	@Override
 	public void addComicToCollection(int comicId, int collectionId) {//need to update arguments
-		// TODO Auto-generated method stub
 		String sqlAddComicToCollection = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) " +
 		                                 "VALUES (?, ?, ?, ?, ?, ?); " +
 				"insert into collections (inventory_id, collection_id, issue_id ) " + //if value is sequentially generated do we need to include, if not we can drop the inventory_id value
@@ -108,7 +104,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public void deleteComicFromCollection(int comicId, int collectionId) {
-		// TODO Auto-generated method stub
 		String sqlDeleteComicFromCollection = "DELETE FROM collections WHERE (issue_id = ? && collection_id = ?)  ";
 		jdbcTemplate.update(sqlDeleteComicFromCollection, comicId, collectionId);
 		
@@ -118,14 +113,12 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	@Override
 	public void deleteCollection(int collectionId) {
-		// TODO Auto-generated method stub
 		String sqlDeleteCollection = "DELETE FROM collections WHERE collection_id = ?";
 		jdbcTemplate.update(sqlDeleteCollection, collectionId);
 	}
 
 	@Override
 	public void updateCollection(Collection collection) { //no info in db for this yet
-		// TODO Auto-generated method stub
 		String sqlUpdateCollection = "UPDATE collection " +
 		                             "SET user_d =?, name = ?, collection_description = ? " +
 				                      "WHERE collection_id =? ";
@@ -137,7 +130,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	
 	private Collection mapRowToCollection(SqlRowSet results) {
-		// TODO Auto-generated method stub
 		
 		Collection collection = new Collection();
 		
