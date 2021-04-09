@@ -1,7 +1,12 @@
 <template>
   <div class="comic-card-import-main">
     <div class="comic-card-info">
-      <button>Add Issue</button>
+      <button type="button" class="btn" @click="showModal">Add to Collection</button>
+      <add-issue-modal
+        v-show="isModalVisible"
+        @close="closeModal"
+        header="Add to Collection"
+      />
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
@@ -11,18 +16,29 @@
 </template>
 
 <script>
+import AddIssueModal from "../components/AddIssueModal.vue";
 export default {
   //It doesn't like 'API', so we'll call it an import
   name: "comic-card-import",
+  components: { AddIssueModal },
+
   data() {
     return {
+      isModalVisible: false,
       isInCollection: false,
     };
   },
   props: {
     issue: Object,
   },
-  created: function (){},
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
 };
 </script>
 
