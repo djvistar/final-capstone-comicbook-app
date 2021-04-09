@@ -16,8 +16,8 @@ export default {
   methods: {
     selectActiveCollection(id) {
       this.$store.commit("SET_ACTIVE_COLLECTION", id);
-      console.log(this.$store.state.activeCollection);
       this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
+      this.$router.push('../collection/'+id)
     },
   },
 };

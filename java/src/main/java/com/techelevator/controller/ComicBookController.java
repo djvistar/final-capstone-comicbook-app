@@ -15,7 +15,7 @@ import com.techelevator.dao.UserDAO;
 import com.techelevator.model.ComicBook;
 
 @RestController
-@RequestMapping("/comics")
+@RequestMapping("/api")
 @CrossOrigin
 public class ComicBookController {
 
@@ -34,38 +34,38 @@ public class ComicBookController {
 	
 	
 	
-	@RequestMapping( value = "/save", method = RequestMethod.POST)
+	@RequestMapping( value = "/comics/save", method = RequestMethod.POST)
 	public void addComic(@RequestBody ComicBook comic) {
 		comicBookDAO.saveComic(comic);
 	}
 	
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/comics", method = RequestMethod.GET)
 	public List<ComicBook> listAllComics(){
 		return comicBookDAO.listAllComicBooks();
 	}
 	
-	@RequestMapping(value = "/collection/{collectionId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/comics/collection/{collectionId}", method = RequestMethod.GET)
 	public List<ComicBook> getComicsByCollectionId(@PathVariable int collectionId){
 		List<ComicBook> collection = comicBookDAO.listComicsByCollectionId(collectionId);
 		return collection;
 	}
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.GET)
 	public ComicBook getComicById(@PathVariable int comicId) {
 		ComicBook comic = comicBookDAO.getComicById(comicId);
 		return comic;
 	}
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComic(@PathVariable int comicId) {
 		comicBookDAO.deleteComic(comicId);
 	}
 	
 	
-	@RequestMapping (value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping (value = "/comics/{comicId}", method = RequestMethod.PUT)
 	public void updateComic(@RequestBody ComicBook comic) {
 		comicBookDAO.updateComic(comic);
 	}

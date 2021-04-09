@@ -25,9 +25,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	
 
 	@Override
-	public void saveComic(ComicBook comic) {
-		// TODO Auto-generated method stub
-		
+	public void saveComic(ComicBook comic) {		
 		String sqlSaveComic= "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
 		
@@ -39,7 +37,6 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 
 	@Override
 	public List<ComicBook> listAllComicBooks() { //do we want this as everything in our db issue wise?
-		// TODO Auto-generated method stub
 		List<ComicBook> allComics = new ArrayList<>();
 		String sqlGetAllComics = "SELECT * FROM issue ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllComics);
@@ -55,7 +52,6 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 
 	@Override
 	public List<ComicBook> listComicsByCollectionId(int collectionId) {
-		// TODO Auto-generated method stub
 		List<ComicBook> comicBooks = new ArrayList<>();
 		
 		String sqlGetComicsByCollectionId = "select * from issue " + 
@@ -74,9 +70,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	
 
 	@Override
-	public void deleteComic(int comicId) {
-		// TODO Auto-generated method stub
-		
+	public void deleteComic(int comicId) {	
 		String sqlDeleteComic = "DELETE FROM issue WHERE issue_id = ? ";
 		jdbcTemplate.update(sqlDeleteComic, comicId);
 		
@@ -86,7 +80,6 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 
 	@Override
 	public void updateComic(ComicBook comic) {//will need to update publisher and description once added to DB
-		// TODO Auto-generated method stub
 		String sqlUpdateComic = "UPDATE issue " +
 		"SET issue_id = ?, issue_name = ?, issue_number = ?, volume_id = ?, volume_name = ?, cover_url= ? "+ //publisher = ?, comic_description = ? " +
 				"WHERE comic_id = ? ";

@@ -23,7 +23,7 @@ import com.techelevator.model.ComicBook;
 
 
 @RestController
-@RequestMapping("/collections")
+@RequestMapping("/api")
 @CrossOrigin
 public class CollectionController {
 
@@ -39,7 +39,7 @@ public class CollectionController {
 	}
 	
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
 	public void addCollection(@RequestBody Collection collection, Principal principal) {
 		if(collection == null || collection.getName() == null) {
 			throw new ResponseStatusException(
@@ -51,7 +51,7 @@ public class CollectionController {
 		
 	}
 	
-	@RequestMapping(value = "/user/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET)
 	public List<Collection> getCollectionsByUsername(@PathVariable String username){
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
 		for (Collection collection: collections) {
@@ -62,7 +62,7 @@ public class CollectionController {
 	}
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
 	public Collection getCollectionById(@PathVariable int collectionId) {
 		Collection collection = collectionDAO.getCollectionById(collectionId);
 	List<ComicBook> comics = comicBookDAO.listComicsByCollectionId(collectionId);
@@ -70,23 +70,23 @@ public class CollectionController {
 	return collection;
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
 	public void updateCollection(@RequestBody Collection collection) {
 		collectionDAO.updateCollection(collection);
 	}
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.DELETE)
 	public void deleteCollection(@PathVariable int collectionId) {
 		collectionDAO.deleteCollection(collectionId);
 	}
 	
-	@RequestMapping(value = "/{id}/{comicId}/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/collections/{collectionId}/{comicId}/save", method = RequestMethod.POST)
 	public void addComicToCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.addComicToCollection(comicId, collectionId);
 	}
 	
-	@RequestMapping(value = "/{id}/{comicId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.deleteComicFromCollection(comicId, collectionId);
 	}
