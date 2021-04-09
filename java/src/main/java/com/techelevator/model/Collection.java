@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Collection {
 
-	private int collectionId;
-	private int userId;
-	private String name;
-	private String collectionDescription;
-	private String username;
-	private List<ComicBook> comicsInCollection;
+	private int collectionId; 					// user_collections.collection_id
+	private int userId;							// users.user_id
+	private String name;						//Not named in DB        ********
+	private String collectionDescription;		//Not IN DB 			*********
+	private String username;					//
+	private List<ComicBook> comicsInCollection;	//query built
 	
 	//constructor
 	public Collection (int collectionId, int userId, String name, String description, String username) {

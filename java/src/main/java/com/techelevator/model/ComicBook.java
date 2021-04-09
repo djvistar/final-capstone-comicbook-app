@@ -3,14 +3,14 @@ package com.techelevator.model;
 public class ComicBook {
 
 	
-	private int comicId;
-	private String title;
-	private String issueTitle;
-	private int issueNumber;
-	private String publisher;
-	private String image;
-	private String comicDescription;
-	private int volumeNumber;
+	private int comicId; //db table issue, 			column issue_id
+	private String title; //db table issue,  DUPLICATE?					********
+	private String issueTitle; //db table issue,    column issue_name
+	private int issueNumber;//db table issue,		issue_number
+	private String publisher;//not in DB YET     						********
+	private String image;//db table issue,    		cover_url
+	private String comicDescription;// NOT IN DB YET 					********
+	private int volumeNumber;//db we have volume name Not volume number,********    
 	
 	//constructor
 	public ComicBook(int comicId, String title, String issueTitle, int issueNumber, 

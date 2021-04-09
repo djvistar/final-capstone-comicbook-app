@@ -1,5 +1,28 @@
 BEGIN TRANSACTION;
+--original schema file text
 
+DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS seq_user_id;
+
+CREATE SEQUENCE seq_user_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+
+CREATE TABLE users (
+	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
+	username varchar(50) NOT NULL,
+	password_hash varchar(200) NOT NULL,
+	role varchar(50) NOT NULL,
+	CONSTRAINT PK_user PRIMARY KEY (user_id)
+);
+
+INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+--end of original schema file text
 DROP TABLE IF EXISTS collections;
 DROP TABLE IF EXISTS user_collections;
 DROP TABLE IF EXISTS users;
@@ -67,5 +90,67 @@ Constraint FK_collectionsid Foreign Key (collection_id)references user_collectio
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+insert into user_collections (collection_id, user_id)
+values(1,1);
+insert into user_collections (collection_id, user_id)
+values(2,1);
+insert into user_collections (collection_id, user_id)
+values(3,2);
+insert into user_collections (collection_id, user_id)
+values(4,2);
+insert into user_collections (collection_id, user_id)
+values(5,1);
+insert into user_collections (collection_id, user_id)
+values(6,2);
+
+--COMIC DAO
+--inserts issue into db- works fine as long as pk is good
+insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
+values(501, 123745, 'DuckMan!', 543221, 'USA NETWORK PRESENTS:', 'https://picsum.photos/id/237/200/300');
+
+insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
+values(502, 123445, 'BrainDrain Goes HayWire', 554321, 'Attack Of The Final Capstone', 'https://picsum.photos/id/237/200/300');
+
+insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
+values(503, 123345, 'Coach Carmichael is DarkSeid?!', 543321, 'Adventures of JavaGreen', 'https://picsum.photos/id/237/200/300');
+
+insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
+values(505, 123345, 'Blase VS Lobo', 543321, 'Not a DBA', 'https://picsum.photos/id/237/200/300');
+
+insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
+values(504, 112345, 'The Incredible Vic', 543421, 'KnockOut DAOs', 'https://picsum.photos/id/237/200/300');
+
+
+--creates in collections table
+insert into collections (inventory_id, collection_id, issue_id )
+values(1,1,501);
+insert into collections (inventory_id, collection_id, issue_id )
+values(2,2,502);
+insert into collections (inventory_id, collection_id, issue_id )
+values(3,3,503);
+insert into collections (inventory_id, collection_id, issue_id )
+values(4,4,504);
+insert into collections (inventory_id, collection_id, issue_id )
+values(5,5,505);
+insert into collections (inventory_id, collection_id, issue_id )
+values(6,6,501);
+insert into collections (inventory_id, collection_id, issue_id )
+values(7,1,502);
+insert into collections (inventory_id, collection_id, issue_id )
+values(8,2,501);
+insert into collections (inventory_id, collection_id, issue_id )
+values(9,3,502);
+insert into collections (inventory_id, collection_id, issue_id )
+values(10,4,501);
+insert into collections (inventory_id, collection_id, issue_id )
+values(11,4,503);
+insert into collections (inventory_id, collection_id, issue_id )
+values(12,4,505);
+insert into collections (inventory_id, collection_id, issue_id )
+values(13,5,501);
+insert into collections (inventory_id, collection_id, issue_id )
+values(14,3,501);
+
 
 COMMIT TRANSACTION;
