@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <img id="image" v-bind:src="issue.imageURL" />
-    <div id="name">{{ issue.title }}</div>
-    <div id="volume">Series: <br />{{ issue.volumeName }}</div>
-    <div id="issue_number">Issue # {{ issue.issue_number }}</div>
+  <div class="comic-card-server-main">
+    <div class="comic-card-server-content">
+      <img v-bind:src="issue.imageURL" />
+      
+      <div>Series: {{ issue.volumeName }}</div>
+      <div>Issue # {{ issue.number }}</div>
+      <div>Issue Title: {{ issue.title }}</div>
+            
+    </div>
   </div>
 </template>
 
@@ -17,4 +21,20 @@ export default {
 </script>
 
 <style>
+.comic-card-server-main {
+  background-color: lightcoral;
+  width: 200px;
+  margin: 5px;
+  padding: 25px;
+  border-radius: 10px;
+}
+.comic-card-server-main img {
+  width: 150px;
+}
+.comic-card-server-content {
+  width: 100%;
+  color: #000;
+  font-size: 14px;
+}
+
 </style>

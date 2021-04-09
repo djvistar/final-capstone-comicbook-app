@@ -1,6 +1,5 @@
 <template>
   <div class="collections-list-main">
-    <h2>LIST OF MY COLLECTIONS</h2>
     <!-- MODAL -->
     <div id="empty-collection" v-if="$store.state.userCollections.length == 0">Uh-Oh! You should probably add a collection!</div>
     <br /><button type="button" class="btn" @click="showModal">New Collection</button>

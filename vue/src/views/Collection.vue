@@ -1,19 +1,18 @@
 <template>
   <div class="single-collection-main">
-    <h2>SINGLE COLLECTION</h2>
-    <collection-nav />
-
-    <h3>Collection Name: {{ currentCollection[0].name }}</h3>
-    <p>Collection ID: {{ collectionId }}</p>
-    
+    <h1>{{ currentCollection[0].name }}</h1>
     <p>Collection Size: {{ collectionContents.length }}</p>
-    <comic-card-server
-      v-bind:issue="issue"
-      v-for="issue in collectionContents"
-      v-bind:key="issue.id"
-    />
-    <br />
-    TEST
+
+    <!-- <p>Collection ID: {{ collectionId }}</p> -->
+    <collection-nav />
+    <div class="collection-issues-area">
+      <comic-card-server
+        v-bind:issue="issue"
+        v-for="issue in collectionContents"
+        v-bind:key="issue.id"
+        class="comic-card-server-single"
+      />
+    </div>
   </div>
 </template>
 
@@ -51,4 +50,15 @@ export default {
 </script>
 
 <style>
+.collection-issues-area {
+  width: 90%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.comic-card-server-single {
+  margin: 25px;
+}
 </style>

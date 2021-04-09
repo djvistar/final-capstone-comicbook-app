@@ -9,7 +9,7 @@
         >Logout</router-link
       >
     </div> -->
-    <router-view />
+    <router-view class="site-content"/>
     <the-footer class="footer" />
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style>
+
 body {
   margin: 0;
   padding: 0;
@@ -57,12 +58,15 @@ h1 {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+.site-content {
+  margin-bottom: 75px;
+}
 
 .footer {
-  
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
 }
 </style>
 
