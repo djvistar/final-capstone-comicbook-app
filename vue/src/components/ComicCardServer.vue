@@ -2,11 +2,10 @@
   <div class="comic-card-server-main">
     <div class="comic-card-server-content">
       <img v-bind:src="issue.imageURL" />
-      
+
       <div>Series: {{ issue.volumeName }}</div>
       <div>Issue # {{ issue.number }}</div>
-      <div>Issue Title: {{ issue.title }}</div>
-            
+      <div class="issue-title">Issue Title: {{ issue.title }}</div>
     </div>
   </div>
 </template>
@@ -28,6 +27,7 @@ export default {
   padding: 25px;
   border-radius: 10px;
 }
+
 .comic-card-server-main img {
   width: 150px;
 }
@@ -36,5 +36,4 @@ export default {
   color: #000;
   font-size: 14px;
 }
-
 </style>

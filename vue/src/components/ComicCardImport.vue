@@ -1,11 +1,14 @@
 <template>
   <div class="comic-card-import-main">
     <div class="comic-card-info">
+      <button>Temp</button>
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
-      <div id="name">{{ issue.name }}</div>
-
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
+      <div id="name" class="issue-title">{{ issue.name }}</div>
+      
+
+      
     </div>
   </div>
 </template>
@@ -35,6 +38,14 @@ export default {
   width: 100%;
   color: #000;
   font-size: 14px;
+}
+
+.issue-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 /* .comic-card-import-main {

@@ -7,6 +7,7 @@
         v-bind:issue="issue"
         v-for="issue in issues"
         v-bind:key="issue.id"
+        class="issue-card-server-single"
       />
     </div>
   </div>
@@ -28,13 +29,13 @@ export default {
       issues: [],
     };
   },
-  computed: {
-    volume() {
-      return this.$store.state.volumeResults.find(
-        (volume) => volume.id == this.$store.state.activeVolume
-      );
-    },
-  },
+  // computed: {
+  //   volume() {
+  //     return this.$store.state.volumeResults.find(
+  //       (volume) => volume.id == this.$store.state.activeVolume
+  //     );
+  //   },
+  // },
   created() {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
@@ -70,5 +71,8 @@ export default {
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-content: space-around;
+}
+.issue-card-server-single {
+  margin: 25px;
 }
 </style>
