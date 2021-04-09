@@ -2,7 +2,7 @@
   <div class="collection-nav-main">
     COLLECTION NAV
     <br />
-    <form v-on:submit.prevent="selectActiveCollection" id="collectionNav">
+    <form v-on:submit.prevent="selectActiveCollection()" id="collectionNav" >
       <label for="user-collections">View a Collection: </label>
       <select id="user-collections" name="user-collections">
         <option value="0">My Collections</option>
@@ -10,6 +10,7 @@
           v-bind:value="collection.collectionId"
           v-for="collection in $store.state.userCollections"
           v-bind:key="collection.collectionId"
+        
         >
           {{ collection.name }}
         </option>
@@ -27,14 +28,21 @@
 <script>
 export default {
   name: "collection-nav",
+  data() {
+    return {
+      selectedCollection: 0,
+
+    }
+  },
   methods: {
     resetShowAllCollections() {
       this.$store.commit("RESET_SHOW_ALL_COLLECTIONS");
     },
     selectActiveCollection() {
       
-
-      console.log(this.value);
+      
+      console.log();
+      
       // this.$store.commit("SET_ACTIVE_COLLECTION", id);
     },
   },

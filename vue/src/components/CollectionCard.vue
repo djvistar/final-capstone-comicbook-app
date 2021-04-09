@@ -4,6 +4,7 @@
       {{ collection.name }}
       <br />
       <button v-on:click="selectActiveCollection(collection.collectionId)">View</button>
+      <button >Delete</button>
     </div>
   </div>
 </template>

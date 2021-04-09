@@ -27,14 +27,7 @@ export default new Vuex.Store({
     activeCollection: 0,
     activeIssue: 0,
     showAllCollections: true,
-    currentCollection:
-    {
-      collectionId: 222,
-      userId: 2,
-      name: "Spider-man Stuff",
-      collectionDescription: "Behold. My Spider-man stuff.",
-      username: "em",
-    },
+    currentCollection: [],
     userCollections: [
       {
         collectionId: 222,
@@ -51,8 +44,7 @@ export default new Vuex.Store({
         username: "em",
       },
     ],
-
-    collectionContents: [
+    collection222Contents: [
       {
         id: 1,
         title: "HardCoded",
@@ -73,7 +65,32 @@ export default new Vuex.Store({
         number: 25,
         volumeName: "SpiderGuy",
         imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
-      }
+      },
+
+    ],
+
+    collection223Contents: [
+      {
+        id: 1,
+        title: "HardCoded",
+        number: 33,
+        volumeName: "Fables",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      },
+      {
+        id: 2,
+        title: "HardCodedAgain",
+        number: 22,
+        volumeName: "Fables",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      },
+      {
+        id: 3,
+        title: "StillHardCoded",
+        number: 44,
+        volumeName: "Fables",
+        imageURL: "https://comicvine1.cbsistatic.com/uploads/scale_small/11/117763/2676366-amazingspiderman001.jpg",
+      },
 
     ]
   },
@@ -83,6 +100,9 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_COLLECTION(state, id) {
       state.activeCollection = id;
+    },
+    ADD_COLLECTION(state, collection) {
+      state.userCollections.push(collection);
     },
 
     TOGGLE_SHOW_ALL_COLLECTIONS(state) {

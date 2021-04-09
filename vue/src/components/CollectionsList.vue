@@ -1,25 +1,36 @@
 <template>
   <div class="collections-list-main">
     <h2>LIST OF MY COLLECTIONS</h2>
+    <!-- MODAL -->
+    <button type="button" class="btn" @click="showModal">New Collection</button>
+    <add-collection-modal
+      v-show="isModalVisible"
+      @close="closeModal"
+      header="test"
+    />
+
+    <br /><br />
     <div class="collection-area">
       <collection-card
         v-bind:collection="collection"
         v-for="collection in $store.state.userCollections"
         v-bind:key="collection.id"
-        
       />
     </div>
   </div>
 </template>
 
 <script>
+import AddCollectionModal from "../components/AddCollectionModal.vue";
 import CollectionCard from "../components/CollectionCard.vue";
 export default {
   name: "collections-list",
-  components: { CollectionCard },
+  components: { CollectionCard, AddCollectionModal },
 
   data() {
-    return {};
+    return {
+      isModalVisible: false,
+    };
   },
 
   computed: {
@@ -28,7 +39,12 @@ export default {
   },
 
   methods: {
-
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>
@@ -42,6 +58,5 @@ export default {
 }
 .collections-list-main {
   margin: 0;
-
 }
 </style>
