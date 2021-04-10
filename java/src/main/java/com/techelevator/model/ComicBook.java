@@ -10,8 +10,11 @@ public class ComicBook {
 	//private String publisher;//not in DB YET     						********
 	private String image;//db table issue,    		cover_url
 	//private String comicDescription;// NOT IN DB YET 					********
-	//private int volumeNumber;//db we have volume name Not volume number,********    
+	//private int volumeNumber;//db we have volume name Not volume number,******** 
+	private String volume_name;
 	
+	
+
 	//constructor
 	public ComicBook(int comicId, String title, String issueTitle, int issueNumber,String image) { //String publisher, String comicDescription, int volumeNumber
 			  
@@ -27,10 +30,17 @@ public class ComicBook {
 	
 	//getters and setters
 	
+
 	public ComicBook() {
 		// TODO Auto-generated constructor stub
 	}
+	public String getVolume_name() {
+		return volume_name;
+	}
 
+	public void setVolume_name(String volume_name) {
+		this.volume_name = volume_name;
+	}
 	public int getComicId() {
 		return comicId;
 	}
