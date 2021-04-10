@@ -29,7 +29,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 		String sqlSaveComic= "INSERT INTO issue(issue_id, issue_number, issue_name, volume_name, cover_url) " + //need to add volume ID to model
                 "VALUES (?, ?, ?, ?, ?, ?)";
 		
-		jdbcTemplate.update(sqlSaveComic, comic.getComicId(), comic.getIssueNumber(), comic.getTitle(), comic.getVolume_name(), comic.getImage()); //comic.getIssueTitle(),, comic.getComicDescription(),comic.getPublisher(),
+		jdbcTemplate.update(sqlSaveComic, comic.getComicId(), comic.getIssueNumber(), comic.getTitle(), comic.getVolumeName(), comic.getImage()); //comic.getIssueTitle(),, comic.getComicDescription(),comic.getPublisher(),
 		
 	}
 	
@@ -91,7 +91,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	@Override
 	public ComicBook getComicById(int comicId) {
 		ComicBook comic = new ComicBook();
-		String sql = "SELECT * FROM issues WHERE issue_id = ? ";
+		String sql = "SELECT * FROM issue WHERE issue_id = ? ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicId);
 		if(results.next()) {
 			comic = mapRowToComicBook(results);

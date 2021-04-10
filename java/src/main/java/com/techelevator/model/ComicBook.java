@@ -11,7 +11,7 @@ public class ComicBook {
 	private String image;//db table issue,    		cover_url
 	//private String comicDescription;// NOT IN DB YET 					********
 	//private int volumeNumber;//db we have volume name Not volume number,******** 
-	private String volume_name;
+	private String volumeName;
 	
 	
 
@@ -34,12 +34,12 @@ public class ComicBook {
 	public ComicBook() {
 		// TODO Auto-generated constructor stub
 	}
-	public String getVolume_name() {
-		return volume_name;
+	public String getVolumeName() {
+		return volumeName;
 	}
 
-	public void setVolume_name(String volume_name) {
-		this.volume_name = volume_name;
+	public void setVolumeName(String volumeName) {
+		this.volumeName = volumeName;
 	}
 	public int getComicId() {
 		return comicId;

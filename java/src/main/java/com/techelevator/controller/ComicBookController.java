@@ -40,7 +40,7 @@ public class ComicBookController {
 	}
 	
 	
-	@RequestMapping(value = "/comics", method = RequestMethod.GET)
+	@RequestMapping(value = "/comics", method = RequestMethod.GET) //http://localhost:8080/comics 404 not found
 	public List<ComicBook> listAllComics(){
 		return comicBookDAO.listAllComicBooks();
 	}
@@ -52,7 +52,7 @@ public class ComicBookController {
 	}
 	
 	
-	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.GET)//http://localhost:8080/api/comics/501 500error invalid column name
 	public ComicBook getComicById(@PathVariable int comicId) {
 		ComicBook comic = comicBookDAO.getComicById(comicId);
 		return comic;
