@@ -43,15 +43,15 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public Collection getCollectionById(int collectionId) {
 		
 		Collection collection = new Collection();
-		
-		String sql = "SELECT issue.issue_id, issue_name, issue_number, cover_url, volume_name  FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
+		String sql = "SELECT * FROM collections WHERE collection_id = ? ";
+		//String sql = "SELECT issue.issue_id, issue_name, issue_number, cover_url, volume_name  FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
-		if(results.next()) {
+		while(results.next()) {
 			collection = mapRowToCollection(results);
-		} else {
-			System.out.println("Collection not found");
+//		} else {
+//			System.out.println("Collection not found");
+//		}
 		}
-		
 		return collection; 
 		
 	}
@@ -135,10 +135,11 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		Collection collection = new Collection();
 		
 		collection.setCollectionId(results.getInt("collection_id"));
-		collection.setUserId(results.getInt("user_id"));
-		collection.setName(results.getString("name"));
-		collection.setCollectionDescription(results.getString("collection_description"));
-		collection.setUsername(results.getString("username"));
+//		collection.setInventoryId(results.getInt("inventory_id"));
+//		collection.setIssueId(results.getInt("issue_id"));
+//		collection.setName(results.getString("name"));
+//		collection.setCollectionDescription(results.getString("collection_description"));
+//		collection.setUsername(results.getString("username"));
 		
 		return collection;
 	}
