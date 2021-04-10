@@ -34,6 +34,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: #ff165d;
 }
 
 #app {
@@ -51,29 +52,13 @@ body {
 .site-wrap {
   flex: 1 0 auto;
   margin: 0;
-}
-
-h1 {
-  background-color: lightskyblue;
-  margin-top: 10px;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  background-color: #fff;
 }
 
 .site-content {
   margin: 0;
   padding-bottom: 50px;
+  padding-top: 20px;
 }
 
 .footer {
@@ -83,6 +68,37 @@ h1 {
   width: 100%;
   height: 75px;
   flex-shrink: 0;
+}
+/* ELEMENTS FOR ALL PAGES */
+h1 {
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #3ec1d3;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.button-block {
+  display: inline-block;
+  padding: 0.5em 0.8em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.15em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: 1px solid #000;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
+
+a.button-block:active {
+  top: 0.1em;
 }
 </style>
 

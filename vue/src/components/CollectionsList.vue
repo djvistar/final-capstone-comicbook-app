@@ -1,9 +1,7 @@
 <template>
   <div class="collections-list-main">
     <!-- MODAL -->
-    <div id="empty-collection" v-if="$store.state.userCollections.length == 0">Uh-Oh! You should probably add a collection!</div>
-    <br />
-    <button type="button" class="btn" @click="showModal">New Collection</button>
+    <button type="button" class="button-block collection-btn" @click="showModal">New Collection</button>
     <add-collection-modal
       v-show="isModalVisible"
       @close="closeModal"
@@ -17,6 +15,9 @@
         v-for="collection in $store.state.userCollections"
         v-bind:key="collection.id"
       />
+    </div>
+    <div id="empty-collection" v-if="$store.state.userCollections.length == 0">
+      Uh-Oh! You should probably add a collection!
     </div>
   </div>
 </template>
@@ -58,7 +59,10 @@ export default {
   justify-content: space-evenly;
 }
 .collections-list-main {
-  margin: 0;
+  margin: 10px 0 0 0;
+  background-color: lightcoral;
 }
-
+.collection-btn {
+  background-color: #FF165D;
+}
 </style>

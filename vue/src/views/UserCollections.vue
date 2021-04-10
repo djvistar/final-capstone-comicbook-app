@@ -1,16 +1,12 @@
 <template>
   <div class="user-collections-main">
     <h1>MY COLLECTIONS</h1>
-    <collections-list v-if="$store.state.showAllCollections" />
-    <!-- <collection-nav v-if="!$store.state.showAllCollections" />
-    <single-collection v-if="!$store.state.showAllCollections" v-bind:collectionId="$store.state.activeCollection" /> -->
+    <collections-list />
   </div>
 </template>
 
 <script>
 import CollectionsList from "../components/CollectionsList.vue";
-// import SingleCollection from "../components/SingleCollection.vue";
-// import CollectionNav from "../components/CollectionNav.vue";
 
 export default {
   name: "user-collections",
@@ -19,9 +15,6 @@ export default {
   },
   components: {
     CollectionsList,
-    // SingleCollection,
-    // CollectionNav,
-    
   },
   methods: {
     toggleShowAllCollections() {

@@ -10,6 +10,7 @@ import IssueList from '../views/IssueList.vue'
 import Dashboard from '../views/Dashboard.vue'
 import UserCollections from '../views/UserCollections.vue'
 import Collection from '../views/Collection.vue'
+import About from '../views/About.vue'
 
 Vue.use(Router)
 
@@ -94,6 +95,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
       meta: {
         requiresAuth: false
       }

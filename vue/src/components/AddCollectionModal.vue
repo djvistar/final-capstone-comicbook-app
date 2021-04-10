@@ -4,7 +4,6 @@
       <!-- <header class="modal-header">
         <slot name="header"> Add a New Collection! </slot>
       </header> -->
-
       <section class="modal-body">
         <slot name="body">
           <p>Add a New Collection!</p>

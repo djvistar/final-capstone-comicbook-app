@@ -3,13 +3,13 @@
     <div id="nav-not-logged" v-if="$store.state.token == ''">
       <router-link v-bind:to="{ name: 'home' }">HOME</router-link>
       <router-link v-bind:to="{ name: 'volume-search' }">SEARCH</router-link>
-      <a href="#">ABOUT</a>
+      <router-link v-bind:to="{ name: 'about' }">ABOUT</router-link>
       <router-link :to="{ name: 'register' }">REGISTER</router-link>
     </div>
     <div id="nav-logged" v-if="$store.state.token != ''">
       <router-link v-bind:to="{ name: 'user-collections' }">MY COLLECTIONS</router-link>
       <router-link v-bind:to="{ name: 'volume-search' }">SEARCH</router-link>
-      <a href="#">ABOUT</a>
+      <router-link v-bind:to="{ name: 'about' }">ABOUT</router-link>
       <router-link v-bind:to="{ name: 'logout' }">LOG OUT</router-link>
     </div>
   </div>

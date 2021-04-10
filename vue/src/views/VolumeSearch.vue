@@ -1,26 +1,23 @@
 <template>
-  <div>
-    <div class="comic-search-main">
-      SEARCH
-      <br />
-      <div id="searchVolumes">
-        <form v-on:submit.prevent="searchVolumes" class="searchForm">
-          <label for="name">Series Name:</label>
-          <input type="text" name="name" v-model="volumeName" />
-          <br />
-          <label for="publisher">Publisher:</label>
-          <input type="text" name="publisher" v-model="volumePublisher" />
-          <br />
-          <button class="btn btn-submit">Submit</button>
-        </form>
-        <div class="volume-results">
-          <volume-card
-            v-bind:volume="volume"
-            v-for="volume in volumes"
-            v-bind:key="volume.id"
-            class="volume-card-single"
-          />
-        </div>
+  <div class="comic-search-main">
+    <h1>SEARCH</h1>
+    <div id="searchVolumes">
+      <form v-on:submit.prevent="searchVolumes" class="searchForm">
+        <label for="name">Series Name:</label>
+        <input type="text" name="name" v-model="volumeName" />
+        <br />
+        <label for="publisher">Publisher:</label>
+        <input type="text" name="publisher" v-model="volumePublisher" />
+        <br />
+        <button class="btn btn-submit">Submit</button>
+      </form>
+      <div class="volume-results">
+        <volume-card
+          v-bind:volume="volume"
+          v-for="volume in volumes"
+          v-bind:key="volume.id"
+          class="volume-card-single"
+        />
       </div>
     </div>
   </div>
@@ -86,7 +83,7 @@ export default {
 }
 
 .comic-search-main {
-  padding: 15px;
+  padding-bottom: 15px;
 }
 .volume-results {
   /* display:flex;
