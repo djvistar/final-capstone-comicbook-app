@@ -1,30 +1,28 @@
 <template>
-<div class="footer-main">
-    FOOTER
-    </div>
-  
+  <div class="footer-main">
+    <p>&#169; 2021 Comics App <br />All Rights Reserved</p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'the-footer',
-
-}
+  name: "the-footer",
+};
 </script>
 
 <style>
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .footer-main {
-    width:100%;
-    min-height: 25px;
-    margin: 0;
-    padding: 10px;
-    color: #fff;
-    font-weight: bold;
-    background-color: #00CBFF;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 10px;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #FF165D;
 }
-
 </style>

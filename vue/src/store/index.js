@@ -19,8 +19,8 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
 
-    // token: 'true',
-    token: currentToken || '',
+    token: 'true',
+    // token: currentToken || '',
     user: currentUser || {},
     volumeResults: [],
     activeVolume: 0,
