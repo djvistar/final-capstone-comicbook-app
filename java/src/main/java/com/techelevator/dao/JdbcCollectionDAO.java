@@ -25,15 +25,26 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	Collection collection = new Collection();
 	ComicBook comic = new ComicBook();
 
+//	@Override
+//	public void saveCollection(int collectionId, int userId, String collectionName) {
+//		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) "
+//				+ "VALUES (?,?,?) ";
+//
+//		jdbcTemplate.update(sqlSaveCollection, collection.getUserId(), collection.getCollectionDescription(),
+//				collection.getName());
+//
+//	}
+	
+	
 	@Override
-	public void saveCollection(int collectionId, int userId, String collectionName) {
+	public void saveCollection(Collection collection) {
 		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) "
 				+ "VALUES (?,?,?) ";
-
-		jdbcTemplate.update(sqlSaveCollection, collection.getUserId(), collection.getCollectionDescription(),
+		
+		jdbcTemplate.update(sqlSaveCollection, collection.getCollectionId(), collection.getUserId(),
 				collection.getName());
-
 	}
+//
 //***************************** works as of 4/10 1:58pm
 	@Override
 	public List<ComicBook> getCollectionById(int collectionId) {

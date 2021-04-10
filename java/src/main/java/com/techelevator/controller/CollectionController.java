@@ -39,11 +39,11 @@ public class CollectionController {
 	}
 	
 	
-	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
-		if(  userId < 1  ) {//||  collectionId = null) {
-			throw new ResponseStatusException(
-					HttpStatus.BAD_REQUEST, "Bad Request"); // create is getting to this point in post man
+//	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
+//	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
+//		if(  userId < 1  ) {//||  collectionId = null) {
+//			throw new ResponseStatusException(
+//					HttpStatus.BAD_REQUEST, "Bad Request"); // create is getting to this point in post man
 // Error From Postman, looking into it.			
 //			{
 //			    "timestamp": "2021-04-10T14:18:56.289+00:00",
@@ -52,13 +52,19 @@ public class CollectionController {
 //			    "message": "PreparedStatementCallback; SQL [INSERT INTO user_collections(collection_id, user_id, collection_name) VALUES (?,?,?) ]; ERROR: null value in column \"user_id\" violates not-null constraint\n  Detail: Failing row contains (0, null, null).; nested exception is org.postgresql.util.PSQLException: ERROR: null value in column \"user_id\" violates not-null constraint\n  Detail: Failing row contains (0, null, null).",
 //			    "path": "/collections/create"
 //			}
-			
-		} else {
-			collectionDAO.saveCollection( userId, collectionId, collectionName);
-			// collectionDAO.saveCollection(collection);
-		}
-		
-	}
+//			
+//		} else {
+//			collectionDAO.saveCollection( userId, collectionId, collectionName);
+//			// collectionDAO.saveCollection(collection);
+//		}
+//		
+//	}
+	
+	
+	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
+	    public void addCollection(@RequestBody Collection collection) {
+	    	collectionDAO.saveCollection(collection);
+	    }
 	
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET)
 	public List<Collection> getCollectionsByUsername(@PathVariable String username){
