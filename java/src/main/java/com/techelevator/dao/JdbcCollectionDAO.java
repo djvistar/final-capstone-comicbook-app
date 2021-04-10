@@ -158,8 +158,8 @@ private ComicBook mapRowToComicBook(SqlRowSet results) {
 		
 //		collection.setCollectionId(results.getInt("collections.collection_id"));
 //		collection.setInventoryId(results.getInt("inventory_id"));
-//		comic.setComicId(results.getInt("issue.issue_id"));
-		collection.setName(results.getString("issue.issue_name"));
+		comic.setComicId(results.getInt("issue.issue_id"));
+//		collection.setName(results.getString("issue.issue_name"));
 //		collection.setCollectionDescription(results.getString("collection_description"));
 //		collection.setUsername(results.getString("username"));
 		
