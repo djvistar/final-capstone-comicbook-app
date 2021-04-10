@@ -4,14 +4,12 @@
       <!-- <header class="modal-header">
         <slot name="header"> Add a New Collection! </slot>
       </header> -->
-
       <section class="modal-body">
         <slot name="body">
           <p>Add To Collection</p>
-          <form v-on:submit.prevent="" class="addIssueForm">
+          <form v-on:submit.prevent="addToCollection()" class="addIssueForm">
             <div class="form-group">
-              
-              <select id="user-collections" name="user-collections">
+              <select id="user-collections" name="user-collections" v-model="selectedCollection">
                 <option value="0">My Collections</option>
                 <option
                   v-bind:value="collection.collectionId"
@@ -35,12 +33,25 @@
 export default {
   name: "add-collection-modal",
   data() {
-    return {};
+    return {
+      selectedCollection: 0,
+      selectedIssueNumber: 0,
+    };
   },
+  props: [
+    "issueId"
+  ],
   methods: {
     close() {
       this.$emit("close");
     },
+    addToCollection() {
+      console.log(this.selectedCollection);
+      console.log(this.issueId);
+      // SERVICE CALL TO ADD ISSUE # TO COLLECTION
+      
+
+    }
   },
 };
 </script>

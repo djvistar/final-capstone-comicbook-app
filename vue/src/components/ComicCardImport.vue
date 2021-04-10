@@ -1,16 +1,18 @@
 <template>
   <div class="comic-card-import-main">
     <div class="comic-card-info">
-      <button type="button" class="btn" @click="showModal">Add to Collection</button>
+      <button type="button" class="btn" @click="showModal" >Add to Collection</button>
       <add-issue-modal
         v-show="isModalVisible"
         @close="closeModal"
         header="Add to Collection"
+        v-bind:issueId="issue.id"
       />
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
       <div id="name" class="issue-title">{{ issue.name }}</div>
+      
     </div>
   </div>
 </template>

@@ -38,6 +38,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	@Override
 	public List<ComicBook> getCollectionById(int collectionId) {
 		List<ComicBook> issuesInCollection = new ArrayList<ComicBook>();
+	
 		String sql = "SELECT issue.issue_id AS comicId, issue.issue_name AS title, issue.issue_number AS issue_number, issue.cover_url AS cover_image, issue.volume_name AS volume_name "
 				+" FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
 
@@ -152,20 +153,21 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	}
 	//***************************** works as of 4/10 1:58pm
 	private ComicBook mapRowToComicBook(SqlRowSet results) {
+		ComicBook newComic = new ComicBook();
 
 		// Collection collection = new Collection();
 
 //		collection.setCollectionId(results.getInt("collections.collection_id"));
 //		collection.setInventoryId(results.getInt("inventory_id"));
-		comic.setComicId(results.getInt("comicId"));
-		comic.setTitle(results.getString("title"));
-		comic.setIssueNumber(results.getInt("issue_number"));
-		comic.setImage(results.getString("cover_image"));
-		comic.setVolumeName(results.getString("volume_name"));
+		newComic.setComicId(results.getInt("comicid"));
+		newComic.setTitle(results.getString("title"));
+		newComic.setIssueNumber(results.getInt("issue_number"));
+		newComic.setImage(results.getString("cover_image"));
+		newComic.setVolumeName(results.getString("volume_name"));
 //		collection.setCollectionDescription(results.getString("collection_description"));
 //		collection.setUsername(results.getString("username"));
 
-		return comic;
+		return newComic;
 // issue.volume_name AS volume_name
 	}
 

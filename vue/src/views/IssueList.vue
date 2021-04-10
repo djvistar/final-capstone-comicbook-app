@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>RESULTS</h2>
+    <h1>SEARCH RESULTS</h1>
 
     <div class="issue-list-main">
       <comic-card-import
