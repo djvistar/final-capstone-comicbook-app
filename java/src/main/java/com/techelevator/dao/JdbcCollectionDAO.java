@@ -10,7 +10,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Collection;
+import com.techelevator.model.ComicBook;
 import com.techelevator.model.User;
+
 
 
 @Component
@@ -25,6 +27,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	};
 	
 	Collection collection = new Collection();
+	ComicBook comic = new ComicBook();
 	
 
 	@Override
@@ -40,8 +43,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 
 	@Override
-	public Collection getCollectionById(int collectionId) {
-		
+	public List<ComicBook> getCollectionById(int collectionId) {
+		List<ComicBook> issuesInCollection = new ArrayList<ComicBook>();
 		//Collection collection = new Collection(); moved  to top-Blase
 //<<<<<<< HEAD
 //		String sql = "SELECT * FROM collections WHERE collection_id = ? ";
@@ -52,12 +55,13 @@ public class JdbcCollectionDAO implements CollectionDAO {
 //>>>>>>> aaf1f4120758220e9d17357034315666229b763c
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
 		while(results.next()) {
-			collection = mapRowToCollection(results);
+			ComicBook comic = mapRowToComicBook(results);
+			issuesInCollection.add(comic);
 //		} else {
 //			System.out.println("Collection not found");
 //		}
 		}
-		return collection; 
+		return issuesInCollection; 
 		
 	}
 
@@ -135,7 +139,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	
 	
-	private Collection mapRowToCollection(SqlRowSet results) {
+	private Collection mapRowToCollection(SqlRowSet results) { 
 		
 		//Collection collection = new Collection();
 		
@@ -148,8 +152,20 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		
 		return collection;
 	}
+private ComicBook mapRowToComicBook(SqlRowSet results) { 
+		
+		//Collection collection = new Collection();
+		
+//		collection.setCollectionId(results.getInt("collections.collection_id"));
+//		collection.setInventoryId(results.getInt("inventory_id"));
+//		comic.setComicId(results.getInt("issue.issue_id"));
+		collection.setName(results.getString("issue.issue_name"));
+//		collection.setCollectionDescription(results.getString("collection_description"));
+//		collection.setUsername(results.getString("username"));
+		
+		return comic;
 
-	
+}
 	
 	
 }

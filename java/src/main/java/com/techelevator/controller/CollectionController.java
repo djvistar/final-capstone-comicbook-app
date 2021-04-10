@@ -71,11 +71,11 @@ public class CollectionController {
 	
 	
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
-	public Collection getCollectionById(@PathVariable int collectionId) {
-		Collection collection = collectionDAO.getCollectionById(collectionId);
-	List<ComicBook> comics = comicBookDAO.listComicsByCollectionId(collectionId);
-	collection.setComicsInCollection(comics);
-	return collection;
+	public List<ComicBook> getCollectionById(@PathVariable int collectionId) {
+		//Collection collection = collectionDAO.getCollectionById(collectionId);
+	List<ComicBook> comics = collectionDAO.getCollectionById(collectionId);//comicBookDAO.listComicsByCollectionId(collectionId);
+	//collection.setComicsInCollection(comics);
+	return comics;
 	}
 	
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
