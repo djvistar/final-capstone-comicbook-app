@@ -5,7 +5,7 @@
       <div id="login-box">
         <div id="not-logged" v-if="$store.state.token == ''">
           <router-link v-bind:to="{ name: 'login' }" class="login-button">LOG IN</router-link>
-          <router-link v-bind:to="{ name: 'login' }" class="login-button">REGISTER</router-link>
+          <!-- <router-link v-bind:to="{ name: 'login' }" class="login-button">REGISTER</router-link> -->
         </div>
         <div id="logged" v-if="$store.state.token != ''">Greetings, User!</div>
       </div>
@@ -45,7 +45,11 @@ export default {
   min-height: 50px;
   margin: 0;
   padding: 0;
-  background-color: #f28e13;
+  background-color: #F6F7D7;
+  background-image: url("../assets/SL-090119-22970-03.jpg");
+  background-repeat: no-repeat;
+  background-size: 2000px auto;
+  background-position: center;
 }
 .header-image-box {
   width: 100%;
@@ -92,9 +96,9 @@ a.login-button {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: bolder;
   color: #ffffff;
-  background-color: #2E338C;
+  background-color: #2B80D3;
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
   text-align: center;
   position: relative;
@@ -112,9 +116,9 @@ a.login-button:active {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: bolder;
-  color: #000;
-  background-color: #05C7F2;
-  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  color: #fff;
+  background-color: #FF165D;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.15);
   text-align: center;
   position: relative;
 }

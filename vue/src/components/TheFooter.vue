@@ -20,7 +20,7 @@ body {
   min-height: 50px;
   margin: 0;
   padding: 10px;
-  color: #000;
+  color: #fff;
   font-weight: bold;
   font-size: 14px;
   background-color: #FF165D;

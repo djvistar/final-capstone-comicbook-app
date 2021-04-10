@@ -33,7 +33,7 @@ export default {
 
 #nav-not-logged,
 #nav-logged {
-  min-height: 50px;
+  min-height: 60px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -41,7 +41,8 @@ export default {
   margin: 0;
   justify-content: space-around;
   align-items: center;
-  background-color: #2E338C;
+  background-color: #2B80D3;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 
 #nav-main a, #nav-main a:hover, #nav-main a:visited, #nav-main a:active {
@@ -50,6 +51,11 @@ export default {
   font-size: 20px;
   font-weight: bolder;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  height: 100%
+}
+#nav-main a:hover {
+
 }
 
 /* #nav-not-logged {
