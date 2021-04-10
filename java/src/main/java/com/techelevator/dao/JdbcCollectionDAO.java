@@ -43,8 +43,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public Collection getCollectionById(int collectionId) {
 		
 		Collection collection = new Collection();
-		
-		String sql = "SELECT issue.issue_id, issue_name, issue_number, cover_url, volume_name  FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
+		//, issue_name, issue_number, cover_url, volume_name */ 
+		String sql = "SELECT issue.issue_id FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
 		if(results.next()) {
 			collection = mapRowToCollection(results);
