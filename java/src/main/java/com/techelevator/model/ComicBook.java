@@ -7,10 +7,10 @@ public class ComicBook {
 	private String title; //db table issue,  DUPLICATE?					********
 	//private String issueTitle; //db table issue,    column issue_name
 	private int issueNumber;//db table issue,		issue_number
-	private String publisher;//not in DB YET     						********
+	//private String publisher;//not in DB YET     						********
 	private String image;//db table issue,    		cover_url
-	private String comicDescription;// NOT IN DB YET 					********
-	private int volumeNumber;//db we have volume name Not volume number,********    
+	//private String comicDescription;// NOT IN DB YET 					********
+	//private int volumeNumber;//db we have volume name Not volume number,********    
 	
 	//constructor
 	public ComicBook(int comicId, String title, String issueTitle, int issueNumber,String image) { //String publisher, String comicDescription, int volumeNumber
@@ -55,30 +55,30 @@ public class ComicBook {
 	public void setIssueNumber(int issueNumber) {
 		this.issueNumber = issueNumber;
 	}
-	public String getPublisher() {
-		return publisher;
-	}
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
+//	public String getPublisher() {
+//		return publisher;
+//	}
+//	public void setPublisher(String publisher) {
+//		this.publisher = publisher;
+//	}
 	public String getImage() {
 		return image;
 	}
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getComicDescription() {
-		return comicDescription;
-	}
-	public void setComicDescription(String comicDescription) {
-		this.comicDescription = comicDescription;
-	}
-	public int getVolumeNumber() {
-		return volumeNumber;
-	}
-	public void setVolumeNumber(int volumeNumber) {
-		this.volumeNumber = volumeNumber;
-	}
+//	public String getComicDescription() {
+//		return comicDescription;
+//	}
+//	public void setComicDescription(String comicDescription) {
+//		this.comicDescription = comicDescription;
+//	}
+//	public int getVolumeNumber() {
+//		return volumeNumber;
+//	}
+//	public void setVolumeNumber(int volumeNumber) {
+//		this.volumeNumber = volumeNumber;
+//	}
 	
 	
 	
