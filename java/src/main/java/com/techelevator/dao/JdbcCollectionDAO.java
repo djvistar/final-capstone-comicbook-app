@@ -29,11 +29,11 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public void saveCollection(Collection collection) {
-		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id) " +
-		                           "VALUES (?,?) ";
+		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) " +
+		                           "VALUES (?,?,?) ";
 		
 		jdbcTemplate.update(sqlSaveCollection, collection.getUserId(),
-				collection.getName(), collection.getCollectionDescription());	
+				 collection.getCollectionDescription(), collection.getName());	
 		
 	}
 	
@@ -63,7 +63,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		
 		List<Collection> collections = new ArrayList<>();
 		
-		String sqlGetCollectionsByUserId = "SELECT collection_id FROM user_collections WHERE user_id = ?";
+		String sqlGetCollectionsByUserId = "SELECT collection_name FROM user_collections WHERE user_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUserId, userId);
 			while(results.next()) {
 			collections.add(mapRowToCollection(results));
@@ -78,7 +78,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public List<Collection> listCollectionByUsername(String username) {
 		List<Collection> collections = new ArrayList<>();
 		
-		String sqlGetCollectionsByUsername = "SELECT collection_id FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = '?'";
+		String sqlGetCollectionsByUsername = "SELECT collection_name, collection_id FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = '?'";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
 			while(results.next()) {
 				collections.add(mapRowToCollection(results));
