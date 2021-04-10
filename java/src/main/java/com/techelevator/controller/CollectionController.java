@@ -40,8 +40,8 @@ public class CollectionController {
 	
 	
 	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-	public void addCollection(@RequestBody Collection collection, Principal principal) {
-		if( /* collection == null  || */ collection.getName() == null) {
+	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
+		if(  userId < 1  ) {//||  collectionId = null) {
 			throw new ResponseStatusException(
 					HttpStatus.BAD_REQUEST, "Bad Request"); // create is getting to this point in post man
 // Error From Postman, looking into it.			
@@ -54,7 +54,8 @@ public class CollectionController {
 //			}
 			
 		} else {
-			collectionDAO.saveCollection(collection);
+			collectionDAO.saveCollection( userId, collectionId, collectionName);
+			// collectionDAO.saveCollection(collection);
 		}
 		
 	}

@@ -26,7 +26,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	ComicBook comic = new ComicBook();
 
 	@Override
-	public void saveCollection(Collection collection) {
+	public void saveCollection(int collectionId, int userId, String collectionName) {
 		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) "
 				+ "VALUES (?,?,?) ";
 
@@ -62,7 +62,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	}
 
 	@Override
-	public List<Collection> listAllCollectionsByUserId(Long userId) {
+	public List<Collection> listAllCollectionsByUserId(int userId) {
 
 		List<Collection> collections = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public List<Collection> listCollectionByUsername(String username) {
 		List<Collection> collections = new ArrayList<>();
 
-		String sqlGetCollectionsByUsername = "SELECT collection_name, collection_id FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = '?'";
+		String sqlGetCollectionsByUsername = "SELECT collection_name AS collectionName, collection_id AS collectionId FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
 		while (results.next()) {
 			collections.add(mapRowToCollection(results));
