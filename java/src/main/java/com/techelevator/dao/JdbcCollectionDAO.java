@@ -34,7 +34,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 				collection.getName());
 
 	}
-
+//***************************** works as of 4/10 1:58pm
 	@Override
 	public List<ComicBook> getCollectionById(int collectionId) {
 		List<ComicBook> issuesInCollection = new ArrayList<ComicBook>();
@@ -150,7 +150,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 		return collection;
 	}
-
+	//***************************** works as of 4/10 1:58pm
 	private ComicBook mapRowToComicBook(SqlRowSet results) {
 
 		// Collection collection = new Collection();
