@@ -6,18 +6,22 @@ public class Collection {
 
 	private int collectionId; 					// user_collections.collection_id
 	private int userId;							// users.user_id
-	private String name;						//Not named in DB        ********
+	private String name;						//added to schema user_collections.collection_name       ********
 	private String collectionDescription;		//Not IN DB 			*********
 	private String username;					//
-	private List<ComicBook> comicsInCollection;	//query built
+	private List<ComicBook> comicsInCollection;
+	private int issueId;
+	private int inventoryId;//query built
 	
 	//constructor
-	public Collection (int collectionId, int userId, String name, String description, String username) {
+	public Collection (int collectionId, int userId, String name, int issueId, int inventoryId) /*, String description, String username )*/ {
 		this.collectionId = collectionId;
 		this.userId = userId;
 		this.name = name;
-		this.collectionDescription = collectionDescription;
-		this.username = username;
+		this.issueId = issueId;
+		this.inventoryId = inventoryId;
+		//this.collectionDescription = collectionDescription;
+		//this.username = username;
 	}
 	
 	
@@ -34,6 +38,18 @@ public class Collection {
 	}
 	public void setCollectionId(int collectionId) {
 		this.collectionId = collectionId;
+	}
+	public int getIssueId() {
+		return issueId;
+	}
+	public void setIssueId(int issueId) {
+		this.issueId = issueId;
+	}
+	public int getInventoryId() {
+		return inventoryId;
+	}
+	public void setInventoryId(int inventoryId) {
+		this.inventoryId = inventoryId;
 	}
 	public int getUserId() {
 		return userId;

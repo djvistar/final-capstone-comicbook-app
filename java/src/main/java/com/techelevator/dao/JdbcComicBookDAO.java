@@ -26,11 +26,10 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 
 	@Override
 	public void saveComic(ComicBook comic) {		
-		String sqlSaveComic= "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) " +
+		String sqlSaveComic= "INSERT INTO issue(issue_id, issue_number, issue_name, volume_name, cover_url) " + //need to add volume ID to model
                 "VALUES (?, ?, ?, ?, ?, ?)";
 		
-		jdbcTemplate.update(sqlSaveComic, comic.getTitle(), comic.getIssueTitle(),
-				comic.getIssueNumber(), comic.getPublisher(), comic.getImage(), comic.getComicDescription());
+		jdbcTemplate.update(sqlSaveComic, comic.getComicId(), comic.getIssueNumber(), comic.getTitle(), comic.getVolumeName(), comic.getImage()); //comic.getIssueTitle(),, comic.getComicDescription(),comic.getPublisher(),
 		
 	}
 	
@@ -79,12 +78,12 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	
 
 	@Override
-	public void updateComic(ComicBook comic) {//will need to update publisher and description once added to DB
+	public void updateComic(ComicBook comic) {//reworked, but don't think we need to update info for the indiv issues as that info will be coming straight from API
 		String sqlUpdateComic = "UPDATE issue " +
-		"SET issue_id = ?, issue_name = ?, issue_number = ?, volume_id = ?, volume_name = ?, cover_url= ? "+ //publisher = ?, comic_description = ? " +
+		"SET issue_id = ?, issue_name = ?, issue_number = ?,  cover_url= ? "+ //publisher = ?,volume_name = ?  comic_description = ? " +volume_name = ?,volume_id = ?,
 				"WHERE comic_id = ? ";
-		jdbcTemplate.update(sqlUpdateComic, comic.getTitle(), comic.getIssueTitle(), comic.getIssueNumber(),
-				comic.getPublisher(), comic.getComicDescription(),comic.getComicId());
+		jdbcTemplate.update(sqlUpdateComic,comic.getComicId(),comic.getTitle(), comic.getIssueNumber(),comic.getImage()//comic.getPublisher(), comic.getComicDescription(),comic.getIssueTitle(),
+				);
 		
 	}
 	
@@ -92,7 +91,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	@Override
 	public ComicBook getComicById(int comicId) {
 		ComicBook comic = new ComicBook();
-		String sql = "SELECT * FROM issues WHERE issue_id = ? ";
+		String sql = "SELECT * FROM issue WHERE issue_id = ? ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicId);
 		if(results.next()) {
 			comic = mapRowToComicBook(results);
@@ -113,10 +112,10 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 		
 		comicBook.setComicId(results.getInt("comic_id"));
 		comicBook.setTitle(results.getString("title"));
-		comicBook.setIssueTitle(results.getString("issue_title"));
+		//comicBook.setIssueTitle(results.getString("issue_title"));
 		comicBook.setIssueNumber(results.getInt("issue_number"));
-		comicBook.setPublisher(results.getString("publisher"));
-		comicBook.setComicDescription(results.getString("comic_description"));
+//		comicBook.setPublisher(results.getString("publisher"));
+//		comicBook.setComicDescription(results.getString("comic_description"));
 		
 		return comicBook;
 	}

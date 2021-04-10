@@ -10,7 +10,7 @@ public interface CollectionDAO {
 
 	public void saveCollection(Collection collection);
 	
-	public Collection getCollectionById(int collectionId);
+	public List<ComicBook> getCollectionById(int collectionId);
 	
 	List<Collection> listAllCollectionsByUserId(Long userId);
 	

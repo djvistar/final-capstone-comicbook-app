@@ -50,6 +50,7 @@ Constraint PK_issue PRIMARY KEY (issue_id)
 CREATE TABLE user_collections (
         collection_id int NOT NULL,
         user_id int NOT NULL,
+        collection_name varchar(200),
         Constraint PK_userCollection PRIMARY KEY (collection_id),
         CONSTRAINT FK_user FOREIGN KEY(user_id) REFERENCES users(user_id)
         --Constraint fk_collection Foreign key (collection_id) references collections(collection_id)
