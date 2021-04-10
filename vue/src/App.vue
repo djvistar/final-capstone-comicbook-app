@@ -76,6 +76,7 @@ h1 {
   padding: 15px;
   background-color: #3ec1d3;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  text-transform: uppercase;
   
   color: #fff;
 }

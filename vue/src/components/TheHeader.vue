@@ -12,7 +12,7 @@
           <!-- <router-link v-bind:to="{ name: 'login' }" class="login-button">REGISTER</router-link> -->
         </div>
         <div class="button-block logged-in-btn" v-if="$store.state.token != ''">
-          Greetings, User!
+          Greetings, {{$store.state.user.username}}!
         </div>
       </div>
     </div>

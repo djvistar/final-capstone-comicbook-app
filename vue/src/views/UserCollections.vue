@@ -1,6 +1,6 @@
 <template>
   <div class="user-collections-main">
-    <h1>MY COLLECTIONS</h1>
+    <h1>{{$store.state.user.username}}'S COLLECTIONS</h1>
     <collections-list />
   </div>
 </template>
