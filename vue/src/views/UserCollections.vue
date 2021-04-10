@@ -23,6 +23,7 @@ export default {
   },
   created() {
     this.$store.commit("RESET_SHOW_ALL_COLLECTIONS");
+    
   },
 };
 </script>

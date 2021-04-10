@@ -1,7 +1,7 @@
 <template>
   <div class="comic-card-server-main">
     <div class="comic-card-server-content">
-      <img v-bind:src="issue.imageURL" />
+      <img v-bind:src="issue.image" />
 
       <div>Series: {{ issue.volumeName }}</div>
       <div>Issue # {{ issue.number }}</div>

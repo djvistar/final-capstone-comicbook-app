@@ -19,6 +19,7 @@
 
 <script>
 import DeleteCollectionModal from "../components/DeleteCollectionModal.vue";
+import CollectionService from "@/services/CollectionService.js";
 export default {
   name: "collection-card",
   props: { collection: Object },
@@ -31,8 +32,12 @@ export default {
   methods: {
     selectActiveCollection(id) {
       this.$store.commit("SET_ACTIVE_COLLECTION", id);
-      this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
+      // this.$store.commit("TOGGLE_SHOW_ALL_COLLECTIONS");
       this.$router.push("../collection/" + id);
+      console.log(id);
+      CollectionService.getIssuesFromCollection(id).then((response) => {
+        this.$store.commit("LOAD_CURRENT_COLLECTION_CONTENT", response.data);
+      });
     },
     showModal() {
       this.isModalVisible = true;

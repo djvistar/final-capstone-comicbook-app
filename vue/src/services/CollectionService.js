@@ -13,7 +13,7 @@ export default {
 
     // Delete a Collection when given a Collection ID
     deleteCollection(collectionID) {
-        return axios.delete(collectionID);
+        return axios.delete(`collections/${collectionID}`);
     },
 
     // Return single collection object when given Collection ID
@@ -23,12 +23,13 @@ export default {
 
     // Return an array of Collection Objects when given a User ID
     getCollectionsByUser(userID){
-        return axios.get(`/collections`);
+        return axios.get(`/collections/${userID}`);
     },
     
+    // - - - - DONE
     // Return array of Issue IDs when given a Collection ID
     getIssuesFromCollection(collectionID){
-        return axios.get();
+        return axios.get(`collections/${collectionID}`);
     },
 
     // Add Issue to Collection when given IDs of both
@@ -38,7 +39,7 @@ export default {
 
     // Delete Issue from Collection when given IDs of both
     removeIssueFromCollection(issueID, collectionID) {
-        return axios.delete(`/collections/${collectionID}/${issueID});
+        return axios.delete(`/collections/${collectionID}/${issueID}`);
 
         
     }

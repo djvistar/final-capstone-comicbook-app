@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import CollectionService from "@/services/CollectionService.js";
 export default {
   name: "delete-collection-modal",
   props: ["id"],
@@ -28,6 +29,7 @@ export default {
       this.$emit("close");
     },
     deleteCollection(id) {
+      CollectionService.delete(id);
       this.$store.commit("DELETE_COLLECTION", id);
     },
   },

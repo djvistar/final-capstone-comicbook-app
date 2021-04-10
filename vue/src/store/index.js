@@ -38,12 +38,19 @@ export default new Vuex.Store({
         username: "em",
       },
       {
-        collectionId: 223,
+        collectionId: 3,
         userId: 2,
-        name: "Fables Stuff",
-        collectionDescription: "It's Fables!",
+        name: "Random",
+        collectionDescription: "It's Random!",
         username: "em",
       },
+      {
+        collectionId: 2,
+        userId: 2,
+        name: "The Weird Stuff",
+        collectionDescription: "Weird",
+        username: "em",
+      }
     ],
     collection222Contents: [
       {
@@ -108,6 +115,10 @@ export default new Vuex.Store({
     ADD_COLLECTION(state, collection) {
       state.userCollections.push(collection);
     },
+    LOAD_CURRENT_COLLECTION_CONTENT(state, collectionContent) {
+      state.currentCollection = collectionContent;
+    },
+
     DELETE_COLLECTION(state, id) {
       for (var i = 0; i < state.userCollections.length; i++) {
         if (state.userCollections[i].collectionId === id) {
