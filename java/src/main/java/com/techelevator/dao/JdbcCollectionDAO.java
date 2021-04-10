@@ -24,7 +24,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	};
 	
-	
+	Collection collection = new Collection();
 	
 
 	@Override
@@ -42,7 +42,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	@Override
 	public Collection getCollectionById(int collectionId) {
 		
-		Collection collection = new Collection();
+		//Collection collection = new Collection(); moved  to top-Blase
 //<<<<<<< HEAD
 //		String sql = "SELECT * FROM collections WHERE collection_id = ? ";
 		//String sql = "SELECT issue.issue_id, issue_name, issue_number, cover_url, volume_name  FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
@@ -137,11 +137,11 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	
 	private Collection mapRowToCollection(SqlRowSet results) {
 		
-		Collection collection = new Collection();
+		//Collection collection = new Collection();
 		
-		collection.setCollectionId(results.getInt("collection_id"));
+//		collection.setCollectionId(results.getInt("collections.collection_id"));
 //		collection.setInventoryId(results.getInt("inventory_id"));
-//		collection.setIssueId(results.getInt("issue_id"));
+		collection.setIssueId(results.getInt("issue.issue_id"));
 //		collection.setName(results.getString("name"));
 //		collection.setCollectionDescription(results.getString("collection_description"));
 //		collection.setUsername(results.getString("username"));
