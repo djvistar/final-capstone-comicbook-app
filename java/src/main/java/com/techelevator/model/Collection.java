@@ -54,8 +54,9 @@ public class Collection {
 	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public Collection setUserId(int userId) {
 		this.userId = userId;
+		return this;
 	}
 	public String getName() {
 		return name;

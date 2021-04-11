@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import java.security.Principal;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -61,10 +63,37 @@ public class CollectionController {
 //	}
 	
 	
+//	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
+//	    public void addCollection(@RequestBody Collection collection, Principal principal) {
+//		
+//		if(collection == null || collection.getName() == null) {
+//			throw new ResponseStatusException(
+//      	          HttpStatus.BAD_REQUEST, "Empty Request");
+//		}
+//		else {
+//	    	collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername((principal.getName()))));
+//	    }
+//	}
+	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-	    public void addCollection(@RequestBody Collection collection) {
-	    	collectionDAO.saveCollection(collection);
-	    }
+	public void saveCollection(@RequestBody Collection collection, Principal principal) {
+		if(collection != null) 
+			System.out.println("Attempting to create collection " + collection.getName() + " with values:\nuserId: " + collection.getUserId());
+		
+		if(collection == null || collection.getName() == null) 
+			throw new ResponseStatusException(
+      	          HttpStatus.BAD_REQUEST, "Empty Request");
+		
+		
+		else
+		
+			
+			collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername(principal.getName())));
+			
+		}
+	
+
+	
 	
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET)
 	public List<Collection> getCollectionsByUsername(@PathVariable String username){
