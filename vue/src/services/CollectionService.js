@@ -6,6 +6,17 @@ export default {
         return {}
     },
 
+    // - - - - DONE
+    // Return array of Issue IDs when given a Collection ID
+    getIssuesFromCollection(collectionID) {
+        return axios.get(`collections/${collectionID}`);
+    },
+
+    // Return an array of Collection Objects for User requesting it
+    getUserCollections() {
+        return axios.get(`/collections`);
+    },
+
     // Create a Collection when given a user ID and a collection object (name, issues)
     makeCollection(collectionObject) {
         return axios.push('/collections', collectionObject);
@@ -21,16 +32,9 @@ export default {
         return axios.get(`/collection/${collectionID}`);
     },
 
-    // Return an array of Collection Objects when given a User ID
-    getCollectionsByUser(userID){
-        return axios.get(`/collections/${userID}`);
-    },
-    
-    // - - - - DONE
-    // Return array of Issue IDs when given a Collection ID
-    getIssuesFromCollection(collectionID){
-        return axios.get(`collections/${collectionID}`);
-    },
+
+
+
 
     // Add Issue to Collection when given IDs of both
     addIssueToCollection(issueID, collectionID) {
@@ -41,7 +45,7 @@ export default {
     removeIssueFromCollection(issueID, collectionID) {
         return axios.delete(`/collections/${collectionID}/${issueID}`);
 
-        
+
     }
 }
 

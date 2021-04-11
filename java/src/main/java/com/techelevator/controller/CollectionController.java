@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -105,6 +106,12 @@ public class CollectionController {
 		return collections;
 	}
 	
+	// SHOULD RETURN LIST OF COLLECTIONS FOR USER REQUESTING IT
+	@RequestMapping(value = "/collections", method = RequestMethod.GET)
+	public List<Collection> getCollectionByUser(Principal principal) {
+		List<Collection> collections = collectionDAO.listCollectionByUsername(principal.getName());
+		return collections;
+	}
 	
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
 	public List<ComicBook> getCollectionById(@PathVariable int collectionId) {

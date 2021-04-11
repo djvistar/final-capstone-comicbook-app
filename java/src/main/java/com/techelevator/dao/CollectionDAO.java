@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.techelevator.model.Collection;
@@ -16,7 +17,7 @@ public interface CollectionDAO {
 	List<Collection> listAllCollectionsByUserId(int userId);
 	
 	List<Collection> listCollectionByUsername(String username);
-	
+		
 	public void  addComicToCollection(int comicId, int collectionId);
 	
 	public void deleteComicFromCollection(int comicId, int collectionId);
@@ -24,6 +25,8 @@ public interface CollectionDAO {
 	public void deleteCollection(int collectionId);
 	
 	public void updateCollection(Collection collection);
+
+	
 	
 
 

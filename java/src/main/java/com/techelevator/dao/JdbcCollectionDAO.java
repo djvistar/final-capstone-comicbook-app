@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,31 +35,32 @@ public class JdbcCollectionDAO implements CollectionDAO {
 //				collection.getName());
 //
 //	}
-	
-	
+
 	@Override
-	public void saveCollection(Collection  collection) {
+	public void saveCollection(Collection collection) {
 		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) "
 				+ "VALUES (?,?,?) ";
-		
-		jdbcTemplate.update(sqlSaveCollection, collection.getCollectionId(), collection.getUserId(), collection.getName());
+
+		jdbcTemplate.update(sqlSaveCollection, collection.getCollectionId(), collection.getUserId(),
+				collection.getName());
 	}
+
 //
 //***************************** works as of 4/10 1:58pm
 	@Override
 	public List<ComicBook> getCollectionById(int collectionId) {
 		List<ComicBook> issuesInCollection = new ArrayList<ComicBook>();
-	
+
 		String sql = "SELECT issue.issue_id AS comicId, issue.issue_name AS title, issue.issue_number AS issue_number, issue.cover_url AS cover_image, issue.volume_name AS volume_name "
-				+" FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
+				+ " FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = ?  ";
 
-				SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
-				while (results.next()) {
-					ComicBook comic = mapRowToComicBook(results);
-					issuesInCollection.add(comic);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
+		while (results.next()) {
+			ComicBook comic = mapRowToComicBook(results);
+			issuesInCollection.add(comic);
 
-				}
-				return issuesInCollection;
+		}
+		return issuesInCollection;
 		// Collection collection = new Collection(); moved to top-Blase
 //		String sql = "SELECT * FROM collections WHERE collection_id = ? ";
 		// String sql = "SELECT issue.issue_id, issue_name, issue_number, cover_url,
@@ -66,12 +68,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		// collections.issue_id WHERE collections.collection_id = ? ";
 
 		// , issue_name, issue_number, cover_url, volume_name */
-		
-		
 
 	}
-	
-
 
 	@Override
 	public List<Collection> listAllCollectionsByUserId(int userId) {
@@ -86,6 +84,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 		return collections;
 	}
+
 
 	@Override
 	public List<Collection> listCollectionByUsername(String username) {
@@ -104,8 +103,9 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	@Override
 	public void addComicToCollection(int comicId, int collectionId) {// need to update arguments
 		String sqlAddComicToCollection = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
-				+ "VALUES (?, ?, ?, ?, ?, ?); " + "insert into collections (inventory_id, collection_id, issue_id ) " 
-				+ // if																										// value
+				+ "VALUES (?, ?, ?, ?, ?, ?); " + "insert into collections (inventory_id, collection_id, issue_id ) " + // if
+																														// //
+																														// value
 																														// is
 																														// sequentially
 																														// generated
@@ -152,18 +152,20 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	private Collection mapRowToCollection(SqlRowSet results) {
 
-		// Collection collection = new Collection();
-
+		Collection collection = new Collection();
+		collection.setName(results.getString("collectionname"));
+		collection.setCollectionId(results.getInt("collectionid"));
 //		collection.setCollectionId(results.getInt("collections.collection_id"));
 //		collection.setInventoryId(results.getInt("inventory_id"));
-		collection.setIssueId(results.getInt("issue.issue_id"));
+//		collection.setIssueId(results.getInt("issue.issue_id"));
 //		collection.setName(results.getString("name"));
 //		collection.setCollectionDescription(results.getString("collection_description"));
 //		collection.setUsername(results.getString("username"));
 
 		return collection;
 	}
-	//***************************** works as of 4/10 1:58pm
+
+	// ***************************** works as of 4/10 1:58pm
 	private ComicBook mapRowToComicBook(SqlRowSet results) {
 		ComicBook newComic = new ComicBook();
 
