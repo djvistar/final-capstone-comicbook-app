@@ -84,9 +84,8 @@ h1 {
   margin: 0 auto;
   padding: 15px;
   background-color: #3ec1d3;
-  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17), 4px 4px 0px 0px rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
-
   color: #fff;
 }
 
