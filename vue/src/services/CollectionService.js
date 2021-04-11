@@ -12,6 +12,7 @@ export default {
         return axios.get(`collections/${collectionID}`);
     },
 
+    // - - - - DONE
     // Return an array of Collection Objects for User requesting it
     getUserCollections() {
         return axios.get(`/collections`);

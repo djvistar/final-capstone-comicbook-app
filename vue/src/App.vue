@@ -18,12 +18,21 @@
 <script>
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
+import CollectionService from "@/services/CollectionService.js";
 
 export default {
   name: "App",
   components: {
     TheHeader,
     TheFooter,
+  },
+  created() {
+    if (this.$store.state.token != "") {
+      CollectionService.getUserCollections().then((response) => {
+        this.$store.state.userCollections = response.data;
+        console.log(this.$store.state.userCollections);
+      });
+    }
   },
 };
 </script>
@@ -77,7 +86,7 @@ h1 {
   background-color: #3ec1d3;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
   text-transform: uppercase;
-  
+
   color: #fff;
 }
 

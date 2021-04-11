@@ -29,29 +29,7 @@ export default new Vuex.Store({
     showAllCollections: true,
     currentCollection: [],
     issuesFromSearch: [],
-    userCollections: [
-      {
-        collectionId: 222,
-        userId: 2,
-        name: "Spider-man Stuff",
-        collectionDescription: "Behold. My Spider-man stuff.",
-        username: "em",
-      },
-      {
-        collectionId: 3,
-        userId: 2,
-        name: "Random",
-        collectionDescription: "It's Random!",
-        username: "em",
-      },
-      {
-        collectionId: 2,
-        userId: 2,
-        name: "The Weird Stuff",
-        collectionDescription: "Weird",
-        username: "em",
-      }
-    ],
+    userCollections: [],
     collection222Contents: [
       {
         id: 1234,
