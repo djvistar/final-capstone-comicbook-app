@@ -1,14 +1,20 @@
 <template>
   <div class="collections-list-main">
     <!-- MODAL -->
-    <button type="button" class="button-block collection-btn" @click="showModal">New Collection</button>
-    <add-collection-modal
-      v-show="isModalVisible"
-      @close="closeModal"
-      header="Add Collection"
-    />
-
-    <br />
+    <div class="coll-list-btn-cont">
+      <button
+        type="button"
+        class="button-block collection-btn"
+        @click="showModal"
+      >
+        Add New Collection
+      </button>
+      <add-collection-modal
+        v-show="isModalVisible"
+        @close="closeModal"
+        header="Add Collection"
+      />
+    </div>
     <div class="collection-area">
       <collection-card
         v-bind:collection="collection"
@@ -36,8 +42,7 @@ export default {
   },
 
   computed: {
-    // listUsersCollections() {
-    // }
+
   },
 
   methods: {
@@ -56,13 +61,19 @@ export default {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
-.collections-list-main {
-  margin: 10px 0 0 0;
-  background-color: lightcoral;
-}
+
 .collection-btn {
-  background-color: #FF165D;
+  background-color: #ff165d;
 }
+.collection-btn:active {
+  top: .2em;
+}
+.coll-list-btn-cont {
+  padding: 0 0 20px 0;
+  margin: 0 auto;
+  display: flex;
+}
+
 </style>

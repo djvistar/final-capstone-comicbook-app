@@ -42,7 +42,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-width: 100vw;
   background-color: #ff165d;
 }
 
@@ -52,6 +52,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -60,12 +61,14 @@ body {
 
 .site-wrap {
   flex: 1 0 auto;
+  width: 100%;
   margin: 0;
   background-color: #fff;
 }
 
 .site-content {
   margin: 0;
+  width: 100%;
   padding-bottom: 50px;
   padding-top: 20px;
 }
@@ -105,9 +108,8 @@ h1 {
   position: relative;
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
-
 a.button-block:active {
-  top: 0.1em;
+  top: 0.2em;
 }
 </style>
 
