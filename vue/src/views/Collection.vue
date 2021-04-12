@@ -1,8 +1,10 @@
 
 <template>
   <div class="single-collection-main">
+    <h1>{{currentName}}</h1>
     <!-- <h1>{{currentCollection.collection_name}}</h1> -->
     <!-- <h1>{{ currentCollection[0].name }}</h1> -->
+    <p>Collection Owner: TBD </p>
     <p>Collection Size: {{ currentCollection.length }}</p>
     <p>Collection ID: {{ this.$route.params.id }}</p>
     <collection-nav />
@@ -31,6 +33,7 @@ export default {
     return {
       currentCollection: [],
       collectionId: this.$route.params.id,
+      currentName: '',
     };
   },
   methods: {},
@@ -41,6 +44,10 @@ export default {
         this.currentCollection = response.data;
       }
     );
+    let currentCollection = this.$store.state.userCollections.filter((collection) => {
+      return collection.collectionId == this.$route.params.id;
+    });
+    this.currentName = currentCollection[0].name;
   },
 };
 </script>

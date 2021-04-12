@@ -21,10 +21,6 @@ import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Collection;
 import com.techelevator.model.ComicBook;
 
-
-
-
-
 @RestController
 //@RequestMapping("/api")
 @CrossOrigin
@@ -33,15 +29,13 @@ public class CollectionController {
 	private CollectionDAO collectionDAO;
 	private ComicBookDAO comicBookDAO;
 	private UserDAO userDAO;
-	
-	
+
 	public CollectionController(CollectionDAO collectionDAO, ComicBookDAO comicBookDAO, UserDAO userDAO) {
 		this.collectionDAO = collectionDAO;
 		this.comicBookDAO = comicBookDAO;
 		this.userDAO = userDAO;
 	}
-	
-	
+
 //	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
 //	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
 //		if(  userId < 1  ) {//||  collectionId = null) {
@@ -62,8 +56,7 @@ public class CollectionController {
 //		}
 //		
 //	}
-	
-	
+
 //	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
 //	    public void addCollection(@RequestBody Collection collection, Principal principal) {
 //		
@@ -78,71 +71,62 @@ public class CollectionController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
 	public void saveCollection(@RequestBody Collection collection, Principal principal) {
-		if(collection != null) 
-			System.out.println("Attempting to create collection " + collection.getName() + " with values:\nuserId: " + collection.getUserId());
-		
-		if(collection == null || collection.getName() == null) 
-			throw new ResponseStatusException(
-      	          HttpStatus.BAD_REQUEST, "Empty Request");
-		
-		
-		else
-		
-			
-			collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername(principal.getName())));
-			
-		}
-	
+		if (collection != null)
+			System.out.println("Attempting to create collection " + collection.getName() + " with values:\nuserId: "
+					+ collection.getUserId());
 
-	
-	
+		if (collection == null || collection.getName() == null)
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
+
+		else
+
+			collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername(principal.getName())));
+
+	}
+
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET)
-	public List<Collection> getCollectionsByUsername(@PathVariable String username){
+	public List<Collection> getCollectionsByUsername(@PathVariable String username) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
-		for (Collection collection: collections) {
+		for (Collection collection : collections) {
 			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollectionId());
 			collection.setComicsInCollection(comicsInCollection);
 		}
 		return collections;
 	}
-	
+
 	// SHOULD RETURN LIST OF COLLECTIONS FOR USER REQUESTING IT
 	@RequestMapping(value = "/collections", method = RequestMethod.GET)
 	public List<Collection> getCollectionByUser(Principal principal) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(principal.getName());
 		return collections;
 	}
-	
+
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
 	public List<ComicBook> getCollectionById(@PathVariable int collectionId) {
-		//Collection collection = collectionDAO.getCollectionById(collectionId);
-	List<ComicBook> comics = collectionDAO.getCollectionById(collectionId);//comicBookDAO.listComicsByCollectionId(collectionId);
-	//collection.setComicsInCollection(comics);
-	return comics;
+		// Collection collection = collectionDAO.getCollectionById(collectionId);
+		List<ComicBook> comics = collectionDAO.getCollectionById(collectionId);// comicBookDAO.listComicsByCollectionId(collectionId);
+		// collection.setComicsInCollection(comics);
+		return comics;
 	}
-	
+
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
 	public void updateCollection(@RequestBody Collection collection) {
 		collectionDAO.updateCollection(collection);
 	}
-	
-	
+
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.DELETE)
 	public void deleteCollection(@PathVariable int collectionId) {
 		collectionDAO.deleteCollection(collectionId);
 	}
-	
+
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}/save", method = RequestMethod.POST)
 	public void addComicToCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.addComicToCollection(comicId, collectionId);
 	}
-	
+
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.deleteComicFromCollection(comicId, collectionId);
 	}
-	
-	
-	
-	
+
 }
