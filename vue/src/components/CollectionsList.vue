@@ -21,6 +21,7 @@
         v-bind:collection="collection"
         v-for="collection in $store.state.userCollections"
         v-bind:key="collection.id"
+        class="coll-card-single"
       />
     </div>
     <div id="empty-collection" v-if="$store.state.userCollections.length == 0">
@@ -62,7 +63,7 @@ export default {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .collection-btn {
@@ -75,6 +76,10 @@ export default {
   padding: 0 0 20px 0;
   margin: 0 auto;
   display: flex;
+}
+
+.coll-card-single {
+  margin: 20px;
 }
 
 </style>

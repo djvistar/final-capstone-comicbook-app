@@ -1,12 +1,9 @@
 <template>
   <div class="modal-backdrop">
     <div class="modal">
-      <!-- <header class="modal-header">
-        <slot name="header"> Add a New Collection! </slot>
-      </header> -->
       <section class="modal-body">
         <slot name="body">
-          <p>Add a New Collection!</p>
+          <h3>Add a New Collection!</h3>
           <form v-on:submit.prevent="submitCollection" class="collectionForm">
             <div class="form-group">
               <label for="collectionName">Collection Name:</label>
@@ -28,6 +25,7 @@
   </div>
 </template>
 <script>
+import CollectionService from "@/services/CollectionService.js";
 export default {
   name: "add-collection-modal",
   data() {
@@ -41,17 +39,30 @@ export default {
     },
     submitCollection() {
       let newCollection = {
-        collectionId: 225,
-        userId: 2,
-        name: this.newCollectionName,
-        collectionDescription: "",
-        username: "em",
+        collection_name: this.newCollectionName,
       };
-      this.$store.commit("ADD_COLLECTION", newCollection);
+      CollectionService.makeCollection(newCollection)
+        .then((response) => {
+          if (response.status == "201") {
+            //refresh user collections
+            CollectionService.getUserCollections().then((response) => {
+              this.$store.state.userCollections = response.data;
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.handleErrorResponse(error);
+        });
     },
   },
 };
 </script>
 <style>
-
+.modal-header,
+.modal-footer {
+  padding: 35px 10px 10px 10px;
+  display: flex;
+  background: blue;
+}
 </style>

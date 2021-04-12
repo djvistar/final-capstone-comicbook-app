@@ -4,12 +4,12 @@
       <div class="coll-card-name">
         {{ collection.collection_name }}
       </div>
-      <div class="coll-card-img">image</div>
+      <div class="coll-card-img">&nbsp;</div>
       <div class="coll-btn-box">
-        <button v-on:click="selectActiveCollection(collection.collection_id)">
+        <button v-on:click="selectActiveCollection(collection.collection_id)" class="button-block coll-btn-add">
           View
         </button>
-        <button type="button" class="btn" @click="showModal">Delete</button>
+        <button type="button" class="button-block coll-btn-del" @click="showModal">Delete</button>
         <delete-collection-modal
           v-show="isModalVisible"
           @close="closeModal"
@@ -68,13 +68,37 @@ export default {
   font-weight: bold;
   color: #fff;
   padding: 5px;
-  background-color: #2B80D3;
+  background-color:#ff165d;
   
 }
+.coll-card-img {
+  background-image: url("../assets/collection-cover.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 210px auto;
+  height: 100%;
+
+}
+
 .coll-btn-box {
   border-top: 5px solid #fff;
   padding: 8px 10%;
   display: flex;
   justify-content: space-between;
+  background-color: #2B80D3;
+}
+
+.coll-btn-add {
+  background-color: #fff;
+  margin: 0;
+  color: #ff165d;
+  color: #000;
+  width:45%;
+}
+.coll-btn-del {
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  width:45%;
 }
 </style>
