@@ -15,16 +15,16 @@
         header="Add Collection"
       />
     </div>
-    
+
     <div class="collection-area">
       <collection-card
         v-bind:collection="collection"
-        v-for="collection in $store.state.userCollections"
+        v-for="collection in userCollectionList"
         v-bind:key="collection.id"
         class="coll-card-single"
       />
     </div>
-    <div id="empty-collection" v-if="$store.state.userCollections.length == 0">
+    <div id="empty-collection" v-if="userCollectionList.length == 0">
       Uh-Oh! You should probably add a collection!
     </div>
   </div>
@@ -33,6 +33,7 @@
 <script>
 import AddCollectionModal from "../components/AddCollectionModal.vue";
 import CollectionCard from "../components/CollectionCard.vue";
+
 export default {
   name: "collections-list",
   components: { CollectionCard, AddCollectionModal },
@@ -43,16 +44,19 @@ export default {
     };
   },
 
-  computed: {
-
-  },
-
   methods: {
     showModal() {
       this.isModalVisible = true;
     },
     closeModal() {
       this.isModalVisible = false;
+    },
+  },
+  computed: {
+    userCollectionList() {
+  
+      let userList =  this.$store.state.userCollections;
+      return userList;
     },
   },
 };
@@ -70,7 +74,7 @@ export default {
   background-color: #ff165d;
 }
 .collection-btn:active {
-  top: .2em;
+  top: 0.2em;
 }
 .coll-list-btn-cont {
   padding: 0 0 20px 0;
@@ -81,5 +85,4 @@ export default {
 .coll-card-single {
   margin: 20px;
 }
-
 </style>

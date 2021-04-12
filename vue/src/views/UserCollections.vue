@@ -13,7 +13,9 @@ import CollectionsList from "../components/CollectionsList.vue";
 export default {
   name: "user-collections",
   data() {
-    return {};
+    return {
+      
+    };
   },
   components: {
     CollectionsList,
