@@ -22,6 +22,7 @@ import com.techelevator.dao.ComicBookDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Collection;
 import com.techelevator.model.ComicBook;
+import com.techelevator.model.User;
 
 @RestController
 
@@ -143,5 +144,23 @@ public class CollectionController {
 	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.deleteComicFromCollection(comicId, collectionId);
 	}
+	
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public List<User> getAllUsers(){
+		List<User> users = userDAO.findAll();
+		return users;
+	}
 
+	@RequestMapping(value ="/users/single/{userId}", method = RequestMethod.GET)
+	public User getUserById(@PathVariable long userId) {
+		User user = userDAO.getUserById((long)userId);
+		return user;
+	}
+	
+	
+	@RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+	public User getUserByName(@PathVariable String username) {
+		User user = userDAO.findByUsername(username);
+		return user;
+	}
 }
