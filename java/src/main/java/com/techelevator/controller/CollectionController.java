@@ -35,6 +35,27 @@ public class CollectionController {
 	public ComicBookDAO comicBookDAO;
 	@Autowired
 	public UserDAO userDAO;
+
+	// RETURN LIST OF COLLECTION OBJECTS FOR USER REQUESTING THEM
+	@RequestMapping(value = "/collections", method = RequestMethod.GET)
+	public List<Collection> getCollectionByUser(Principal principal) {
+		List<Collection> collections = collectionDAO.listCollectionByUsername(principal.getName());
+		return collections;
+	}
+
+	// RETURNS COLLECTION OBJECT BASED ON GIVEN ID
+	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
+	public Collection getCollectionById(@PathVariable int collectionId) {
+		Collection collection = collectionDAO.getCollectionById(collectionId);
+		return collection;
+	}
+
+	// RETURNS LIST OF COMICS BASED ON COLLECTION ID
+	@RequestMapping(value = "/collections/{collectionId}/issues", method = RequestMethod.GET)
+	public List<ComicBook> getCollectionContentsById(@PathVariable int collectionId) {
+		List<ComicBook> collectionContents = collectionDAO.listCollectionContentsById(collectionId);
+		return collectionContents;
+	}
 //
 //	public CollectionController(CollectionDAO collectionDAO, ComicBookDAO comicBookDAO, UserDAO userDAO) {
 //		this.collectionDAO = collectionDAO;
@@ -77,7 +98,7 @@ public class CollectionController {
 	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/collections", method = RequestMethod.POST) // removing /create from url
-	public void addCollection(@RequestBody Collection newCollection, Principal principal) {// 
+	public void addCollection(@RequestBody Collection newCollection, Principal principal) {//
 //		if (newCollection != null) {
 //			System.out.println("Attempting to create collection " + newCollection.getName() + " with values:\nuserId: "
 //					+ newCollection.getUserId());
@@ -101,21 +122,6 @@ public class CollectionController {
 			collection.setComicsInCollection(comicsInCollection);
 		}
 		return collections;
-	}
-
-	// SHOULD RETURN LIST OF COLLECTIONS FOR USER REQUESTING IT
-	@RequestMapping(value = "/collections", method = RequestMethod.GET)
-	public List<Collection> getCollectionByUser(Principal principal) {
-		List<Collection> collections = collectionDAO.listCollectionByUsername(principal.getName());
-		return collections;
-	}
-
-	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
-	public List<ComicBook> getCollectionById(@PathVariable int collectionId) {
-		// Collection collection = collectionDAO.getCollectionById(collectionId);
-		List<ComicBook> comics = collectionDAO.getCollectionById(collectionId);// comicBookDAO.listComicsByCollectionId(collectionId);
-		// collection.setComicsInCollection(comics);
-		return comics;
 	}
 
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
