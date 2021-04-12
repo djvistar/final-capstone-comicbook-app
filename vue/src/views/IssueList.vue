@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import SearchService from "@/services/SearchService.js";
+// import SearchService from "@/services/SearchService.js";
 import ComicCardImport from "@/components/ComicCardImport.vue";
 export default {
   name: "issue-list",
@@ -39,28 +39,29 @@ export default {
   created: function () {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
-    SearchService.searchIssuesByVolume(activeVolumeID)
+    //http://comicvine.gamespot.com/api/issues/'+ apiKey + issuesInVolume + volumeID
+    let url =
+      "http://comicvine.gamespot.com/api/issues/?api_key=2305a8c76071ed723085da1129ee957508678790&field_list=name,image,issue_number,deck,description,volume,id&format=json&filter=volume:" +
+      activeVolumeID;
+    fetch(url)
       .then((response) => {
-        this.issues = response.data.results;
+        response.json().then((data) => {
+          this.issues = data.results;
+        });
       })
-      .catch((error) => {
-        // handle an error
-        console.log(error);
+      .catch((err) => {
+        console.log("Fetch Error", err);
       });
+      
+    // SearchService.searchIssuesByVolume(activeVolumeID)
+    //   .then((response) => {
+    //     this.issues = response.data.results;
+    //   })
+    //   .catch((error) => {
+    //     handle an error
+    //     console.log(error);
+    //   });
   },
-
-  //methods: {
-  // issueByVolume(){
-  //     SearchService.searchIssuesByVolume(
-  //         this.volumeID
-  //     )
-  //     .then((response)=>{
-  //         this.issues=response.data.results;
-  // })
-  //need catch   .catch((error) => {
-  // handle an error
-  //  console.log(error);
-  //}
 };
 </script>
 

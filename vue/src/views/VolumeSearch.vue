@@ -8,8 +8,10 @@
           <input type="text" name="name" v-model="volumeName" />
           <br />
           <div id="publisher-form" v-if="volumeName != ''">
-          <label for="publisher"><strong>Publisher</strong> (Optional): </label>
-          <input type="text" name="publisher" v-model="volumePublisher" />
+            <label for="publisher"
+              ><strong>Publisher</strong> (Optional):
+            </label>
+            <input type="text" name="publisher" v-model="volumePublisher" />
           </div>
           <br />
           <button class="button-block search-btn">Submit</button>
@@ -29,7 +31,7 @@
 
 <script>
 import VolumeCard from "@/components/VolumeCard.vue";
-import SearchService from "@/services/SearchService.js";
+// import SearchService from "@/services/SearchService.js";
 
 export default {
   name: "volume-search",
@@ -46,32 +48,58 @@ export default {
   },
 
   methods: {
-    // search by Volume:
     searchVolumes() {
-      SearchService.searchVolumes(
-        this.volumeName,
-        this.volumePublisher,
-        this.volumeYearStart
-      )
+      let url =
+        "http://comicvine.gamespot.com/api/volumes/?api_key=2305a8c76071ed723085da1129ee957508678790&field_list=name,start_year,publisher,id,image,count_of_issues&format=json&filter=" +
+        this.volumeName +
+        "," +
+        this.volumePublisher;
+      fetch(url)
         .then((response) => {
-          this.volumes = response.data.results;
-          if (this.volumePublisher != "") {
-            this.volumes = this.volumes.filter((volume) => {
-              if (volume.publisher != null) {
-                return volume.publisher.name.includes(this.volumePublisher);
-              }
+          response.json().then((data) => {
+            this.volumes = data.results;
+            if (this.volumePublisher != "") {
+              this.volumes = this.volumes.filter((volume) => {
+                if (volume.publisher != null) {
+                  return volume.publisher.name.includes(this.volumePublisher);
+                }
+              });
+            }
+            this.volumes.sort(function (a, b) {
+              return b.count_of_issues - a.count_of_issues;
             });
-          }
-          this.volumes.sort(function (a, b) {
-            return b.count_of_issues - a.count_of_issues;
+            this.$store.state.volumeResults = this.volumes;
           });
-          this.$store.state.volumeResults = this.volumes;
         })
-        .catch((error) => {
-          // handle an error
-          console.log(error);
+        .catch((err) => {
+          console.log("Fetch Error", err);
         });
     },
+    // search by Volume:
+    // searchVolumes() {
+    //   SearchService.searchVolumes(
+    //     this.volumeName,
+    //     this.volumePublisher,
+    //     this.volumeYearStart
+    //   )
+    //     .then((response) => {
+    //       this.volumes = response.data.results;
+    //       if (this.volumePublisher != "") {
+    //         this.volumes = this.volumes.filter((volume) => {
+    //           if (volume.publisher != null) {
+    //             return volume.publisher.name.includes(this.volumePublisher);
+    //           }
+    //         });
+    //       }
+    //       this.volumes.sort(function (a, b) {
+    //         return b.count_of_issues - a.count_of_issues;
+    //       });
+    //       this.$store.state.volumeResults = this.volumes;
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
   },
 };
 </script>
@@ -83,7 +111,7 @@ export default {
   justify-content: space-around;
   width: 90%;
   margin: 10px auto;
-  background: #FF9A00;
+  background: #ff9a00;
   /* flex: 0 0 25; */
 }
 .vol-search-form-box {
@@ -95,7 +123,7 @@ export default {
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
   font-size: 18px;
 }
-input[type=text] {
+input[type="text"] {
   padding: 5px 10px;
   margin: 8px 10px;
   width: 35%;
@@ -105,18 +133,17 @@ input[type=text] {
   background-color: #ff165d;
 }
 .search-btn:active {
-  top: .2em;
+  top: 0.2em;
 }
 .comic-search-main {
   padding-bottom: 15px;
 }
 
-.volume-card-single{
+.volume-card-single {
   margin: 25px;
 }
 
 .searchForm {
   padding: 10px;
 }
-
 </style>
