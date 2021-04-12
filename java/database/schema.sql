@@ -72,18 +72,18 @@ INSERT INTO users (username,password_hash,role) VALUES ('Em','$2a$08$UkVvwpULis1
 INSERT INTO users (username,password_hash,role) VALUES ('Blase','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('Vic','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-insert into user_collections (collection_id, user_id, collection_name)
-values(1,3, 'Em Collection 1');
-insert into user_collections (collection_id, user_id, collection_name)
-values(2,3, 'Em Collection 2');
-insert into user_collections (collection_id, user_id, collection_name)
-values(3,4, 'Blase Collection 1');
-insert into user_collections (collection_id, user_id, collection_name)
-values(4,5, 'Vic Collection 1');
-insert into user_collections (collection_id, user_id, collection_name)
-values(5,3, 'Em Collection 3');
-insert into user_collections (collection_id, user_id, collection_name)
-values(6,4, 'Blase Collection 2');
+insert into user_collections (user_id, collection_name)
+values(3, 'Em Collection 1');
+insert into user_collections (user_id, collection_name)
+values(3, 'Em Collection 2');
+insert into user_collections (user_id, collection_name)
+values(4, 'Blase Collection 1');
+insert into user_collections (user_id, collection_name)
+values(5, 'Vic Collection 1');
+insert into user_collections (user_id, collection_name)
+values(3, 'Em Collection 3');
+insert into user_collections (user_id, collection_name)
+values(4, 'Blase Collection 2');
 
 --COMIC DAO
 --inserts issue into db- works fine as long as pk is good

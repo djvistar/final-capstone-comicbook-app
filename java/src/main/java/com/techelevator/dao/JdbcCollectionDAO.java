@@ -39,12 +39,12 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public void saveCollection(Collection newCollection) {
-		String sqlSaveCollection = "INSERT INTO user_collections (collection_id, user_id, collection_name) "
-				+ "VALUES (?, ?, ?) ";
+		String sqlSaveCollection = "INSERT INTO user_collections (user_id, collection_name) "
+				+ "VALUES (?, ?) ";
 
-		jdbcTemplate.update(sqlSaveCollection, newCollection.getCollection_id(), newCollection.getUser_id(),
+		jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),
 				newCollection.getCollection_name());
-	}//once serialized, removed collection ID from insert into and update
+	}//once serialized, removed collection ID from insert into and update   newCollection.getCollection_id(),collection_id,
 
 //
 //***************************** works as of 4/10 1:58pm
@@ -88,7 +88,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 		List<Collection> collections = new ArrayList<>();
 
-		String sqlGetCollectionsByUserId = "SELECT collection_name FROM user_collections WHERE user_id = ?";
+		String sqlGetCollectionsByUserId = "SELECT collection_name FROM user_collections WHERE user_id = ?"; //alias needed?
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUserId, userId);
 		while (results.next()) {
 			collections.add(mapRowToCollection(results));
