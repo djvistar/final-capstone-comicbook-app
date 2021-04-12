@@ -14,7 +14,7 @@
           v-show="isModalVisible"
           @close="closeModal"
           header="Delete Collection"
-          v-bind:id="collection.collectionId"
+          v-bind:id="collection.collection_id"
         />
       </div>
     </div>

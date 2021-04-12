@@ -4,8 +4,12 @@
       <section class="modal-body">
         <slot name="body">
           <p>Delete This Collection?</p>
-          <form v-on:submit.prevent="deleteCollection(id)" class="collectionForm">
+          <form
+            v-on:submit.prevent="deleteCollection(id)"
+            class="collectionForm"
+          >
             <br />
+            {{ id }}
             <button class="btn btn-submit" @click="close">Yes!</button>
             <button class="btn" type="button" @click="close">No!</button>
           </form>
@@ -29,8 +33,11 @@ export default {
       this.$emit("close");
     },
     deleteCollection(id) {
-      CollectionService.delete(id);
-      this.$store.commit("DELETE_COLLECTION", id);
+      CollectionService.deleteCollection(id);
+      CollectionService.getUserCollections().then((response) => {
+        this.$store.state.userCollections = response.data;
+      });
+      this.$router.push('collections');
     },
   },
 };

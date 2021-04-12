@@ -12,11 +12,11 @@
               <select id="user-collections" name="user-collections" v-model="selectedCollection">
                 <option value="0">My Collections</option>
                 <option
-                  v-bind:value="collection.collectionId"
+                  v-bind:value="collection.collection_id"
                   v-for="collection in $store.state.userCollections"
-                  v-bind:key="collection.collectionId"
+                  v-bind:key="collection.collection_id"
                 >
-                  {{ collection.name }}
+                  {{ collection.collection_name }}
                 </option>
               </select>
             </div>

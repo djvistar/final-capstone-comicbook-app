@@ -49,11 +49,10 @@ export default {
 
   methods: {
     searchVolumes() {
+      console.log(this.volumeName);
       let url =
-        "http://comicvine.gamespot.com/api/volumes/?api_key=2305a8c76071ed723085da1129ee957508678790&field_list=name,start_year,publisher,id,image,count_of_issues&format=json&filter=" +
-        this.volumeName +
-        "," +
-        this.volumePublisher;
+        "http://comicvine.gamespot.com/api/volumes/?api_key=2305a8c76071ed723085da1129ee957508678790&field_list=name,start_year,publisher,id,image,count_of_issues&format=json&filter=name:" +
+        this.volumeName;
       fetch(url)
         .then((response) => {
           response.json().then((data) => {
