@@ -130,7 +130,7 @@ public class CollectionController {
 
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}/save", method = RequestMethod.POST)
 	public void addComicToCollection(@PathVariable int collectionId, @PathVariable int comicId) {
-		collectionDAO.addComicToCollection(comicId, collectionId);
+		collectionDAO.addComicToCollection(comic, collectionId);
 	}
 
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)

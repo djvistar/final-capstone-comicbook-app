@@ -112,9 +112,27 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	}
 
 	@Override
-	public void addComicToCollection(int comicId, int collectionId) {// need to update arguments
-		String sqlAddComicToCollection = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
-				+ "VALUES (?, ?, ?, ?, ?, ?); " + "insert into collections (inventory_id, collection_id, issue_id ) " + // if
+	public void addComicToCollection(ComicBook comic, int collectionId) {//(issue need to update arguments // save comic id, add id to collection, pass whole comic
+		//String sqlAddComicToCollection = "select issue_id from issue where issue_id = ?";
+		String sqlResults = "select issue_id from issue where issue_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults);
+
+		if (results == null) {
+			
+					String sqlAddComicToIssue ="INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
+				+ "VALUES (?, ?, ?, ?, ?, ?); ";
+				
+					jdbcTemplate.update(sqlAddComicToIssue, comic);
+		}
+		
+		
+		 String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " 
+			+"values(?,?);";
+		 jdbcTemplate.update(sqlAddIssueToCollection, collectionId, comic.getComicId());
+		//	jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),//pull id from principal
+		//newCollection.getCollection_name());
+			//do this regardless	
+				//+ "insert into collections (inventory_id, collection_id, issue_id ) " +"values(?,?,?);"; //  use coll_id and issue.issue_id, remove inv id
 																														// //
 																														// value
 																														// is
@@ -133,9 +151,9 @@ public class JdbcCollectionDAO implements CollectionDAO {
 																														// the
 																														// inventory_id
 																														// value
-				"values(?,?,?);";
+				
 
-		jdbcTemplate.update(sqlAddComicToCollection, comicId, collectionId);
+		//jdbcTemplate.update(sqlAddComicToIssue, comic, collectionId);
 
 	}
 
