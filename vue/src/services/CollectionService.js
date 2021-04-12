@@ -6,25 +6,27 @@ export default {
         return {}
     },
 
-       // Return single collection object when given Collection ID
-       getCollection(collectionID) {
+    // -> DONE
+    // Return single collection object when given Collection ID
+    getCollection(collectionID) {
         return axios.get(`/collections/${collectionID}`);
     },
 
+    // -> DONE
     // Return array of Issue IDs when given a Collection ID
     getIssuesFromCollection(collectionID) {
         return axios.get(`collections/${collectionID}/issues`);
     },
 
-    // - - - - DONE
+    // -> DONE
     // Return an array of Collection Objects for User requesting it
     getUserCollections() {
         return axios.get(`/collections`);
     },
 
-    // Create a Collection when given a user ID and a collection object (name, issues)
+    // Create a Collection when given a user ID and a collection object (name)
     makeCollection(collectionObject) {
-        return axios.push('/collections', collectionObject);
+        return axios.post('/collections', collectionObject);
     },
 
     // Delete a Collection when given a Collection ID
@@ -32,7 +34,7 @@ export default {
         return axios.delete(`collections/${collectionID}`);
     },
 
- 
+
 
 
 
