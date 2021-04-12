@@ -1,7 +1,7 @@
 <template>
   <div class="header-main">
     <div class="header-image-box">
-      <img src="../assets/app-logo-temp-300-150.png" />
+      <img src="../assets/app-logo-temp.png" />
       <div id="login-box">
         <div id="not-logged" v-if="$store.state.token == ''">
           <router-link
@@ -97,5 +97,7 @@ export default {
 
 .header-main img {
   margin: 20px;
+  height: 150px;
+  width: auto;
 }
 </style>

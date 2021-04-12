@@ -42,7 +42,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-width: 100vw;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
   background-color: #ff165d;
 }
 
@@ -63,7 +65,9 @@ body {
   flex: 1 0 auto;
   width: 100%;
   margin: 0;
-  background-color: #fff;
+  
+  background-image: url("assets/halftonebg.jpg");
+  background-repeat: repeat;
 }
 
 .site-content {
