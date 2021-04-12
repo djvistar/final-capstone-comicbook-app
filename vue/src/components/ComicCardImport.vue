@@ -7,7 +7,10 @@
         @close="closeModal"
         header="Add to Collection"
         v-bind:issueId="issue.id"
+        v-bind:volumeName="issue.volume.name"
+    
       />
+      {{issue}}
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
