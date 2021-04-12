@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import com.techelevator.model.Collection;
 import com.techelevator.model.ComicBook;
 
 @RestController
+
 //@RequestMapping("/api")
 @CrossOrigin
 
@@ -72,9 +74,10 @@ public class CollectionController {
 //	    	collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername((principal.getName()))));
 //	    }
 //	}
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/collections", method = RequestMethod.POST) // removing /create from url
-	public void addCollection(@RequestBody Collection newCollection) {// ,Principal principal
+	public void addCollection(@RequestBody Collection newCollection, Principal principal) {// 
 //		if (newCollection != null) {
 //			System.out.println("Attempting to create collection " + newCollection.getName() + " with values:\nuserId: "
 //					+ newCollection.getUserId());
@@ -84,7 +87,8 @@ public class CollectionController {
 //			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
 //		}
 //		else {
-
+		int id = userDAO.findIdByUsername(principal.getName());
+		newCollection.setUser_id(id);
 		collectionDAO.saveCollection(newCollection);// collection.setUserId(userDAO.findIdByUsername(principal.getName()))
 		// }
 	}

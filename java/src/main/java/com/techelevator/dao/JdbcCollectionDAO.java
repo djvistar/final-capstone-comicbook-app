@@ -42,7 +42,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		String sqlSaveCollection = "INSERT INTO user_collections (user_id, collection_name) "
 				+ "VALUES (?, ?) ";
 
-		jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),
+		jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),//pull id from principal
 				newCollection.getCollection_name());
 	}//once serialized, removed collection ID from insert into and update   newCollection.getCollection_id(),collection_id,
 
