@@ -6,6 +6,10 @@ export default {
         return {}
     },
 
+       // Return single collection object when given Collection ID
+       getCollection(collectionID) {
+        return axios.get(`/collection/${collectionID}`);
+    },
     // - - - - DONE
     // Return array of Issue IDs when given a Collection ID
     getIssuesFromCollection(collectionID) {
@@ -28,10 +32,7 @@ export default {
         return axios.delete(`collections/${collectionID}`);
     },
 
-    // Return single collection object when given Collection ID
-    getCollection(collectionID) {
-        return axios.get(`/collection/${collectionID}`);
-    },
+ 
 
 
 

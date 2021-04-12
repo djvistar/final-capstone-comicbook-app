@@ -26,6 +26,8 @@ public interface CollectionDAO {
 	
 	public void updateCollection(Collection collection);
 
+//	Collection getCollectionInfoByID(int collectionId);
+
 	
 	
 

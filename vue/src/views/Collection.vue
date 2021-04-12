@@ -1,7 +1,7 @@
 
 <template>
   <div class="single-collection-main">
-    <h1>COLLECTION NAME</h1>
+    <!-- <h1>{{currentCollection.collection_name}}</h1> -->
     <!-- <h1>{{ currentCollection[0].name }}</h1> -->
     <p>Collection Size: {{ currentCollection.length }}</p>
     <p>Collection ID: {{ this.$route.params.id }}</p>
@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       currentCollection: [],
-      collectionContents: [],
       collectionId: this.$route.params.id,
     };
   },
@@ -40,7 +39,6 @@ export default {
     CollectionService.getIssuesFromCollection(this.$route.params.id).then(
       (response) => {
         this.currentCollection = response.data;
-        console.log(this.currentCollection);
       }
     );
   },

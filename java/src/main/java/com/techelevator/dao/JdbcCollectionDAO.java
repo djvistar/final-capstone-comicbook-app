@@ -70,6 +70,17 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		// , issue_name, issue_number, cover_url, volume_name */
 
 	}
+	
+//	@Override
+//	public Collection getCollectionInfoByID(int collectionId) {
+//		String sqlQuery = "SELECT collection_name AS collectionname, collection_id AS collectionid FROM user_collections WHERE collection_id = ?";
+//		Collection collection = new Collection();
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, collectionId);
+//		while (results.next()) {
+//			collection = mapRowToCollection(results);
+//		}
+//		return collection;
+//	}
 
 	@Override
 	public List<Collection> listAllCollectionsByUserId(int userId) {
@@ -84,7 +95,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 		return collections;
 	}
-
 
 	@Override
 	public List<Collection> listCollectionByUsername(String username) {
