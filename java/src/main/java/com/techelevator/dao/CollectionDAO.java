@@ -10,7 +10,7 @@ import com.techelevator.model.User;
 public interface CollectionDAO {
 
 	//public void saveCollection(int collectionId, int userId, String collectionName);
-	 void saveCollection(Collection collection);
+	 void saveCollection(Collection newCollection);
 	
 	public List<ComicBook> getCollectionById(int collectionId);
 	

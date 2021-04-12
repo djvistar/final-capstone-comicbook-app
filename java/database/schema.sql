@@ -48,7 +48,7 @@ Constraint PK_issue PRIMARY KEY (issue_id)
 );
 --user_collections created third, reliant only on USERS
 CREATE TABLE user_collections (
-        collection_id int NOT NULL,
+        collection_id int DEFAULT nextval('seq_collection_id'::regclass) NOT NULL,
         user_id int NOT NULL,
         collection_name varchar(200),
         Constraint PK_userCollection PRIMARY KEY (collection_id),

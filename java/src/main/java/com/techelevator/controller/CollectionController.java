@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,17 +25,20 @@ import com.techelevator.model.ComicBook;
 @RestController
 //@RequestMapping("/api")
 @CrossOrigin
+
 public class CollectionController {
-
-	private CollectionDAO collectionDAO;
-	private ComicBookDAO comicBookDAO;
-	private UserDAO userDAO;
-
-	public CollectionController(CollectionDAO collectionDAO, ComicBookDAO comicBookDAO, UserDAO userDAO) {
-		this.collectionDAO = collectionDAO;
-		this.comicBookDAO = comicBookDAO;
-		this.userDAO = userDAO;
-	}
+	@Autowired
+	public CollectionDAO collectionDAO;
+	@Autowired
+	public ComicBookDAO comicBookDAO;
+	@Autowired
+	public UserDAO userDAO;
+//
+//	public CollectionController(CollectionDAO collectionDAO, ComicBookDAO comicBookDAO, UserDAO userDAO) {
+//		this.collectionDAO = collectionDAO;
+//		this.comicBookDAO = comicBookDAO;
+//		this.userDAO = userDAO;
+//	}
 
 //	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
 //	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
@@ -69,26 +73,27 @@ public class CollectionController {
 //	    }
 //	}
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-	public void saveCollection(@RequestBody Collection collection, Principal principal) {
-		if (collection != null)
-			System.out.println("Attempting to create collection " + collection.getName() + " with values:\nuserId: "
-					+ collection.getUserId());
+	@RequestMapping(value = "/collections", method = RequestMethod.POST) // removing /create from url
+	public void addCollection(@RequestBody Collection newCollection) {// ,Principal principal
+//		if (newCollection != null) {
+//			System.out.println("Attempting to create collection " + newCollection.getName() + " with values:\nuserId: "
+//					+ newCollection.getUserId());
+//			}
+//
+//		if (newCollection == null || newCollection.getName() == null) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
+//		}
+//		else {
 
-		if (collection == null || collection.getName() == null)
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
-
-		else
-
-			collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername(principal.getName())));
-
+		collectionDAO.saveCollection(newCollection);// collection.setUserId(userDAO.findIdByUsername(principal.getName()))
+		// }
 	}
 
-	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET) // returns empty array
 	public List<Collection> getCollectionsByUsername(@PathVariable String username) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
 		for (Collection collection : collections) {
-			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollectionId());
+			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollection_id());
 			collection.setComicsInCollection(comicsInCollection);
 		}
 		return collections;

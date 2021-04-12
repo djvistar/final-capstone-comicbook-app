@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -16,14 +17,14 @@ import com.techelevator.model.User;
 
 @Component
 public class JdbcCollectionDAO implements CollectionDAO {
-
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public JdbcCollectionDAO(DataSource datasource) {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	};
 
-	Collection collection = new Collection();
+	//Collection collection = new Collection();
 	ComicBook comic = new ComicBook();
 
 //	@Override
@@ -37,13 +38,13 @@ public class JdbcCollectionDAO implements CollectionDAO {
 //	}
 
 	@Override
-	public void saveCollection(Collection collection) {
-		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, collection_name) "
-				+ "VALUES (?,?) ";
+	public void saveCollection(Collection newCollection) {
+		String sqlSaveCollection = "INSERT INTO user_collections (collection_id, user_id, collection_name) "
+				+ "VALUES (?, ?, ?) ";
 
-		jdbcTemplate.update(sqlSaveCollection, collection.getCollectionId(), collection.getUserId(),
-				collection.getName());
-	}
+		jdbcTemplate.update(sqlSaveCollection, newCollection.getCollection_id(), newCollection.getUser_id(),
+				newCollection.getCollection_name());
+	}//once serialized, removed collection ID from insert into and update
 
 //
 //***************************** works as of 4/10 1:58pm
@@ -155,16 +156,16 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public void updateCollection(Collection collection) { // no info in db for this yet
 		String sqlUpdateCollection = "UPDATE collection " + "SET user_d =?, name = ?, collection_description = ? "
 				+ "WHERE collection_id =? ";
-		jdbcTemplate.update(sqlUpdateCollection, collection.getUserId(), collection.getName(),
-				collection.getCollectionDescription(), collection.getCollectionId());
+		jdbcTemplate.update(sqlUpdateCollection, collection.getUser_id(), collection.getCollection_name(),
+				collection.getCollectionDescription(), collection.getCollection_id());
 
 	}
 
 	private Collection mapRowToCollection(SqlRowSet results) {
 
 		Collection collection = new Collection();
-		collection.setName(results.getString("collectionname"));
-		collection.setCollectionId(results.getInt("collectionid"));
+		collection.setCollection_name(results.getString("collectionname"));
+		collection.setCollection_id(results.getInt("collectionid"));
 //		collection.setCollectionId(results.getInt("collections.collection_id"));
 //		collection.setInventoryId(results.getInt("inventory_id"));
 //		collection.setIssueId(results.getInt("issue.issue_id"));
