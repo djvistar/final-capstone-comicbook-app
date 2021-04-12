@@ -136,33 +136,43 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		return collections;
 	}
 
+//	@Override
+//	public List<Collection> listCollectionByUsername(String username) {
+//		List<Collection> collections = new ArrayList<>();
+//
+//		String sqlGetCollectionsByUsername = "SELECT collection_name AS collectionName, collection_id AS collectionId FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
+//		while (results.next()) {
+//			collections.add(mapRowToCollection(results));
+//
+//		}
+//
+//		return collections;
+//	}
+
 	@Override
-	public void addComicToCollection(int comicId, int collectionId) {// need to update arguments
-		String sqlAddComicToCollection = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
-				+ "VALUES (?, ?, ?, ?, ?, ?); " + "insert into collections (inventory_id, collection_id, issue_id ) " + // if
-																														// //
-																														// value
-																														// is
-																														// sequentially
-																														// generated
-																														// do
-																														// we
-																														// need
-																														// to
-																														// include,
-																														// if
-																														// not
-																														// we
-																														// can
-																														// drop
-																														// the
-																														// inventory_id
-																														// value
-				"values(?,?,?);";
+	public void addComicToCollection(ComicBook comic, int collectionId) {//(issue need to update arguments // save comic id, add id to collection, pass whole comic
+		//String sqlAddComicToCollection = "select issue_id from issue where issue_id = ?";
+		String sqlResults = "select issue_id from issue where issue_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults);
 
-		jdbcTemplate.update(sqlAddComicToCollection, comicId, collectionId);
-
+		if (results == null) {
+			
+					String sqlAddComicToIssue ="INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
+				+ "VALUES (?, ?, ?, ?, ?, ?); ";
+				
+					jdbcTemplate.update(sqlAddComicToIssue, comic);
+		}
+		
+		
+		 String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " 
+			+"values(?,?);";
+		 jdbcTemplate.update(sqlAddIssueToCollection, collectionId, comic.getComicId());
 	}
+		//	jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),//pull id from principal
+		//newCollection.getCollection_name());
+			//do this regardless	
+				//+ "insert into collections (inventory_id, collection_id, issue_id ) " +"values(?,?,?);"; //  use coll_id and issue.issue_id, remove inv id
 
 	@Override
 	public void deleteComicFromCollection(int comicId, int collectionId) {

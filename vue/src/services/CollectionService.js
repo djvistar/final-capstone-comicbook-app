@@ -8,12 +8,12 @@ export default {
 
        // Return single collection object when given Collection ID
        getCollection(collectionID) {
-        return axios.get(`/collection/${collectionID}`);
+        return axios.get(`/collections/${collectionID}`);
     },
-    // - - - - DONE
+
     // Return array of Issue IDs when given a Collection ID
     getIssuesFromCollection(collectionID) {
-        return axios.get(`collections/${collectionID}`);
+        return axios.get(`collections/${collectionID}/issues`);
     },
 
     // - - - - DONE

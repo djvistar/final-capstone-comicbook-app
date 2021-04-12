@@ -21,7 +21,9 @@ public interface CollectionDAO {
 
 	List<Collection> listCollectionByUsername(String username);
 
-	public void addComicToCollection(int comicId, int collectionId);
+		
+	public void  addComicToCollection(ComicBook comic, int collectionId);
+	
 
 	public void deleteComicFromCollection(int comicId, int collectionId);
 
