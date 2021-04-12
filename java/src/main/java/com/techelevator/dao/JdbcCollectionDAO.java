@@ -79,10 +79,9 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public void saveCollection(Collection newCollection) {
 		String sqlSaveCollection = "INSERT INTO user_collections (user_id, collection_name) " + "VALUES (?, ?) ";
 
-		jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(), // pull id from principal
+		jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(),
 				newCollection.getCollection_name());
-	}// once serialized, removed collection ID from insert into and update
-		// newCollection.getCollection_id(),collection_id,
+	}
 
 //
 //***************************** works as of 4/10 1:58pm
@@ -151,28 +150,31 @@ public class JdbcCollectionDAO implements CollectionDAO {
 //	}
 
 	@Override
-	public void addComicToCollection(ComicBook comic, int collectionId) {//(issue need to update arguments // save comic id, add id to collection, pass whole comic
-		//String sqlAddComicToCollection = "select issue_id from issue where issue_id = ?";
+	public void addComicToCollection(ComicBook comic, int collectionId) {// (issue need to update arguments // save
+																			// comic id, add id to collection, pass
+																			// whole comic
+		// String sqlAddComicToCollection = "select issue_id from issue where issue_id =
+		// ?";
 		String sqlResults = "select issue_id from issue where issue_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults);
 
 		if (results == null) {
-			
-					String sqlAddComicToIssue ="INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
-				+ "VALUES (?, ?, ?, ?, ?, ?); ";
-				
-					jdbcTemplate.update(sqlAddComicToIssue, comic);
+
+			String sqlAddComicToIssue = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
+					+ "VALUES (?, ?, ?, ?, ?, ?); ";
+
+			jdbcTemplate.update(sqlAddComicToIssue, comic);
 		}
-		
-		
-		 String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " 
-			+"values(?,?);";
-		 jdbcTemplate.update(sqlAddIssueToCollection, collectionId, comic.getComicId());
+
+		String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " + "values(?,?);";
+		jdbcTemplate.update(sqlAddIssueToCollection, collectionId, comic.getComicId());
 	}
-		//	jdbcTemplate.update(sqlSaveCollection,  newCollection.getUser_id(),//pull id from principal
-		//newCollection.getCollection_name());
-			//do this regardless	
-				//+ "insert into collections (inventory_id, collection_id, issue_id ) " +"values(?,?,?);"; //  use coll_id and issue.issue_id, remove inv id
+	// jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(),//pull id
+	// from principal
+	// newCollection.getCollection_name());
+	// do this regardless
+	// + "insert into collections (inventory_id, collection_id, issue_id ) "
+	// +"values(?,?,?);"; // use coll_id and issue.issue_id, remove inv id
 
 	@Override
 	public void deleteComicFromCollection(int comicId, int collectionId) {

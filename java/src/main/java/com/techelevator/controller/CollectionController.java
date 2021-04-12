@@ -108,11 +108,11 @@ public class CollectionController {
 //		if (newCollection == null || newCollection.getName() == null) {
 //			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
 //		}
-//		else {
 		int id = userDAO.findIdByUsername(principal.getName());
 		newCollection.setUser_id(id);
-		collectionDAO.saveCollection(newCollection);// collection.setUserId(userDAO.findIdByUsername(principal.getName()))
-		// }
+		newCollection.setUsername(principal.getName());
+		collectionDAO.saveCollection(newCollection);
+
 	}
 
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET) // returns empty array
@@ -120,7 +120,7 @@ public class CollectionController {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
 		for (Collection collection : collections) {
 			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollection_id());
-			collection.setComicsInCollection(comicsInCollection);
+//			collection.setComicsInCollection(comicsInCollection);
 		}
 		return collections;
 	}
