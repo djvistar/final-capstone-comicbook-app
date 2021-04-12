@@ -68,19 +68,22 @@ Constraint FK_collectionsid Foreign Key (collection_id)references user_collectio
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('em','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('blase','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('vic','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 insert into user_collections (collection_id, user_id)
-values(1,1);
+values(1,3);
 insert into user_collections (collection_id, user_id)
-values(2,1);
+values(2,3);
 insert into user_collections (collection_id, user_id)
-values(3,2);
+values(3,4);
 insert into user_collections (collection_id, user_id)
-values(4,2);
+values(4,5);
 insert into user_collections (collection_id, user_id)
-values(5,1);
+values(5,3);
 insert into user_collections (collection_id, user_id)
-values(6,2);
+values(6,4);
 
 --COMIC DAO
 --inserts issue into db- works fine as long as pk is good

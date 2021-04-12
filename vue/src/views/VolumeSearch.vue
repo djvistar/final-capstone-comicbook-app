@@ -2,15 +2,19 @@
   <div class="comic-search-main">
     <h1>SEARCH</h1>
     <div id="searchVolumes">
-      <form v-on:submit.prevent="searchVolumes" class="searchForm">
-        <label for="name">Series Name:</label>
-        <input type="text" name="name" v-model="volumeName" />
-        <br />
-        <label for="publisher">Publisher:</label>
-        <input type="text" name="publisher" v-model="volumePublisher" />
-        <br />
-        <button class="btn btn-submit">Submit</button>
-      </form>
+      <div class="vol-search-form-box">
+        <form v-on:submit.prevent="searchVolumes" class="searchForm">
+          <label for="name"><strong>Series Name</strong>:</label>
+          <input type="text" name="name" v-model="volumeName" />
+          <br />
+          <div id="publisher-form" v-if="volumeName != ''">
+          <label for="publisher"><strong>Publisher</strong> (Optional): </label>
+          <input type="text" name="publisher" v-model="volumePublisher" />
+          </div>
+          <br />
+          <button class="button-block search-btn">Submit</button>
+        </form>
+      </div>
       <div class="volume-results">
         <volume-card
           v-bind:volume="volume"
@@ -75,24 +79,44 @@ export default {
 <style>
 .volume-results {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  margin-left: 5%;
-  margin-right: 5%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: 10px auto;
+  background: blue;
   /* flex: 0 0 25; */
 }
-
+.vol-search-form-box {
+  margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  text-align: center;
+  width: 50%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  font-size: 18px;
+}
+input[type=text] {
+  padding: 5px 10px;
+  margin: 8px 10px;
+  width: 35%;
+  box-sizing: border-box;
+}
+.search-btn {
+  background-color: #ff165d;
+}
+.search-btn:active {
+  top: .2em;
+}
 .comic-search-main {
   padding-bottom: 15px;
 }
-.volume-results {
-  /* display:flex;
-  flex-basis: auto;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: space-around; */
+
+.volume-card-single{
+  margin: 25px;
 }
+
 .searchForm {
   padding: 10px;
 }
+
 </style>
