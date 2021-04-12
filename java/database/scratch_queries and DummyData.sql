@@ -81,3 +81,7 @@ select * from issue
 Join collections on issue.issue_id = collections.issue_id
 Join user_collections on collections.collection_id =user_collections.collection_id
 where user_id = 2;
+
+INSERT INTO user_collections(collection_id, user_id, collection_name) VALUES (9999,3, 'Blases Test') 
+
+SELECT issue.issue_id, issue_name, issue_number, cover_url, volume_name FROM issue JOIN collections on issue.issue_id = collections.issue_id WHERE collections.collection_id = 3  

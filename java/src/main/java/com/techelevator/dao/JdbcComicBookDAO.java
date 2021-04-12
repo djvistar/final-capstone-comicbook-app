@@ -34,10 +34,10 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	}
 	
 
-	@Override
-	public List<ComicBook> listAllComicBooks() { //do we want this as everything in our db issue wise?
+	@Override //works to list ALL issues in DB -- query in postman-- http://localhost:8080/comics
+	public List<ComicBook> listAllComicBooks() { 
 		List<ComicBook> allComics = new ArrayList<>();
-		String sqlGetAllComics = "SELECT * FROM issue ";
+		String sqlGetAllComics = "SELECT issue_id AS issueId, issue_name AS title, issue_number AS issue_number  FROM issue ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllComics);
 		while(results.next()) {
 			allComics.add(mapRowToComicBook(results));
@@ -91,7 +91,7 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	@Override
 	public ComicBook getComicById(int comicId) {
 		ComicBook comic = new ComicBook();
-		String sql = "SELECT * FROM issue WHERE issue_id = ? ";
+		String sql = "SELECT issue_id AS issueId, issue_name AS title, issue_number AS issue_number FROM issue WHERE issue_id = ? ";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicId);
 		if(results.next()) {
 			comic = mapRowToComicBook(results);
@@ -110,13 +110,13 @@ public class JdbcComicBookDAO implements ComicBookDAO {
 	private ComicBook mapRowToComicBook(SqlRowSet results) { // will need to revisit for further functionality once DB updated
 		ComicBook comicBook = new ComicBook();
 		
-		comicBook.setComicId(results.getInt("comic_id"));
+		comicBook.setComicId(results.getInt("issueId"));
 		comicBook.setTitle(results.getString("title"));
 		//comicBook.setIssueTitle(results.getString("issue_title"));
 		comicBook.setIssueNumber(results.getInt("issue_number"));
 //		comicBook.setPublisher(results.getString("publisher"));
 //		comicBook.setComicDescription(results.getString("comic_description"));
-		
+		//"SELECT issue_id AS issueId, issue_name AS title, issue_number AS issue_number  FROM issue ";
 		return comicBook;
 	}
 	

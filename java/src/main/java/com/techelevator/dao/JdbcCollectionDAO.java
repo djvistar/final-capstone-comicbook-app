@@ -38,8 +38,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 	@Override
 	public void saveCollection(Collection collection) {
-		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, user_id, collection_name) "
-				+ "VALUES (?,?,?) ";
+		String sqlSaveCollection = "INSERT INTO user_collections(collection_id, collection_name) "
+				+ "VALUES (?,?) ";
 
 		jdbcTemplate.update(sqlSaveCollection, collection.getCollectionId(), collection.getUserId(),
 				collection.getName());
