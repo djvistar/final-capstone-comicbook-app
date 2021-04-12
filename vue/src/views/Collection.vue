@@ -1,17 +1,16 @@
 
 <template>
   <div class="single-collection-main">
-    <h1>{{currentName}}</h1>
-    <!-- <h1>{{currentCollection.collection_name}}</h1> -->
-    <!-- <h1>{{ currentCollection[0].name }}</h1> -->
-    <p>Collection Owner: TBD </p>
-    <p>Collection Size: {{ currentCollection.length }}</p>
+    <h1>{{ currentCollection.collection_name }}</h1>
+
+    <p>Collection Owner: {{ currentCollection.username }}</p>
+    <p>Collection Size: {{ currentCollectionIssues.length }}</p>
     <p>Collection ID: {{ this.$route.params.id }}</p>
     <collection-nav />
     <div class="collection-issues-area">
       <comic-card-server
         v-bind:issue="issue"
-        v-for="issue in currentCollection"
+        v-for="issue in currentCollectionIssues"
         v-bind:key="issue.id"
         class="comic-card-server-single"
       />
@@ -31,23 +30,25 @@ export default {
   components: { ComicCardServer, CollectionNav },
   data() {
     return {
-      currentCollection: [],
+      currentCollection: {},
+      currentCollectionIssues: [],
       collectionId: this.$route.params.id,
-      currentName: '',
+      currentName: "",
     };
   },
   methods: {},
   mounted() {
     this.$store.commit("SET_ACTIVE_COLLECTION", this.activeCollectionID);
+
     CollectionService.getIssuesFromCollection(this.$route.params.id).then(
       (response) => {
-        this.currentCollection = response.data;
+        this.currentCollectionIssues = response.data;
       }
     );
-    let currentCollection = this.$store.state.userCollections.filter((collection) => {
-      return collection.collection_id == this.$route.params.id;
+    CollectionService.getCollection(this.$route.params.id).then((response) => {
+      this.currentCollection = response.data;
+      console.log(this.currentCollection);
     });
-    this.currentName = currentCollection[0].collection_name;
   },
 };
 </script>
