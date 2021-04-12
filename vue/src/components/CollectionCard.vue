@@ -2,11 +2,11 @@
   <div class="coll-card-main">
     <div class="coll-card-box">
       <div class="coll-card-name">
-        {{ collection.name }}
+        {{ collection.collection_name }}
       </div>
       <div class="coll-card-img">image</div>
       <div class="coll-btn-box">
-        <button v-on:click="selectActiveCollection(collection.collectionId)">
+        <button v-on:click="selectActiveCollection(collection.collection_id)">
           View
         </button>
         <button type="button" class="btn" @click="showModal">Delete</button>
