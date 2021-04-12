@@ -15,6 +15,7 @@
         header="Add Collection"
       />
     </div>
+    
     <div class="collection-area">
       <collection-card
         v-bind:collection="collection"

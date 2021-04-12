@@ -45,9 +45,9 @@ export default {
       }
     );
     let currentCollection = this.$store.state.userCollections.filter((collection) => {
-      return collection.collectionId == this.$route.params.id;
+      return collection.collection_id == this.$route.params.id;
     });
-    this.currentName = currentCollection[0].name;
+    this.currentName = currentCollection[0].collection_name;
   },
 };
 </script>
