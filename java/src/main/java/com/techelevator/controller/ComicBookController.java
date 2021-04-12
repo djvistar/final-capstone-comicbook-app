@@ -15,7 +15,7 @@ import com.techelevator.dao.UserDAO;
 import com.techelevator.model.ComicBook;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 @CrossOrigin
 public class ComicBookController {
 
