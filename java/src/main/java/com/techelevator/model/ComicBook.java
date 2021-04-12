@@ -12,6 +12,15 @@ public class ComicBook {
 	//private String comicDescription;// NOT IN DB YET 					********
 	//private int volumeNumber;//db we have volume name Not volume number,******** 
 	private String volumeName;
+
+	public int getVolumeId() {
+		return volumeId;
+	}
+
+	public void setVolumeId(int volumeId) {
+		this.volumeId = volumeId;
+	}
+	private int volumeId;
 	
 	
 

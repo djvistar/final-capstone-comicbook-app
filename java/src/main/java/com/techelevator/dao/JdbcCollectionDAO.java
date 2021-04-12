@@ -155,15 +155,17 @@ public class JdbcCollectionDAO implements CollectionDAO {
 																			// whole comic
 		// String sqlAddComicToCollection = "select issue_id from issue where issue_id =
 		// ?";
-		String sqlResults = "select issue_id from issue where issue_id = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults);
+		String sqlResults = "select issue_id from issue where issue_id = ? ";
+		Boolean exists = false;
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults, comic.getComicId());
+while (results.next()) {
+	exists = true; }
+		if (exists == false) {
 
-		if (results == null) {
-
-			String sqlAddComicToIssue = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url) "
+			String sqlAddComicToIssue = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_name, cover_url, volume_id) "
 					+ "VALUES (?, ?, ?, ?, ?, ?); ";
 
-			jdbcTemplate.update(sqlAddComicToIssue, comic);
+			jdbcTemplate.update(sqlAddComicToIssue, comic.getComicId(),comic.getIssueNumber(),comic.getTitle(),comic.getVolumeName(), comic.getImage(), comic.getVolumeId());
 		}
 
 		String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " + "values(?,?);";
@@ -186,6 +188,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	@Override
 	public void deleteCollection(int collectionId) {
 		String sqlDeleteCollection = "DELETE FROM collections WHERE collection_id = ?";
+		jdbcTemplate.update(sqlDeleteCollection, collectionId);
+		sqlDeleteCollection = "DELETE FROM user_collections WHERE collection_id = ?";
 		jdbcTemplate.update(sqlDeleteCollection, collectionId);
 	}
 
