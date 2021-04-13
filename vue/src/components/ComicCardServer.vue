@@ -99,7 +99,7 @@ export default {
    width: 40%;
    background-color: #ff165d;
  }
- .remove-issue-btn:active {
+ /* .remove-issue-btn:active {
    top: .2em;
- }
+ } */
 </style>

@@ -72,14 +72,16 @@ export default {
 
 .collection-btn {
   background-color: #ff165d;
+  font-size: 16px;
 }
-.collection-btn:active {
+/* .collection-btn:active {
   top: 0.2em;
-}
+} */
 .coll-list-btn-cont {
   padding: 0 0 20px 0;
   margin: 0 auto;
   display: flex;
+  
 }
 
 .coll-card-single {

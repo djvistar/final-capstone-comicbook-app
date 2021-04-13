@@ -103,7 +103,7 @@ export default {
   padding: 20px 40px;
   background-color: #f8f59b;
   text-align: center;
-  width: 50%;
+  width: 47%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 
@@ -118,7 +118,7 @@ export default {
   background-color: #ff165d;
   margin-top: 10px;
 }
-.register-btn:active {
+/* .register-btn:active {
   top: 0.2em;
-}
+} */
 </style>

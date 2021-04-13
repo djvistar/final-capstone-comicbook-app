@@ -107,9 +107,9 @@ export default {
   width: 80%;
   background-color: #ff165d;
 }
-.add-issue-btn:active {
+/* .add-issue-btn:active {
   top: 0.2em;
-}
+} */
 /* 
 .issue-title {
   overflow: hidden;

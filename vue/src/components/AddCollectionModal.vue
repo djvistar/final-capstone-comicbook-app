@@ -1,29 +1,37 @@
 <template>
   <div class="modal-backdrop">
-    <div class="modal">
-      <section class="modal-body">
-        <slot name="body">
-          <div class="coll-add-logged-in" v-if="$store.state.token != ''">
-            <h3>Add a New Collection!</h3>
-            <form v-on:submit.prevent="submitCollection" class="collectionForm">
-              <div class="form-group">
-                <label for="collectionName">Collection Name:</label>
+    <div class="add-coll-border">
+      <div class="add-coll-modal">
+        <section class="add-coll-modal-header">Add a New Collection!</section>
+        <section class="modal-body">
+          <slot name="body">
+            <div class="coll-add-logged-in" v-if="$store.state.token != ''">
+              <form
+                v-on:submit.prevent="submitCollection"
+                class="collectionForm"
+              >
+                <div class="form-group add-col-form-area">
+                  <label for="collectionName">New Collection Name:</label>
+                  <br />
+                  <input
+                    id="collectionName"
+                    type="text"
+                    class="form-control"
+                    v-model="newCollectionName"
+                    required
+                  />
+                </div>
                 <br />
-                <input
-                  id="collectionName"
-                  type="text"
-                  class="form-control"
-                  v-model="newCollectionName"
-                />
-              </div>
-              <br />
-              <button class="btn btn-submit" @click="close">Submit</button>
-              <button class="btn" type="button" @click="close">Cancel</button>
-            </form>
-          </div>
-          <div class="coll-add-anon" v-if="$store.state.token == ''">Oops!</div>
-        </slot>
-      </section>
+                <button class="button-block add-col-btn btn-submit" @click="close">Submit</button>
+                <button class="button-block add-col-btn btn" type="button" @click="close">Cancel</button>
+              </form>
+            </div>
+            <div class="coll-add-anon" v-if="$store.state.token == ''">
+              Oops!
+            </div>
+          </slot>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -74,42 +82,44 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.modal {
-  background: #ffffff;
+.add-coll-border {
+  border: 5px solid #fff;
   box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
+}
+.add-coll-modal {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000;
+  z-index: 10 !important;
+}
+
+.add-coll-modal-header {
+  background-color: #2B80D3;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  height: 25%;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 10px;
-  width: 300px;
-  height: 150px;
 }
-
 .modal-body {
-  position: relative;
   padding: 0px 10px 10px 10px;
+  margin-top: 30px;
+  
+}
+.add-col-form-area input[type="text"] {
+  padding: 5px 10px;
+  margin: 8px 10px;
+  width: 75%;
+  box-sizing: border-box;
+}
+.add-col-btn {
+  background-color: #2B80D3;
+  margin: 10px;
+  color: #fff;
 }
 
-.btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
-}
-
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
-}
 </style>
