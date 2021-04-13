@@ -97,7 +97,7 @@ h1 {
 }
 
 .button-block {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 0.5em 0.8em;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.15em;
@@ -109,12 +109,8 @@ h1 {
   border: 1px solid #000;
   color: #ffffff;
   text-align: center;
-  position: relative;
+  /* position: relative; */
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
-  z-index: 1;
-}
-a.button-block:active {
-  top: 0.2em;
 }
 </style>
 

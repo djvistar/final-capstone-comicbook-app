@@ -130,9 +130,9 @@ input[type="text"] {
 .search-btn {
   background-color: #ff165d;
 }
-.search-btn:active {
+/* .search-btn:active {
   top: 0.2em;
-}
+} */
 .comic-search-main {
   padding-bottom: 15px;
 }
