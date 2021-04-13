@@ -58,7 +58,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, .4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,26 +73,6 @@ export default {
   flex-direction: column;
   padding: 10px;
   z-index: 3;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 35px 10px 10px 10px;
-  display: flex;
-}
-
-.modal-header {
-  position: relative;
-  color: #4aae9b;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 .modal-body {
@@ -119,4 +99,25 @@ export default {
   border: 1px solid #4aae9b;
   border-radius: 2px;
 }
+
+/* 
+.modal-header,
+.modal-footer {
+  padding: 35px 10px 10px 10px;
+  display: flex;
+}
+
+.modal-header {
+  position: relative;
+  color: #4aae9b;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.modal-footer {
+  border-top: 1px solid #eeeeee;
+  flex-direction: column;
+  justify-content: flex-end;
+} */
 </style>
