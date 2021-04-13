@@ -36,7 +36,7 @@
 <script>
 import CollectionService from "@/services/CollectionService.js";
 export default {
-  name: "add-collection-modal",
+  name: "add-issue-modal",
   data() {
     return {
       selectedCollection: 0,

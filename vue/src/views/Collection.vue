@@ -7,25 +7,33 @@
         <p>Collection Owner:</p>
         <p>{{ currentCollection.username }}</p>
       </div>
-      
-        <button v-on:click="backToCollections()" class="button-block col-back-btn">
-          View {{currentCollection.username }}'s Other Collections
-        </button>
-      
+
+      <button
+        v-on:click="backToCollections()"
+        class="button-block col-back-btn"
+      >
+        View {{ currentCollection.username }}'s Other Collections
+      </button>
 
       <div class="col-info-piece">
         <p>Collection Size:</p>
         <p>{{ currentCollectionIssues.length }}</p>
       </div>
     </div>
-    <!-- <collection-nav /> -->
-    <div class="collection-issues-area">
+    <div
+      class="collection-issues-area"
+      v-if="currentCollectionIssues.length > 0"
+    >
       <comic-card-server
         v-bind:issue="issue"
         v-for="issue in currentCollectionIssues"
         v-bind:key="issue.id"
         class="comic-card-server-single"
+        v-bind:collectionId="currentCollection.collection_id"
       />
+    </div>
+    <div class="empty-issues" v-if="currentCollectionIssues.length == 0">
+      Uh-Oh! You should probably add some comics!
     </div>
   </div>
 </template>
@@ -39,8 +47,9 @@ import CollectionService from "@/services/CollectionService.js";
 
 export default {
   name: "collection",
-  components: { ComicCardServer, 
-  // CollectionNav 
+  components: {
+    ComicCardServer,
+    // CollectionNav
   },
   data() {
     return {
@@ -79,7 +88,7 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  background:#3ec1d3;
+  background: #3ec1d3;
   box-shadow: inset 0 -0.6em 0 -0.25em rgba(0, 0, 0, 0.17);
 }
 .comic-card-server-single {
@@ -100,17 +109,21 @@ export default {
   background: #f8f59b;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
-.col-info-link {
-  padding: 10px;
-  width: 15%;
-  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
-}
+
 .col-back-btn {
   background-color: #ff165d;
-  width: 15%;
+  width: 20%;
   height: 60%;
 }
 .col-back-btn:active {
-  top: .2em;
+  top: 0.2em;
+}
+.empty-issues {
+  margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  text-align: center;
+  width: 60%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 </style>

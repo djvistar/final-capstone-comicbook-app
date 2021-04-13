@@ -13,14 +13,42 @@
         </div>
       </div>
     </div>
+    
+    <button type="button" class="btn" @click="showModal">
+      Remove from Collection
+    </button>
+    <remove-issue-modal
+      v-show="isModalVisible"
+      @close="closeModal"
+      header="Remove from Collection"
+      v-bind:collectionId="collectionId"
+      v-bind:issueId="issue.comicId"
+    />
   </div>
 </template>
 
 <script>
+import RemoveIssueModal from "../components/RemoveIssueModal.vue";
 export default {
   name: "comic-card-server",
+  components: { RemoveIssueModal },
+  data() {
+    return {
+      isModalVisible: false,
+      
+    };
+  },
   props: {
     issue: Object,
+    collectionId: Number,
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>
@@ -38,7 +66,7 @@ export default {
 .comic-card-server-box {
   width: 100%;
   height: 100%;
-  background-color: #FF9A00;
+  background-color: #ff9a00;
   margin: 0;
   padding: 0;
 }
@@ -46,12 +74,11 @@ export default {
   width: 100%;
   height: 70%;
   border-bottom: 5px solid #fff;
-  
 }
 .comic-card-server-content-box {
   width: 100%;
   height: 29%;
-  display: flex ;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0;
