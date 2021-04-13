@@ -63,14 +63,53 @@ export default {
 };
 </script>
 <style>
-.modal-header,
-.modal-footer {
-  padding: 35px 10px 10px 10px;
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  background: blue;
+  justify-content: center;
+  align-items: center;
 }
+
 .modal {
+  background: #ffffff;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   width: 300px;
   height: 150px;
+}
+
+.modal-body {
+  position: relative;
+  padding: 0px 10px 10px 10px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4aae9b;
+  background: transparent;
+}
+
+.btn-green {
+  color: white;
+  background: #4aae9b;
+  border: 1px solid #4aae9b;
+  border-radius: 2px;
 }
 </style>

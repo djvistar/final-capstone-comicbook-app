@@ -7,8 +7,8 @@
         v-bind:issue="issue"
         v-for="issue in issues"
         v-bind:key="issue.id"
-        class="issue-card-server-single"
         v-bind:volume="$route.params.id"
+        class="issue-card-import-single"
       />
     </div>
   </div>
@@ -30,13 +30,7 @@ export default {
       issues: [],
     };
   },
-  // computed: {
-  //   volume() {
-  //     return this.$store.state.volumeResults.find(
-  //       (volume) => volume.id == this.$store.state.activeVolume
-  //     );
-  //   },
-  // },
+
   created: function () {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
@@ -52,7 +46,7 @@ export default {
       .catch((err) => {
         console.log("Fetch Error", err);
       });
-      
+
     // SearchService.searchIssuesByVolume(activeVolumeID)
     //   .then((response) => {
     //     this.issues = response.data.results;
@@ -67,13 +61,15 @@ export default {
 
 <style>
 .issue-list-main {
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 30px;
   display: flex;
-  flex-basis: auto;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: space-around;
-}
-.issue-card-server-single {
-  margin: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background: #f8f59b;
+  box-shadow: inset 0 -0.6em 0 -0.25em rgba(0, 0, 0, 0.17);
 }
 </style>
