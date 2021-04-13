@@ -106,7 +106,7 @@ public class CollectionController {
 	public void deleteCollection(@PathVariable int collectionId) {
 		collectionDAO.deleteCollection(collectionId);
 	}
-
+//good in postman
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.deleteComicFromCollection(comicId, collectionId);
