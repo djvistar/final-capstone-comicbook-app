@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,6 @@ import com.techelevator.dao.UserDAO;
 import com.techelevator.model.ComicBook;
 
 @RestController
-//@RequestMapping("/api")
 @CrossOrigin
 public class ComicBookController {
 
@@ -33,18 +33,21 @@ public class ComicBookController {
 	}
 	
 	
-	
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping( value = "/comics/save", method = RequestMethod.POST)
 	public void addComic(@RequestBody ComicBook comic) {
 		comicBookDAO.saveComic(comic);
 	}
 	
 	
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/comics", method = RequestMethod.GET) //http://localhost:8080/comics 404 not found
 	public List<ComicBook> listAllComics(){
 		return comicBookDAO.listAllComicBooks();
 	}
 	
+	
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/comics/collection/{collectionId}", method = RequestMethod.GET)
 	public List<ComicBook> getComicsByCollectionId(@PathVariable int collectionId){
 		List<ComicBook> collection = comicBookDAO.listComicsByCollectionId(collectionId);
@@ -52,6 +55,7 @@ public class ComicBookController {
 	}
 	
 	
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.GET)//http://localhost:8080/api/comics/501 500error invalid column name
 	public ComicBook getComicById(@PathVariable int comicId) {
 		ComicBook comic = comicBookDAO.getComicById(comicId);
@@ -59,12 +63,15 @@ public class ComicBookController {
 	}
 	
 	
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/comics/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComic(@PathVariable int comicId) {
 		comicBookDAO.deleteComic(comicId);
 	}
 	
 	
+	
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping (value = "/comics/{comicId}", method = RequestMethod.PUT)
 	public void updateComic(@RequestBody ComicBook comic) {
 		comicBookDAO.updateComic(comic);

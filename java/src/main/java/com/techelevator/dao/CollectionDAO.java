@@ -9,8 +9,7 @@ import com.techelevator.model.User;
 
 public interface CollectionDAO {
 
-	// public void saveCollection(int collectionId, int userId, String
-	// collectionName);
+	
 	void saveCollection(Collection newCollection);
 
 	public Collection getCollectionById(int collectionId);
@@ -31,6 +30,5 @@ public interface CollectionDAO {
 
 	public void updateCollection(Collection collection);
 
-//	Collection getCollectionInfoByID(int collectionId);
 
 }

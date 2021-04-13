@@ -25,8 +25,6 @@ import com.techelevator.model.ComicBook;
 import com.techelevator.model.User;
 
 @RestController
-
-//@RequestMapping("/api")
 @CrossOrigin
 
 public class CollectionController {
@@ -38,6 +36,7 @@ public class CollectionController {
 	public UserDAO userDAO;
 
 	// RETURN LIST OF COLLECTION OBJECTS FOR USER REQUESTING THEM
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections", method = RequestMethod.GET)
 	public List<Collection> getCollectionByUser(Principal principal) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(principal.getName());
@@ -45,6 +44,7 @@ public class CollectionController {
 	}
 
 	// RETURNS COLLECTION OBJECT BASED ON GIVEN ID
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
 	public Collection getCollectionById(@PathVariable int collectionId) {
 		Collection collection = collectionDAO.getCollectionById(collectionId);
@@ -52,6 +52,7 @@ public class CollectionController {
 	}
 
 	// RETURNS LIST OF COMICS BASED ON COLLECTION ID
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}/issues", method = RequestMethod.GET)
 	public List<ComicBook> getCollectionContentsById(@PathVariable int collectionId) {
 		List<ComicBook> collectionContents = collectionDAO.listCollectionContentsById(collectionId);
@@ -63,19 +64,13 @@ public class CollectionController {
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = "/collections", method = RequestMethod.POST) // removing /create from url
 	public void addCollection(@RequestBody Collection newCollection, Principal principal) {//
-//		if (newCollection != null) {
-//			System.out.println("Attempting to create collection " + newCollection.getName() + " with values:\nuserId: "
-//					+ newCollection.getUserId());
-//			}
-//
-//		if (newCollection == null || newCollection.getName() == null) {
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Empty Request");
-//		}
+
 		int id = userDAO.findIdByUsername(principal.getName());
 		newCollection.setUser_id(id);
 		newCollection.setUsername(principal.getName());
 		collectionDAO.saveCollection(newCollection);
 	}
+	
 
 	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -87,7 +82,7 @@ public class CollectionController {
 	/*
 	 * METHODS BELOW ARE NOT FINISHED
 	 */
-
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET) // returns empty array
 	public List<Collection> getCollectionsByUsername(@PathVariable String username) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
@@ -96,34 +91,41 @@ public class CollectionController {
 		}
 		return collections;
 	}
-
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
 	public void updateCollection(@RequestBody Collection collection) {
 		collectionDAO.updateCollection(collection);
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.DELETE)
 	public void deleteCollection(@PathVariable int collectionId) {
 		collectionDAO.deleteCollection(collectionId);
 	}
 
+	
+	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)
 	public void deleteComicFromCollection(@PathVariable int collectionId, @PathVariable int comicId) {
 		collectionDAO.deleteComicFromCollection(comicId, collectionId);
 	}
 
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<User> getAllUsers() {
 		List<User> users = userDAO.findAll();
 		return users;
 	}
 
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/users/single/{userId}", method = RequestMethod.GET)
 	public User getUserById(@PathVariable long userId) {
 		User user = userDAO.getUserById((long) userId);
 		return user;
 	}
 
+	
+	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
 	public User getUserByName(@PathVariable String username) {
 		User user = userDAO.findByUsername(username);
@@ -131,39 +133,3 @@ public class CollectionController {
 	}
 }
 
-//	@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-//	public void addCollection(@RequestBody int userId, int collectionId, String collectionName) {
-//		if(  userId < 1  ) {//||  collectionId = null) {
-//			throw new ResponseStatusException(
-//					HttpStatus.BAD_REQUEST, "Bad Request"); // create is getting to this point in post man
-// Error From Postman, looking into it.			
-//			{
-//			    "timestamp": "2021-04-10T14:18:56.289+00:00",
-//			    "status": 500,
-//			    "error": "Internal Server Error",
-//			    "message": "PreparedStatementCallback; SQL [INSERT INTO user_collections(collection_id, user_id, collection_name) VALUES (?,?,?) ]; ERROR: null value in column \"user_id\" violates not-null constraint\n  Detail: Failing row contains (0, null, null).; nested exception is org.postgresql.util.PSQLException: ERROR: null value in column \"user_id\" violates not-null constraint\n  Detail: Failing row contains (0, null, null).",
-//			    "path": "/collections/create"
-//			}
-//		} else {
-//			collectionDAO.saveCollection( userId, collectionId, collectionName);
-//			// collectionDAO.saveCollection(collection);
-//		}
-//	}
-//
-//public CollectionController(CollectionDAO collectionDAO, ComicBookDAO comicBookDAO, UserDAO userDAO) {
-//	this.collectionDAO = collectionDAO;
-//	this.comicBookDAO = comicBookDAO;
-//	this.userDAO = userDAO;
-//}
-
-//@RequestMapping(value = "/collections/create", method = RequestMethod.POST)
-//    public void addCollection(@RequestBody Collection collection, Principal principal) {
-//	
-//	if(collection == null || collection.getName() == null) {
-//		throw new ResponseStatusException(
-//  	          HttpStatus.BAD_REQUEST, "Empty Request");
-//	}
-//	else {
-//    	collectionDAO.saveCollection(collection.setUserId(userDAO.findIdByUsername((principal.getName()))));
-//    }
-//}
