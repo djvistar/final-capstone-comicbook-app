@@ -4,23 +4,18 @@ import java.util.List;
 
 public class Collection {
 
-	
 	private int collection_id;
 	private int user_id;
-    private String collection_name;
+	private String collection_name;
 	private String username;
 	private String collectionDescription;
-	
-
-
 
 	// constructor
-	public Collection(int collection_id, int user_id,
-			String collection_name) /* , String description,, int issueId, int inventoryId String username ) */ {
+	public Collection(int collection_id, int user_id, String collection_name) {
 		this.collection_id = collection_id;
 		this.user_id = user_id;
 		this.collection_name = collection_name;
-	
+
 	}
 
 	public Collection() {
@@ -52,7 +47,7 @@ public class Collection {
 	public void setCollection_name(String collection_name) {
 		this.collection_name = collection_name;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -60,7 +55,7 @@ public class Collection {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getCollectionDescription() {
 		return collectionDescription;
 	}

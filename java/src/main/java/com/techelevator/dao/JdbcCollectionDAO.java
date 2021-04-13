@@ -24,19 +24,17 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	};
 
-
-	 Collection collection = new Collection();
+	Collection collection = new Collection();
 
 	ComicBook comic = new ComicBook();
 
-	
 	// RETURNS LIST OF COLLECTION OBJECTS BASED ON USERNAME
 	@Override
 	public List<Collection> listCollectionByUsername(String username) {
 		List<Collection> collections = new ArrayList<>();
 
 		String sqlGetCollectionsByUsername = "SELECT user_collections.collection_name AS collectionName, user_collections.collection_id AS collectionId, users.user_id AS userId, users.username AS userName "
-				+"FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
+				+ "FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
 		while (results.next()) {
 			collections.add(mapRowToCollection(results));
@@ -48,7 +46,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	@Override
 	public Collection getCollectionById(int collectionId) {
 		Collection collection = new Collection();
-		String sql = "SELECT collection_name, user_collections.user_id, collection_id, users.username "
+		String sql = "SELECT collection_name AS collectionName, user_collections.user_id AS userId, collection_id AS collectionId, users.username AS userName "
 				+ "FROM user_collections "
 				+ "JOIN users ON users.user_id = user_collections.user_id WHERE collection_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
@@ -77,15 +75,12 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(), newCollection.getCollection_name());
 	}
 
-
-
 	@Override
 	public List<Collection> listAllCollectionsByUserId(int userId) {
 
 		List<Collection> collections = new ArrayList<>();
 
-		String sqlGetCollectionsByUserId = "SELECT collection_name FROM user_collections WHERE user_id = ?"; // alias
-																												// needed?
+		String sqlGetCollectionsByUserId = "SELECT collection_name FROM user_collections WHERE user_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUserId, userId);
 		while (results.next()) {
 			collections.add(mapRowToCollection(results));
@@ -93,8 +88,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 
 		return collections;
 	}
-
-
 
 	@Override
 	public void addComicToCollection(ComicBook comic, int collectionId) {
@@ -116,7 +109,6 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " + "values(?,?);";
 		jdbcTemplate.update(sqlAddIssueToCollection, collectionId, comic.getComicId());
 	}
-	
 
 	@Override
 	public void deleteComicFromCollection(int comicId, int collectionId) {
@@ -134,36 +126,26 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	}
 
 	@Override
-	public void updateCollection(Collection collection) { // no info in db for this yet
+	public void updateCollection(Collection collection) {
 		String sqlUpdateCollection = "UPDATE collection " + "SET user_d =?, name = ?, collection_description = ? "
 				+ "WHERE collection_id =? ";
 		jdbcTemplate.update(sqlUpdateCollection, collection.getUser_id(), collection.getCollection_name(),
 				collection.getCollectionDescription(), collection.getCollection_id());
 
 	}
-//"SELECT user_collections.collection_name AS collectionName, user_collections.collection_id AS collectionId, users.user_id AS userId, users.username AS userName "
 
 	private Collection mapRowToCollection(SqlRowSet results) {
 		Collection newCollection = new Collection();
 
-		newCollection.setCollection_name(results.getString("collectionName"));//AS collectionName
+		newCollection.setCollection_name(results.getString("collectionName"));
 		newCollection.setCollection_id(results.getInt("collectionId"));
 		newCollection.setUser_id(results.getInt("userId"));
 		newCollection.setUsername(results.getString("userName"));
-//=======
-//		
-//		newCollection.setCollection_name(results.getString("collection_name"));
-//		newCollection.setCollection_id(results.getInt("collection_id"));
-//		newCollection.setUser_id(results.getInt("user_id"));
-//		newCollection.setUsername(results.getString("username"));
-//>>>>>>> 6b50669956d653099083f8ba09287eb0235a4a95
 		return newCollection;
 	}
 
-	// ***************************** works as of 4/10 1:58pm
 	private ComicBook mapRowToComicBook(SqlRowSet results) {
 		ComicBook newComic = new ComicBook();
-
 
 		newComic.setComicId(results.getInt("comicid"));
 		newComic.setTitle(results.getString("title"));
