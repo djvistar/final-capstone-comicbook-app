@@ -57,7 +57,7 @@
         </div> -->
       
       <div class="image-card">
-        <img src="../assets/spiderman.jpg" />
+        <img src="../assets/spiderman.jpg" class="home-image" />
         <img src="../assets/xmen.jpg" />
         <img src="../assets/wolverine.jpg" />
         <!-- <p>You must be authenticated to see this</p> -->
@@ -75,21 +75,21 @@ export default {
 };
 </script>
 
-<style  >
+<style>
 
-  .img-card{
-  
-  margin: 3px; 
+  .image-card{
+  width: 60%;
+  margin: 0 auto;
   padding: 5px; 
    
   }
-  img{
-   
-width: 18%;
-height: auto;
-margin: 10px;
-padding: 20px;
+
+  .image-card img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
   }
+
   
 .home {
 display: flexbox;

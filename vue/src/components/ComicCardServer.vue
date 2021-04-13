@@ -93,6 +93,7 @@ export default {
   width: 100%;
   height: 100%;
   object-position: 100% 50%;
+  border: 2px solid blue;
 }
  .remove-issue-btn {
    margin-top: 15px;
