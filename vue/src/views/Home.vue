@@ -28,13 +28,13 @@ export default {
   padding: 5px; 
    
   }
-  img{
+  /* img{
    
 width: 18%;
 height: auto;
 margin: 10px;
 padding: 20px;
-  }
+  } */
   
 .home {
 display: flexbox;

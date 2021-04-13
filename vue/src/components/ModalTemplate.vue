@@ -62,6 +62,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .modal {
@@ -71,6 +72,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  z-index: 3;
 }
 
 .modal-header,

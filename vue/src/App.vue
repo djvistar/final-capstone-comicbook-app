@@ -111,6 +111,7 @@ h1 {
   text-align: center;
   position: relative;
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  z-index: 1;
 }
 a.button-block:active {
   top: 0.2em;

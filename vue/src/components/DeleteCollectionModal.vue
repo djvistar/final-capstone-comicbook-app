@@ -9,7 +9,7 @@
             class="collectionForm"
           >
             <br />
-            <button class="btn btn-submit" @click="close">Yes!</button>
+            <button class="btn btn-submit" @click="closeFinish">Yes!</button>
             <button class="btn" type="button" @click="close">No!</button>
           </form>
         </slot>
@@ -28,16 +28,18 @@ export default {
     };
   },
   methods: {
-    close() {
+    closeFinish() {
       this.$emit("close");
       this.$router.go();
+    },
+    close() {
+      this.$emit("close");
     },
     deleteCollection(id) {
       CollectionService.deleteCollection(id);
       CollectionService.getUserCollections().then((response) => {
         this.$store.state.userCollections = response.data;
       });
-      
     },
   },
 };
