@@ -14,7 +14,7 @@
         <p><router-link :to="{ name: 'register' }">Register Now</router-link> and Join like minded heroes in the battle to Cherish, Preserve, and Show-Off these masterpieces.</p>
 </div>
 
-  <div class="home">
+  <!-- <div class="home">
     <h1>Welcome To LongBox Comics</h1>
     <div class="main">
       <div class="sizzle">
@@ -54,21 +54,19 @@
           <router-link :to="{ name: 'register' }">Register Now</router-link> and
           Join like minded heroes in the battle to Cherish, Preserve, and
           Show-Off these masterpieces.
-        </div>
+        </div> -->
       
       <div class="image-card">
         <img src="../assets/spiderman.jpg" />
         <img src="../assets/xmen.jpg" />
         <img src="../assets/wolverine.jpg" />
         <!-- <p>You must be authenticated to see this</p> -->
-
       </div>
       <p>The best Comic Book collection manager!</p>
     </div>
-    <div class="links"></div>
-  </div>
-  </div>
-  </div>
+    <!-- <div class="links"></div> -->
+  
+ 
 </template>
 
 <script>
