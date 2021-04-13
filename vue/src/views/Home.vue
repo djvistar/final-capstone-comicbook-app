@@ -2,7 +2,7 @@
  <div class="home">
     <h1> Welcome To LongBox Comics</h1>
     <div class ="main">
-      <div>
+      <div class = "content-box">
         <p>Meet LongBox, your digital comic collection management system! Want to display your comics, but you're worried about wrinkling the cover while removing them from their hermetically sealed boxes in the climate controlled comic storage facility you rented at Xavier’s School for Gifted Youngsters to protect all of your precious issues?</p>
         <p class = "action">BAM!</p><p> We’ve got you covered!</p>
         <p>Fretting about fading the special edition holographic foil variant covers by accidentally overexposing them to possible sunlight caused by Lex Luthor’s newest plot?</p>
@@ -38,18 +38,18 @@ export default {
   padding: 5px; 
    
   }
-  /* img{
+  img{
    
 width: 18%;
 height: auto;
 margin: 10px;
 padding: 20px;
-  } */
+  }
   
 .home {
 display: flexbox;
-background-color: rgba(89, 162, 247, 0.938);
-   color: white;
+background-color: rgba(45, 136, 240, 0.938);
+   color: rgb(249, 243, 243);
    text-shadow: 2px 2px black;
    text-align: center;
    margin:0;
@@ -60,8 +60,11 @@ background-color: rgba(89, 162, 247, 0.938);
    margin-top:1%;
    font-size: 40px;
  }
- .main{
-  
+ .content-box p{
+   text-shadow: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-size-adjust: 22px;
+color: white;
  }
  
 
