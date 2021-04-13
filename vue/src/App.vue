@@ -30,7 +30,7 @@ export default {
     if (this.$store.state.token != "") {
       CollectionService.getUserCollections().then((response) => {
         this.$store.state.userCollections = response.data;
-        console.log(this.$store.state.userCollections);
+        
       });
     }
   },

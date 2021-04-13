@@ -6,8 +6,18 @@
         v-show="isModalVisible"
         @close="closeModal"
         header="Add to Collection"
-        v-bind:issueId="issue.id"
+
+        v-bind:volumeNumber="volume"
+        v-bind:issue="issue"
       />
+      <!-- 
+        v-bind:comicId="issue.id"
+        v-bind:volumeName="issue.volume.name"
+        v-bind:issueNumber="issue.issue_number"
+        v-bind:title="issue.name"
+        v-bind:image="issue.image.small_url"
+-->
+      {{issue}}
       <img id="image" v-bind:src="issue.image.small_url" />
       <div id="volume">Series: {{ issue.volume.name }}</div>
       <div id="issue_number">Issue # {{ issue.issue_number }}</div>
@@ -32,6 +42,7 @@ export default {
   },
   props: {
     issue: Object,
+    volume: String,
   },
   methods: {
     showModal() {
