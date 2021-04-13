@@ -103,6 +103,7 @@ public class CollectionController {
 		collectionDAO.deleteCollection(collectionId);
 	}
 
+
 	
 	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}/{comicId}", method = RequestMethod.DELETE)
