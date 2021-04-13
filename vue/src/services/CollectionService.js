@@ -36,17 +36,12 @@ export default {
         return axios.delete(`collections/${collectionID}`);
     },
 
-
-
-
-
-
-
-    // Add Issue to Collection when given IDs of both
+    // Add Issue to Collection when given collection ID and comic object
     addIssueToCollection(collectionID, comic) {
         return axios.post(`/collections/${collectionID}`, comic);
     },
 
+    // /collections/{collectionId}/{comicId}
     // Delete Issue from Collection when given IDs of both
     removeIssueFromCollection(issueID, collectionID) {
         return axios.delete(`/collections/${collectionID}/${issueID}`);

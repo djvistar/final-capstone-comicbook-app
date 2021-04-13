@@ -33,7 +33,7 @@ const router = new Router({
       component: Home,
       meta: {
         requiresAuth: false
-      }
+      },
     },
     {
       path: '/search',
@@ -121,6 +121,12 @@ router.beforeEach((to, from, next) => {
     // Else let them go to their next destination
     next();
   }
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'home' && store.state.token != '') {
+    next({ name: 'user-collections' })
+  } else next()
 });
 
 export default router;

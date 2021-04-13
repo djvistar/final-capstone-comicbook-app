@@ -13,45 +13,70 @@
         </div>
       </div>
     </div>
+    
+    <button type="button" class="button-block remove-issue-btn" @click="showModal">
+      Remove
+    </button>
+    <remove-issue-modal
+      v-show="isModalVisible"
+      @close="closeModal"
+      header="Remove from Collection"
+      v-bind:collectionId="collectionId"
+      v-bind:issueId="issue.comicId"
+    />
   </div>
 </template>
 
 <script>
+import RemoveIssueModal from "../components/RemoveIssueModal.vue";
 export default {
   name: "comic-card-server",
+  components: { RemoveIssueModal },
+  data() {
+    return {
+      isModalVisible: false,
+      
+    };
+  },
   props: {
     issue: Object,
+    collectionId: Number,
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>
 
 <style>
-.comic-card-server-main {
-  width: 200px;
-  height: 300px;
-  background-color: #3ec1d3;
-  border: 5px solid #fff;
-  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.6);
+.comic-card-server-main {  
   margin: 0;
   padding: 0;
 }
 .comic-card-server-box {
-  width: 100%;
-  height: 100%;
-  background-color: #FF9A00;
+  width: 200px;
+  height: 300px;
+  background-color: #ff9a00;
   margin: 0;
   padding: 0;
+  
+  border: 5px solid #fff;
+  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.6);
 }
 .comic-card-server-img {
   width: 100%;
   height: 70%;
   border-bottom: 5px solid #fff;
-  
 }
 .comic-card-server-content-box {
   width: 100%;
   height: 29%;
-  display: flex ;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0;
@@ -69,4 +94,12 @@ export default {
   height: 100%;
   object-position: 100% 50%;
 }
+ .remove-issue-btn {
+   margin-top: 15px;
+   width: 40%;
+   background-color: #ff165d;
+ }
+ .remove-issue-btn:active {
+   top: .2em;
+ }
 </style>

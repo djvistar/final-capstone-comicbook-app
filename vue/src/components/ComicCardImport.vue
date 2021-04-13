@@ -6,7 +6,6 @@
         v-show="isModalVisible"
         @close="closeModal"
         header="Add to Collection"
-
         v-bind:volumeNumber="volume"
         v-bind:issue="issue"
       />
