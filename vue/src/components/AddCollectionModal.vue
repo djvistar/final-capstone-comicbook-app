@@ -10,7 +10,7 @@
                 v-on:submit.prevent="submitCollection"
                 class="collectionForm"
               >
-                <div class="form-group">
+                <div class="form-group add-col-form-area">
                   <label for="collectionName">New Collection Name:</label>
                   <br />
                   <input
@@ -18,11 +18,12 @@
                     type="text"
                     class="form-control"
                     v-model="newCollectionName"
+                    required
                   />
                 </div>
                 <br />
-                <button class="btn btn-submit" @click="close">Submit</button>
-                <button class="btn" type="button" @click="close">Cancel</button>
+                <button class="button-block add-col-btn btn-submit" @click="close">Submit</button>
+                <button class="button-block add-col-btn btn" type="button" @click="close">Cancel</button>
               </form>
             </div>
             <div class="coll-add-anon" v-if="$store.state.token == ''">
@@ -94,7 +95,7 @@ export default {
 }
 
 .add-coll-modal-header {
-  background-color: #ff165d;
+  background-color: #2B80D3;
   color: #fff;
   font-weight: bold;
   font-size: 22px;
@@ -107,7 +108,18 @@ export default {
 .modal-body {
   padding: 0px 10px 10px 10px;
   margin-top: 30px;
-  background-color: blue;
+  
+}
+.add-col-form-area input[type="text"] {
+  padding: 5px 10px;
+  margin: 8px 10px;
+  width: 75%;
+  box-sizing: border-box;
+}
+.add-col-btn {
+  background-color: #2B80D3;
+  margin: 10px;
+  color: #fff;
 }
 
 </style>

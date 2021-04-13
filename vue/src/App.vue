@@ -97,7 +97,7 @@ h1 {
 }
 
 .button-block {
-  /* display: inline-block; */
+  display: inline-block;
   padding: 0.5em 0.8em;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.15em;

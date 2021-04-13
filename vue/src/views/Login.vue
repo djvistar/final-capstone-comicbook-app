@@ -99,7 +99,7 @@ export default {
   background-color: #ff165d;
   margin-top: 10px;
 }
-.login-btn:active {
+/* .login-btn:active {
   top: 0.2em;
-}
+} */
 </style>

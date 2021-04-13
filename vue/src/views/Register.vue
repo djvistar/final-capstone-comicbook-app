@@ -118,7 +118,7 @@ export default {
   background-color: #ff165d;
   margin-top: 10px;
 }
-.register-btn:active {
+/* .register-btn:active {
   top: 0.2em;
-}
+} */
 </style>

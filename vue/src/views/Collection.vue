@@ -115,9 +115,9 @@ export default {
   width: 20%;
   height: 60%;
 }
-.col-back-btn:active {
+/* .col-back-btn:active {
   top: 0.2em;
-}
+} */
 .empty-issues {
   margin: 30px auto;
   padding: 20px 40px;
