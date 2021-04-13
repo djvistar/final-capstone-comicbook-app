@@ -47,7 +47,6 @@ export default {
     );
     CollectionService.getCollection(this.$route.params.id).then((response) => {
       this.currentCollection = response.data;
-      console.log(this.currentCollection);
     });
   },
 };

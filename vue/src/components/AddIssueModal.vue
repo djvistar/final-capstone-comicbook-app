@@ -9,7 +9,11 @@
           <p>Add To Collection</p>
           <form v-on:submit.prevent="addToCollection()" class="addIssueForm">
             <div class="form-group">
-              <select id="user-collections" name="user-collections" v-model="selectedCollection">
+              <select
+                id="user-collections"
+                name="user-collections"
+                v-model="selectedCollection"
+              >
                 <option value="0">My Collections</option>
                 <option
                   v-bind:value="collection.collection_id"
@@ -30,28 +34,59 @@
   </div>
 </template>
 <script>
+import CollectionService from "@/services/CollectionService.js";
 export default {
   name: "add-collection-modal",
   data() {
     return {
       selectedCollection: 0,
       selectedIssueNumber: 0,
+      newIssue: {
+        volumeName: "",
+        issueNumber: 0,
+        title: "",
+        image: "",
+        comicId: 0,
+        volumeId: 0,
+      },
     };
   },
-  props: [
-    "issueId"
-  ],
+  // props: [
+  //   "issueId"
+  // ],
+  props: {
+    issue: Object,
+    volumeNumber: String,
+  },
   methods: {
     close() {
       this.$emit("close");
     },
     addToCollection() {
-      console.log(this.selectedCollection);
-      console.log(this.issueId);
       // SERVICE CALL TO ADD ISSUE # TO COLLECTION
-      
+      this.newIssue.volumeName = this.issue.volume.name;
+      this.newIssue.issueNumber = parseInt(this.issue.issue_number);
+      this.newIssue.title = this.issue.name;
+      this.newIssue.image = this.issue.image.small_url;
+      this.newIssue.comicId = this.issue.id;
+      this.newIssue.volumeId = parseInt(this.volumeNumber);
 
-    }
+      CollectionService.addIssueToCollection(
+        this.selectedCollection,
+        this.newIssue
+      )
+        .then((response) => {
+          console.log(response.status);
+          if (response.status == "201") {
+            //refresh user collections
+            console.log("success");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.handleErrorResponse(error);
+        });
+    },
   },
 };
 </script>

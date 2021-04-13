@@ -10,7 +10,7 @@ public class ComicBook {
 	//private String publisher;//not in DB YET     						********
 	private String image;//db table issue,    		cover_url
 	//private String comicDescription;// NOT IN DB YET 					********
-	//private int volumeNumber;//db we have volume name Not volume number,******** 
+	private int volumeNumber;//db we have volume name Not volume number,******** 
 	private String volumeName;
 
 	public int getVolumeId() {
@@ -92,12 +92,12 @@ public class ComicBook {
 //	public void setComicDescription(String comicDescription) {
 //		this.comicDescription = comicDescription;
 //	}
-//	public int getVolumeNumber() {
-//		return volumeNumber;
-//	}
-//	public void setVolumeNumber(int volumeNumber) {
-//		this.volumeNumber = volumeNumber;
-//	}
+	public int getVolumeNumber() {
+		return volumeNumber;
+	}
+	public void setVolumeNumber(int volumeNumber) {
+		this.volumeNumber = volumeNumber;
+	}
 	
 	
 	

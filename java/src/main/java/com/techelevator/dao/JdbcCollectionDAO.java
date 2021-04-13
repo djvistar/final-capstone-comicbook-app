@@ -79,8 +79,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public void saveCollection(Collection newCollection) {
 		String sqlSaveCollection = "INSERT INTO user_collections (user_id, collection_name) " + "VALUES (?, ?) ";
 
-		jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(),
-				newCollection.getCollection_name());
+		jdbcTemplate.update(sqlSaveCollection, newCollection.getUser_id(), newCollection.getCollection_name());
 	}
 
 //
@@ -158,14 +157,16 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		String sqlResults = "select issue_id from issue where issue_id = ? ";
 		Boolean exists = false;
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlResults, comic.getComicId());
-while (results.next()) {
-	exists = true; }
+		while (results.next()) {
+			exists = true;
+		}
 		if (exists == false) {
 
 			String sqlAddComicToIssue = "INSERT INTO issue(issue_id, issue_number, issue_name, volume_name, cover_url, volume_id) "
 					+ "VALUES (?, ?, ?, ?, ?, ?); ";
 
-			jdbcTemplate.update(sqlAddComicToIssue, comic.getComicId(),comic.getIssueNumber(),comic.getTitle(),comic.getVolumeName(), comic.getImage(), comic.getVolumeId());
+			jdbcTemplate.update(sqlAddComicToIssue, comic.getComicId(), comic.getIssueNumber(), comic.getTitle(),
+					comic.getVolumeName(), comic.getImage(), comic.getVolumeId());
 		}
 
 		String sqlAddIssueToCollection = "insert into collections ( collection_id, issue_id ) " + "values(?,?);";

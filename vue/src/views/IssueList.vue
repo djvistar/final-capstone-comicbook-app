@@ -8,6 +8,7 @@
         v-for="issue in issues"
         v-bind:key="issue.id"
         class="issue-card-server-single"
+        v-bind:volume="$route.params.id"
       />
     </div>
   </div>
@@ -39,7 +40,6 @@ export default {
   created: function () {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
-    //http://comicvine.gamespot.com/api/issues/'+ apiKey + issuesInVolume + volumeID
     let url =
       "http://comicvine.gamespot.com/api/issues/?api_key=2305a8c76071ed723085da1129ee957508678790&field_list=name,image,issue_number,deck,description,volume,id&format=json&filter=volume:" +
       activeVolumeID;

@@ -24,11 +24,13 @@ export default {
         return axios.get(`/collections`);
     },
 
+    // -> DONE
     // Create a Collection when given a user ID and a collection object (name)
     makeCollection(collectionObject) {
         return axios.post('/collections', collectionObject);
     },
 
+    // -> DONE
     // Delete a Collection when given a Collection ID
     deleteCollection(collectionID) {
         return axios.delete(`collections/${collectionID}`);
@@ -41,8 +43,8 @@ export default {
 
 
     // Add Issue to Collection when given IDs of both
-    addIssueToCollection(issueID, collectionID) {
-        return axios.post(`/collections/${collectionID}`, issueID);
+    addIssueToCollection(collectionID, comic) {
+        return axios.post(`/collections/${collectionID}`, comic);
     },
 
     // Delete Issue from Collection when given IDs of both
