@@ -3,22 +3,25 @@
     <div class="modal">
       <section class="modal-body">
         <slot name="body">
-          <h3>Add a New Collection!</h3>
-          <form v-on:submit.prevent="submitCollection" class="collectionForm">
-            <div class="form-group">
-              <label for="collectionName">Collection Name:</label>
+          <div class="coll-add-logged-in" v-if="$store.state.token != ''">
+            <h3>Add a New Collection!</h3>
+            <form v-on:submit.prevent="submitCollection" class="collectionForm">
+              <div class="form-group">
+                <label for="collectionName">Collection Name:</label>
+                <br />
+                <input
+                  id="collectionName"
+                  type="text"
+                  class="form-control"
+                  v-model="newCollectionName"
+                />
+              </div>
               <br />
-              <input
-                id="collectionName"
-                type="text"
-                class="form-control"
-                v-model="newCollectionName"
-              />
-            </div>
-            <br />
-            <button class="btn btn-submit" @click="close">Submit</button>
-            <button class="btn" type="button" @click="close">Cancel</button>
-          </form>
+              <button class="btn btn-submit" @click="close">Submit</button>
+              <button class="btn" type="button" @click="close">Cancel</button>
+            </form>
+          </div>
+          <div class="coll-add-anon" v-if="$store.state.token == ''">Oops!</div>
         </slot>
       </section>
     </div>
@@ -33,7 +36,7 @@ export default {
       newCollectionName: "",
     };
   },
-  
+
   methods: {
     close() {
       this.$emit("close");
@@ -65,5 +68,9 @@ export default {
   padding: 35px 10px 10px 10px;
   display: flex;
   background: blue;
+}
+.modal {
+  width: 300px;
+  height: 150px;
 }
 </style>

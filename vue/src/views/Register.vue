@@ -1,7 +1,9 @@
 <template>
   <div id="register" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+    <div class="register-content">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -37,10 +39,11 @@
       />
       <br />
       <!-- <router-link :to="{ name: 'login' }">Have an account?</router-link> -->
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="button-block register-btn" type="submit">
         Create Account
       </button>
     </form>
+    </div>
   </div>
 </template>
 
@@ -94,4 +97,28 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.register-content {
+  margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  text-align: center;
+  width: 50%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
+
+.register-content input[type="text"], .register-content input[type="password"] {
+  padding: 5px 10px;
+  margin: 8px 10px;
+  width: 35%;
+  box-sizing: border-box;
+}
+
+.register-btn {
+  background-color: #ff165d;
+  margin-top: 10px;
+}
+.register-btn:active {
+  top: 0.2em;
+}
+</style>
