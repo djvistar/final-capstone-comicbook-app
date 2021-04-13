@@ -91,9 +91,9 @@ public class CollectionController {
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET) // returns empty array
 	public List<Collection> getCollectionsByUsername(@PathVariable String username) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
-		for (Collection collection : collections) {
-			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollection_id());
-		}
+//		for (Collection collection : collections) {
+//			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollection_id());
+		
 		return collections;
 	}
 

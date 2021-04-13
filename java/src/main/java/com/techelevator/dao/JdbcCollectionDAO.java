@@ -24,7 +24,7 @@ public class JdbcCollectionDAO implements CollectionDAO {
 		this.jdbcTemplate = new JdbcTemplate(datasource);
 	};
 
-	// Collection collection = new Collection();
+	 Collection collection = new Collection();
 	ComicBook comic = new ComicBook();
 
 //	@Override
@@ -41,7 +41,8 @@ public class JdbcCollectionDAO implements CollectionDAO {
 	public List<Collection> listCollectionByUsername(String username) {
 		List<Collection> collections = new ArrayList<>();
 
-		String sqlGetCollectionsByUsername = "SELECT collection_name, collection_id, users.user_id, users.username FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
+		String sqlGetCollectionsByUsername = "SELECT user_collections.collection_name AS collectionName, user_collections.collection_id AS collectionId, users.user_id AS userId, users.username AS userName "
+				+"FROM user_collections JOIN users on user_collections.user_id = users.user_id WHERE users.username = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetCollectionsByUsername, username);
 		while (results.next()) {
 			collections.add(mapRowToCollection(results));
@@ -202,14 +203,15 @@ public class JdbcCollectionDAO implements CollectionDAO {
 				collection.getCollectionDescription(), collection.getCollection_id());
 
 	}
+//"SELECT user_collections.collection_name AS collectionName, user_collections.collection_id AS collectionId, users.user_id AS userId, users.username AS userName "
 
 	private Collection mapRowToCollection(SqlRowSet results) {
 
 		Collection newCollection = new Collection();
-		newCollection.setCollection_name(results.getString("collection_name"));
-		newCollection.setCollection_id(results.getInt("collection_id"));
-		newCollection.setUser_id(results.getInt("user_id"));
-		newCollection.setUsername(results.getString("username"));
+		newCollection.setCollection_name(results.getString("collectionName"));//AS collectionName
+		newCollection.setCollection_id(results.getInt("collectionId"));
+		newCollection.setUser_id(results.getInt("userId"));
+		newCollection.setUsername(results.getString("userName"));
 		return newCollection;
 	}
 
