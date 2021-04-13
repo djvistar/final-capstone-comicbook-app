@@ -79,18 +79,15 @@ public class CollectionController {
 		collectionDAO.addComicToCollection(comic, collectionId);
 	}
 
-	/*
-	 * METHODS BELOW ARE NOT FINISHED
-	 */
+	
 	@PreAuthorize("permitAll()")
 	@RequestMapping(value = "/collections/user/{username}", method = RequestMethod.GET) // returns empty array
 	public List<Collection> getCollectionsByUsername(@PathVariable String username) {
 		List<Collection> collections = collectionDAO.listCollectionByUsername(username);
-//		for (Collection collection : collections) {
-//			List<ComicBook> comicsInCollection = comicBookDAO.listComicsByCollectionId(collection.getCollection_id());
-		
 		return collections;
 	}
+	
+	
 	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.PUT)
 	public void updateCollection(@RequestBody Collection collection) {

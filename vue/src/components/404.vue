@@ -15,7 +15,10 @@ export default {
 
 <style>
 .error{
-color: red;
-background-color: white;
+  display: flex;
+  color: orangered;
+  background-color: rgba(89, 162, 247, 0.938);
+  text-shadow: 2px 2px black;
+  text-align: center;
 }
 </style>
