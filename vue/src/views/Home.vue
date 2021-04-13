@@ -1,6 +1,6 @@
 <template>
  <div class="home">
-    <h1> Welcome To The Comic Book Collection</h1>
+    <h1> Welcome To LongBox Comics</h1>
     <div class ="main">
     <div class = "image-card">
     <img src = "../assets/spiderman.jpg"/>
@@ -8,7 +8,7 @@
      <img src = "../assets/wolverine.jpg"/>
     <!-- <p>You must be authenticated to see this</p> -->
     </div>
-    <p> Content Goes Here</p>
+    <p> The best Comic Book collection manager!</p>
       </div>
     <div class="links"></div>
   </div>

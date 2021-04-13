@@ -2,26 +2,24 @@
   <div class="about-main">
     <h1>ABOUT</h1>
     <div class="text-content">
-      <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
-      </p>
+      
+        <p>Welcome to LongBox Comics!.</p>
+        <p>The main purpose of this application is to give you access to a variety of comicbook collections and issues from different publishers including but not
+          limited to; Marvel, DC Comics, Fox Comics(US), Timely, Fiction House, Ace Magazines, Atlas, Gold Key, 
+          Red Circle, Epic, Dark Horse Comics and many more.</p>
+         
+
+    
     </div>
     <div class="text-content">
-      <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
-      </p>
+
+       <p>As a guest user, you will be able to search for comics, create an account by clicking on the "Register" button above
+        and logging into your account.</p>
+      <p>As a logged in user, you will be able to create your own comicbook collections, add comics to your collections,
+    remove comics from your collections and even delete your collections.</p>
+    <p> To get the best experience of this application, we highly recommend that you create an account to best utilize all the resources
+      that we offer.</p>
+      <p>Thank you for visiting LongBox Comics!</P>
     </div>
   </div>
 </template>
