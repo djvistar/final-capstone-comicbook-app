@@ -29,6 +29,8 @@
     <div class="lowercontent">
       <h2 class="aboutLongbox" id="aboutLongbox">MEET LONGBOX</h2>
       <div class="content-box">
+        <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
+        <div class= "text-elements"> 
         <p>
           We're your digital comic collection management system! Want to display
           your comics, but you're worried about wrinkling the cover while
@@ -39,8 +41,20 @@
 
         <h2 class="action">BAM!</h2>
         <p>We’ve got you covered!</p>
+        </div>
+        
       </div>
+      <!-- <div class = "images1"> 
+         
+        <img class= "img2" src= "../assets/spiderman.jpg">
+        <img class= "img3" src= "../assets/spiderman.jpg">
+        <img class= "img4" src= "../assets/spiderman.jpg">
+        <img class= "img5" src= "../assets/spiderman.jpg">
+        
+        </div> -->
       <div class="content-box">
+        
+        <div class= "text-elements">
         <p>
           Fretting about fading the special edition holographic foil variant
           covers by accidentally overexposing them to possible sunlight caused
@@ -48,8 +62,15 @@
         </p>
         <h2 class="action">POW!</h2>
         <p>You’re in the right place!</p>
+        
       </div>
+      <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
+      </div>
+      
+
       <div class="content-box">
+        <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
+        <div class= "text-elements">
         <p>
           We don’t just handle the big name publishing houses, We cover
           everything from your golden age mythical issues to obscure one off
@@ -62,6 +83,7 @@
           your friends, family, colleagues, and nemeses while expressing your
           inner fan.
         </p>
+        </div>
       </div>
       <div class="CTA">
         <h2 class="aboutLongbox">
@@ -292,13 +314,22 @@ body {
   color: black;
 }
 .content-box {
+  display:flex;
   margin: 30px auto;
   padding: 20px 40px;
   background-color: #f8f59b;
   text-align: justify;
   width: 80%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  justify-content: space-between
+  
 }
+/* .text-elements{
+  display:flex;
+    align-items: center;
+  justify-content:center 
+
+} */
 .aboutLongbox {
   font-size: 50px;
   min-height: 60px;
@@ -312,4 +343,21 @@ body {
   background-color: #FF9A00;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
+/* .images1{
+  margin: 30px auto;
+  padding: 20px 40px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-gap: 0.8rem;
+  margin-top: 0px;
+} */
+
+.cbimg{
+  height:212px;
+  width: 138px;
+  display: flex;
+  border: 2px solid black;
+}
+
 </style>
