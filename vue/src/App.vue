@@ -96,6 +96,12 @@ h1 {
   color: #fff;
 }
 
+a, a:active, a:visited, a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #fff;
+}
+
 .button-block {
   display: inline-block;
   padding: 0.5em 0.8em;
