@@ -11,7 +11,7 @@
       <button
         v-on:click="backToCollections()"
         class="button-block col-back-btn"
-        v-if="$store.state.user.id===currentCollection.user_id"
+        v-if="$store.state.user.id === currentCollection.user_id"
       >
         View {{ currentCollection.username }}'s Other Collections
       </button>
@@ -41,8 +41,27 @@
         v-bind:collectionOwner="currentCollection.user_id"
       />
     </div>
-    <div class="empty-issues" v-if="currentCollectionIssues.length == 0">
+    <div
+      class="empty-issues"
+      v-if="
+        currentCollectionIssues.length == 0 &&
+        $store.state.user.id === currentCollection.user_id
+      "
+    >
       Uh-Oh! You should probably add some comics!
+    </div>
+    <div
+      class="empty-issues"
+      v-if="
+        currentCollectionIssues.length == 0 &&
+        $store.state.user.id != currentCollection.user_id
+      "
+    >
+      Uh-Oh! They should probably add some comics!
+    </div>
+    <div class="share-link">
+      Link to this Collection:
+      <input type="text" v-bind:value="currentURL" id="myInput" disabled />
     </div>
   </div>
 </template>
@@ -66,6 +85,7 @@ export default {
       currentCollectionIssues: [],
       collectionId: this.$route.params.id,
       currentName: "",
+      currentURL: "http://localhost:8081/collection/" + this.$route.params.id,
     };
   },
   methods: {
@@ -74,7 +94,7 @@ export default {
     },
     registerToday() {
       this.$router.push("../register");
-    }
+    },
   },
   mounted() {
     this.$store.commit("SET_ACTIVE_COLLECTION", this.activeCollectionID);
@@ -132,12 +152,34 @@ export default {
 /* .col-back-btn:active {
   top: 0.2em;
 } */
+
 .empty-issues {
   margin: 30px auto;
-  padding: 20px 40px;
+  padding: 15px;
   background-color: #f8f59b;
   text-align: center;
-  width: 60%;
+  width: 75%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
-</style>
+.share-link {
+  margin: 30px auto;
+  padding: 15px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ff165d;
+  text-align: center;
+  width: 75%;
+  box-shadow: inset 0 -0.5em 0 -0.2em rgba(0, 0, 0, 0.3);
+}
+
+.share-link input[type="text"]
+ {
+   width: 50%;
+   color: #000;
+   font-weight: bold;
+   background-color: #fff;
+   border: 2px solid #000;
+   padding: 8px;
+ }
+ </style>
