@@ -13,8 +13,8 @@
         </div>
       </div>
     </div>
-    
-    <button type="button" class="button-block remove-issue-btn" @click="showModal">
+  
+    <button type="button" class="button-block remove-issue-btn" @click="showModal" v-if="$store.state.user.id===collectionOwner">
       Remove
     </button>
     <remove-issue-modal
@@ -41,6 +41,7 @@ export default {
   props: {
     issue: Object,
     collectionId: Number,
+    collectionOwner: Number,
   },
   methods: {
     showModal() {
