@@ -278,11 +278,14 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
   color: black;
-  justify-content: center;
+    align-content: center;
+  text-align: center;
+  justify-content: center
 }
 .content-box h2 {
+    align-content: center;
+  text-align: center;
   justify-content: center;
-  align-content: center;
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
