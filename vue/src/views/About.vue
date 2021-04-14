@@ -2,13 +2,18 @@
   <div class="about-main">
     <h1>ABOUT</h1>
 
-<!-- <div class = "gallery">
-    <div class = "abt-img">
-<img src = "../assets/bg2.jpg" />
-<div class="desc">Add a description of the image here</div>
-  </div>
-  </div> -->
+<div class = "welcome">
+  <h2>Welcome to LongBox Comics!.</h2>
+        <p>The main purpose of this application is to give you access to a variety of comicbook collections and issues from different publishers including but not
+          limited to; Marvel, DC Comics, Fox Comics(US), Timely, Fiction House, Ace Magazines, Atlas, Gold Key, 
+          Red Circle, Epic, Dark Horse Comics and many more.</p>
+</div>
+
+<div class = "team">
+  <h2> The Team</h2>
+</div>
 <div class="images">
+  
   <div class="abt-img">
       <img src="../assets/bg2.jpg" > 
     <div class="name">
@@ -39,16 +44,6 @@
 
   
     <div class="text-content">
-      
-        <p>Welcome to LongBox Comics!.</p>
-        <p>The main purpose of this application is to give you access to a variety of comicbook collections and issues from different publishers including but not
-          limited to; Marvel, DC Comics, Fox Comics(US), Timely, Fiction House, Ace Magazines, Atlas, Gold Key, 
-          Red Circle, Epic, Dark Horse Comics and many more.</p>
-         
-
-    
-    </div>
-    <div class="text-content">
 
        <p>As a guest user, you will be able to search for comics, create an account by clicking on the "Register" button above
         and logging into your account.</p>
@@ -68,6 +63,38 @@ export default {
 </script>
 
 <style>
+.about-main{
+  /* background-image: url("../assets/blue backgd.jpg"); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+.welcome{
+   margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  text-align: justify;
+  width: 80%;
+
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
+
+.welcome h2{
+ text-align: center;
+}
+
+.team h2{
+   width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: none;
+  /* box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17), 4px 4px 0px 0px rgba(0, 0, 0, 0.6); */
+  text-transform: uppercase;
+  color: rgb(24, 18, 18);
+  font-size: 30px;
+  
+ 
+}
 .text-content {
   margin: 30px auto;
   padding: 20px 40px;
@@ -80,6 +107,7 @@ export default {
 .about-main p {
   font-size: 18px;
   color: #000;
+  
 }
 .images{
  
