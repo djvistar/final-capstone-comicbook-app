@@ -1,10 +1,12 @@
 <template>
   <div class = "not-found">
-    <h1>Not Found!</h1>
+    <h1>(404)Page Not Found</h1>
    <div class = "text-box">
     The page that you are trying to reach cannot be found!
    </div>
   </div>
+
+ 
 
 </template>
 
@@ -24,5 +26,8 @@ name: 'not-found'
     color: var(--border);
     font-size: 2em;
   }
+
+
+
 
 </style>
