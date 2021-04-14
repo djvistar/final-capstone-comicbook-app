@@ -1,19 +1,21 @@
 <template>
   <div class="modal-backdrop">
-    <div class="modal">
-      <section class="modal-body">
-        <slot name="body">
-          <p>Delete This Collection?</p>
-          <form
-            v-on:submit.prevent="deleteCollection(id)"
-            class="collectionForm"
-          >
-            <br />
-            <button class="btn btn-submit" @click="closeFinish">Yes!</button>
-            <button class="btn" type="button" @click="close">No!</button>
-          </form>
-        </slot>
-      </section>
+    <div class="del-coll-modal-border">
+      <div class="del-coll-modal">
+        <section class="del-coll-modal-body">
+          <slot name="body">
+            <p>Delete This Collection?</p>
+            <form
+              v-on:submit.prevent="deleteCollection(id)"
+              class="collectionForm"
+            >
+              <br />
+              <button class="button-block confirm-del-btn" @click="closeFinish">Yes!</button>
+              <button class="button-block confirm-del-btn" type="button" @click="close">No!</button>
+            </form>
+          </slot>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -57,57 +59,34 @@ export default {
   align-items: center;
 }
 
-.modal {
-  background: #ffffff;
-  box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 35px 10px 10px 10px;
-  display: flex;
-}
-
-.modal-header {
-  position: relative;
-  color: #4aae9b;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.modal-body {
-  position: relative;
+.del-coll-modal-body {
   padding: 0px 10px 10px 10px;
+  margin: 0;
 }
-
-.btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
+.del-coll-modal-border {
+  border: 5px solid #fff;
+  box-shadow: 2px 2px 20px 1px;
 }
-
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
+.del-coll-modal {
+  background: #ffffff;
+  width: 300px;
+  height: 150px;
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.del-coll-modal p{
+  margin: 10px;
+}
+.del-coll-content {
+  margin: 0;
+  padding: 0;
+}
+.confirm-del-btn {
+  background-color:#2B80D3;
+  margin:0 10px;
+  color: #fff;
+  width: 35%;
 }
 </style>

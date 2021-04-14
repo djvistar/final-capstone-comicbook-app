@@ -1,6 +1,6 @@
 <template>
   <div class="footer-main">
-    <p>&#169; 2021 LongBox <br />All Rights Reserved</p>
+    <p>&#169; 2021 Longbox <br />All Rights Reserved</p>
   </div>
 </template>
 

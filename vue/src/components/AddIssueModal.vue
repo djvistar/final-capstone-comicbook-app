@@ -1,38 +1,42 @@
 <template>
   <div class="modal-backdrop">
-    <div class="modal">
-      <!-- <header class="modal-header">
-        <slot name="header"> Add a New Collection! </slot>
-      </header> -->
-      <section class="modal-body">
-        <slot name="body">
-          <p>Add To Collection</p>
-          <form v-on:submit.prevent="addToCollection()" class="addIssueForm">
-            <div class="form-group">
-              <select
-                id="user-collections"
-                name="user-collections"
-                v-model="selectedCollection"
-              >
-                <option value="0">My Collections</option>
-                <option
-                  v-bind:value="collection.collection_id"
-                  v-for="collection in $store.state.userCollections"
-                  v-bind:key="collection.collection_id"
+    <div class="add-issue-border">
+      <div class="add-issue-modal">
+        <section class="add-issue-modal-header">Add to Collection</section>
+        <section class="modal-body">
+          <slot name="body">
+            <form v-on:submit.prevent="addToCollection()" class="addIssueForm">
+              <div class="form-group add-issue-form-area">
+                <label for="user-collections">Select a Collection:</label>
+                <br />
+                <select
+                  id="user-collections"
+                  name="user-collections"
+                  v-model="selectedCollection"
                 >
-                  {{ collection.collection_name }}
-                </option>
-              </select>
-            </div>
-            <br />
-            <button class="btn btn-submit" @click="close">Submit</button>
-            <button class="btn" type="button" @click="close">Cancel</button>
-          </form>
-        </slot>
-      </section>
+                
+                
+                  <option value="0">MY COLLECTIONS</option>
+                  <option
+                    v-bind:value="collection.collection_id"
+                    v-for="collection in $store.state.userCollections"
+                    v-bind:key="collection.collection_id"
+                  >
+                    {{ collection.collection_name }}
+                  </option>
+                </select>
+              </div>
+              <br />
+              <button class="button-block add-issue-btn" @click="close">Submit</button>
+              <button class="button-block add-issue-btn" type="button" @click="close">Cancel</button>
+            </form>
+          </slot>
+        </section>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 import CollectionService from "@/services/CollectionService.js";
 export default {
@@ -102,58 +106,42 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.modal {
-  background: #ffffff;
+.add-issue-border {
+  border: 5px solid #fff;
   box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+}
+.add-issue-modal {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000;
+  z-index: 10 !important;
 }
 
-.modal-header,
-.modal-footer {
-  padding: 35px 10px 10px 10px;
-  display: flex;
-}
-
-.modal-header {
-  position: relative;
-  color: #4aae9b;
-  justify-content: space-between;
+.add-issue-modal-header {
+  background-color: #ff165d;
+  color: #fff;
   font-weight: bold;
-  font-size: 1.5em;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
+  font-size: 22px;
+  height: 25%;
+  text-align: center;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
-
 .modal-body {
-  position: relative;
   padding: 0px 10px 10px 10px;
+  margin-top: 30px;
 }
-
-.btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
+.add-issue-form-area select {
+  padding: 5px 10px;
+  margin: 8px 10px;
+  width: 75%;
+  box-sizing: border-box;
 }
-
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
+.add-issue-btn {
+  background-color: #ff165d;
+  margin: 10px;
+  color: #fff;
 }
 </style>
