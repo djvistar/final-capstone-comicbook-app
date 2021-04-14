@@ -158,7 +158,7 @@ export default {
   padding: 15px;
   background-color: #f8f59b;
   text-align: center;
-  width: 75%;
+  width: 50%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 .share-link {
@@ -169,7 +169,7 @@ export default {
   font-weight: bold;
   background-color: #ff165d;
   text-align: center;
-  width: 75%;
+  width: 50%;
   box-shadow: inset 0 -0.5em 0 -0.2em rgba(0, 0, 0, 0.3);
 }
 

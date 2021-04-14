@@ -78,13 +78,13 @@ export default {
   top: 0.2em;
 } */
 .coll-list-btn-cont {
-  padding: 0 0 20px 0;
+  padding: 0 0 10px 0;
   margin: 0 auto;
   display: flex;
   
 }
 
 .coll-card-single {
-  margin: 20px;
+  margin: 15px;
 }
 </style>

@@ -34,7 +34,7 @@ export default {
 <style>
 .user-coll-list-cont {
   margin: 30px auto;
-  padding: 40px;
+  padding: 30px;
   background-color: #FF9A00;
   width: 80%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);

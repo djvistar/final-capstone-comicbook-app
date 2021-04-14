@@ -17,14 +17,20 @@
           <button class="button-block search-btn">Submit</button>
         </form>
       </div>
-      <div class="volume-results">
-        <volume-card
-          v-bind:volume="volume"
-          v-for="volume in volumes"
-          v-bind:key="volume.id"
-          class="volume-card-single"
-        />
+      <div class="volume-results-content">
+        <div class="volume-search-term" v-if="searchComplete ==true">Searching for '{{volumeName}}'</div>
+        <div class="volume-results">
+          <volume-card
+            v-bind:volume="volume"
+            v-for="volume in volumes"
+            v-bind:key="volume.id"
+            class="volume-card-single"
+          />
+        </div>
       </div>
+    </div>
+    <div class="empty-issues" v-if="searchComplete ==true && volumes.length ==0">
+      Oops! Nothing to see here...<br />Please try a different search!
     </div>
   </div>
 </template>
@@ -44,6 +50,7 @@ export default {
       volumePublisher: "",
       volumeYearStart: "",
       volumes: [],
+      searchComplete: false,
     };
   },
 
@@ -72,6 +79,7 @@ export default {
         .catch((err) => {
           console.log("Fetch Error", err);
         });
+        this.searchComplete = true;
     },
     // search by Volume:
     // searchVolumes() {
@@ -103,14 +111,26 @@ export default {
 </script>
 
 <style>
+.volume-results-content {
+  width: 90%;
+  margin: 0 auto;
+  background-color: green;
+  margin-bottom: 20px;
+}
 .volume-results {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 90%;
-  margin: 10px auto;
-  background:#3ec1d3;
+  width: 100%;
+  background: #3ec1d3;
   /* flex: 0 0 25; */
+}
+.volume-search-term {
+  padding: 15px;
+  background-color: #ff165d;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
 }
 .vol-search-form-box {
   margin: 30px auto;
@@ -143,5 +163,13 @@ input[type="text"] {
 
 .searchForm {
   padding: 10px;
+}
+.empty-issues {
+  margin: 30px auto;
+  padding: 15px;
+  background-color: #f8f59b;
+  text-align: center;
+  width: 75%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 </style>
