@@ -149,6 +149,9 @@ h1 {
   margin-top: 1%;
   font-size: 40px;
 }
+.content-box{
+  background-color:rgba(0, 0, 0, 0.8)
+}
 .content-box p {
 
   text-shadow: none;
@@ -156,11 +159,13 @@ h1 {
   text-size-adjust: 22px;
   color: white;
   
+  
 }
 .test-comic {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 0.8rem;
+    margin-top: 0px;
     /*need to narrow container*/
     
   }
