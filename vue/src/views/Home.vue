@@ -5,18 +5,20 @@
     
     <div class = "test-comic">
     <div class="panel-1" >
-      <h2>LongBox</h2>
-      <img src ="../assets/wolverineorigins.jpg">
+      <!--<h2>LongBox</h2>
+      <img src ="../assets/wolverineorigins.jpg">-->
     </div>
     <div class="panel-2">
-      <div>LongBox<br>your digital comic collection management system!</div>
-      <img src ="../assets/comic-explosion-bubble-2.png"> <!--need image, formatting for opacity is below -->
-      </div>
+      <div class="LongBox">LongBox </div><div id = "info">
+        your digital comic collection management system!
+        </div></div>
+      
+      
     <div class="panel-3">&nbsp;</div>
     <div class="panel-4">&nbsp;</div>
     <div class="panel-5">
       <div>At LongBox, you can digitally track and display your collections to your friends, family, colleagues, and nemeses while expressing your inner fan.</div>
-      <img src = "../assets/lockjaw.jpg">
+      <!-- <img src = "../assets/lockjaw.jpg"> -->
       </div>
       </div>
       <div class="content-box">
@@ -97,12 +99,13 @@
           Show-Off these masterpieces.
         </div> -->
 
-    <div class="image-card">
+    <!-- <div class="image-card">
+
       <img src="../assets/spiderman.jpg" />
       <img src="../assets/xmen.jpg" />
       <img src="../assets/wolverine.jpg" />
-      <!-- <p>You must be authenticated to see this</p> -->
-    </div>
+   
+    </div> -->
     <p>The best Comic Book collection manager!</p>
   </div>
   <!-- <div class="links"></div> -->
@@ -128,12 +131,17 @@ export default {
 }
 
 .home {
+
   display: flexbox;
-  background-color: rgba(45, 136, 240, 0.938);
+  /* background-color: rgba(45, 136, 240, 0.938); */
   color: rgb(249, 243, 243);
   text-shadow: 2px 2px black;
   text-align: center;
   margin: 0;
+  background-image: url("../assets/bg3.jpg");
+  background-size:100%;
+    background-attachment: scroll;
+    /* background-repeat: repeat; */
 }
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -141,21 +149,29 @@ h1 {
   margin-top: 1%;
   font-size: 40px;
 }
+.content-box{
+  background-color:rgba(0, 0, 0, 0.8)
+}
 .content-box p {
+
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
   color: white;
+  
+  
 }
 .test-comic {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 0.8rem;
+    margin-top: 0px;
     /*need to narrow container*/
     
   }
   
   .panel-1 {
+    /* src ="../assets/wolverineorigins.jpg"> */
       display:flex;
       justify-content: center;
       align-items: center; 
@@ -163,8 +179,13 @@ h1 {
       border: solid 3px Black;
       position: relative;
       overflow:hidden; 
+      background-image: url("../assets/wolverineorigins.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100% auto;
   }
-.panel-1 h2{
+/* .panel-1 h2{
   padding: 10px;
     text-align: center;
     z-index: 2;
@@ -179,7 +200,7 @@ h1 {
   height: auto;
   z-index: 1;
   opacity: 0.3;
-}
+} */
    /* .panel::after{
     content:"LongBox";
     background-image: url("../assets/wolverine.jpg");
@@ -197,25 +218,47 @@ h1 {
    
    
   .panel-2 {
+    display:grid;
     display:flex;
     grid-column: span 5;
     border: solid 3px Black;
     font-size: 25px;
     align-items: center;
-    justify-content:baseline;
+    text-align: center;
+    justify-content:center;
     color:black;
     text-shadow: none;
     position: relative;
-      overflow:hidden; 
+    overflow:hidden; 
+    background-image: url("../assets/comic-explosion-bubble-2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100% auto;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "longbox"
+    "info"
+    ;
   }
-  .panel-2 div{
-  padding: 10px;
+  /* .panel-2 div{
+  padding: 20px;
     text-align: center;
     z-index: 2;
     position: relative;
     color: #000;
+     */
+  /* } */
+  .LongBox{
+font-size: 45px;
+text-shadow: 3px 3px rgb(192, 139, 139);
+font-weight:bold;
+grid-area: longbox;
   }
-  .panel-2 img{
+  #info{
+    grid-area: info;
+  } 
+  /* .panel-2 img{
   
   position:absolute;
   left: 0;
@@ -225,7 +268,7 @@ h1 {
   z-index: 1;
   opacity: 0.3;
   
-  }
+  } */
   
   .panel-3 {
     display:flex;
@@ -261,10 +304,16 @@ h1 {
     text-shadow: none;
     position: relative;
     overflow:hidden; 
-
+    background-image: url("../assets/lockjaw.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100% auto;
   }
-  .panel-5 div{
- padding: 10px;
+
+  /* } */
+  /* .panel-5 div{
+ padding: 50px;
     text-align: center;
     z-index: 2;
     position: relative;
@@ -278,7 +327,7 @@ h1 {
   height: auto;
   z-index: 1;
   opacity: 0.3;
-  }
+  } */
   
   
   
