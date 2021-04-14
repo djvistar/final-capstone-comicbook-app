@@ -2,6 +2,11 @@
   <div>
     <h1>SEARCH RESULTS</h1>
 
+    
+    <div class="issues-volume-name">{{issues[0].volume.name}}</div>
+    <div class="register-message" v-if="$store.state.token == ''">
+      <p>( Want to add these to your own Collection? <router-link :to="{ name: 'register' }">Register now! )</router-link></p>
+    </div>
     <div class="issue-list-main">
       <comic-card-import
         v-bind:issue="issue"
@@ -28,9 +33,9 @@ export default {
       issueId: "",
       issueNumber: "",
       issues: [],
+      volumeName: "",
     };
   },
-
   created: function () {
     const activeVolumeID = this.$route.params.id;
     this.$store.commit("SET_ACTIVE_VOLUME", activeVolumeID);
@@ -60,11 +65,42 @@ export default {
 </script>
 
 <style>
+.register-message {
+  margin: 0 auto;
+  padding: 5px 10px;
+  text-align: center;
+  width: 90%;
+  background-color: #2B80D3;
+  /* box-shadow: inset 0 -0.6em 0 -0.25em rgba(0, 0, 0, 0.17); */
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+.register-message p {
+  margin: 5px;
+}
+
+.issues-volume-name {
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  background: #ff165d;
+  font-size: 34px;
+  color: #fff;
+  font-weight: bold;
+  
+
+}
 .issue-list-main {
   width: 90%;
   padding: 10px;
   margin: 0 auto;
-  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

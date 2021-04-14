@@ -13,7 +13,12 @@
         </div>
       </div>
     </div>
-    <button type="button" class="button-block add-issue-btn" @click="showModal">
+    <button
+      type="button"
+      class="button-block add-issue-btn"
+      @click="showModal"
+      v-if="$store.state.token != ''"
+    >
       Add to Collection
     </button>
     <add-issue-modal
@@ -119,50 +124,4 @@ export default {
   -webkit-box-orient: vertical;
 }
 */
-
-/* .comic-card-import-main {
-  max-width: 240px;
-  max-height: 240px;
-  margin: 25px;
-  padding: 10px;
-  background-color: #00afef;
-  color: rgb(0, 0, 0);
-  border: solid 1px #777;
-  display: flex;
-  justify-items: center;
-  align-content: flex-start;
-} */
-/* .comic-card-info {
-  padding: 2px 2px;
-  display: grid;
-  background-color: #b1ee0b;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 0.5fr;
-  grid-template-areas:
-    "image issue_number"
-    "image name"
-    "image name"
-    "image volume";
-} */
-
-/* #name {
-  grid-area: name;
-  text-shadow: 1px 1px 0 #444;
-  word-wrap: break-word;
-  font-size: 1vw;
-  
-}
-
-#issue_number {
-  grid-area: issue_number;
-  font-size: 1vw, larger;
-}
-#volume {
-  grid-area: volume;
-  font-size: 1vw;
-  word-wrap: break-word;
-}
-#summary {
-  grid-area: summary;
-} */
 </style>

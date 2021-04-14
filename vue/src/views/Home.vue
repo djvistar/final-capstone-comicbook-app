@@ -1,8 +1,25 @@
 <template>
   <div class="home">
-    <h1>Welcome To LongBox Comics</h1>
+    <!-- <h1>Welcome To LongBox Comics</h1> -->
 
-    <div class="content-box">
+    
+    <div class = "test-comic">
+    <div class="panel-1" >
+      <h2>LongBox</h2>
+      <img src ="../assets/wolverineorigins.jpg">
+    </div>
+    <div class="panel-2">
+      <div>LongBox<br>your digital comic collection management system!</div>
+      <img src ="../assets/comic-explosion-bubble-2.png"> <!--need image, formatting for opacity is below -->
+      </div>
+    <div class="panel-3">&nbsp;</div>
+    <div class="panel-4">&nbsp;</div>
+    <div class="panel-5">
+      <div>At LongBox, you can digitally track and display your collections to your friends, family, colleagues, and nemeses while expressing your inner fan.</div>
+      <img src = "../assets/lockjaw.jpg">
+      </div>
+      </div>
+      <div class="content-box">
       <p>
         Meet LongBox, your digital comic collection management system! Want to
         display your comics, but you're worried about wrinkling the cover while
@@ -138,6 +155,181 @@ h1 {
   color: white;
   
 }
+.test-comic {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-gap: 0.8rem;
+    /*need to narrow container*/
+    
+  }
+  
+  .panel-1 {
+      display:flex;
+      justify-content: center;
+      align-items: center; 
+      grid-column: span 6;
+      border: solid 3px Black;
+      position: relative;
+      overflow:hidden; 
+  }
+.panel-1 h2{
+  padding: 10px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #000;
+}
+.panel-1 img{
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.3;
+}
+   /* .panel::after{
+    content:"LongBox";
+    background-image: url("../assets/wolverine.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /*need to adjust from contain */
+    /* height: 100% auto;
+    opacity: 0.5;  */
+ /*   transform: rotate(18deg);
+    overflow: hidden; 
+    color:mediumslateblue;
+    background-color:transparent;
+    font-size: 450%; */
+  /* } */
+   
+   
+  .panel-2 {
+    display:flex;
+    grid-column: span 5;
+    border: solid 3px Black;
+    font-size: 25px;
+    align-items: center;
+    justify-content:baseline;
+    color:black;
+    text-shadow: none;
+    position: relative;
+      overflow:hidden; 
+  }
+  .panel-2 div{
+  padding: 10px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #000;
+  }
+  .panel-2 img{
+  
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.3;
+  
+  }
+  
+  .panel-3 {
+    display:flex;
+    grid-column: span 5;
+    border: solid 3px Black;
+   
+    background-image: url("../assets/spidergwen1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100% auto;
+  }
+  
+  .panel-4 {
+    display:flex;
+    grid-column: span 7;
+    border: solid 3px Black;
+    background-image: url("../assets/Thor.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100% auto;
+  }
+  
+  .panel-5 {
+    display:flex;
+    grid-column: span 9;
+    border: solid 3px Black;
+    font-size: 25px;
+    align-items: center;
+    justify-content:baseline;
+    color:black;
+    text-shadow: none;
+    position: relative;
+    overflow:hidden; 
+
+  }
+  .panel-5 div{
+ padding: 10px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #000;
+  }
+  .panel-5 img{
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.3;
+  }
+  
+  
+  
+  /* Themeing */
+  
+  body {
+    background-color: #333745;
+    display: grid;
+    place-items: start center;
+    grid-template-rows: max-content auto;
+    gap: 1rem;
+    height: 100vh;
+  }
+  
+  .test-comic {
+    width: 100%;
+    height: 465px;
+    padding: 1rem;
+    margin: 2rem 0;
+    background-color: #fff;
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  [class^="panel-"] {
+    
+  }
+  
+  .collection {
+    position: absolute;
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #F07739;
+    left: 10px;
+    top: 10px;
+    color: #F07739;
+    text-decoration: none;
+    font-weight: 700;
+    
+   /*&:hover {
+      background-color: #F07739;
+      color: #333745;
+    }*/
+  }
 
 .CTA {
   display: flexbox;
