@@ -11,6 +11,7 @@ import Dashboard from '../views/Dashboard.vue'
 import UserCollections from '../views/UserCollections.vue'
 import Collection from '../views/Collection.vue'
 import About from '../views/About.vue'
+import NotFound from '../views/NotFound'
 
 Vue.use(Router)
 
@@ -103,6 +104,14 @@ const router = new Router({
       path: '/about',
       name: 'about',
       component: About,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '*',
+      name: 'Not Found',
+      component: NotFound,
       meta: {
         requiresAuth: false
       }

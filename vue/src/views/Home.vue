@@ -99,12 +99,13 @@
           Show-Off these masterpieces.
         </div> -->
 
-    <div class="image-card">
+    <!-- <div class="image-card">
+
       <img src="../assets/spiderman.jpg" />
       <img src="../assets/xmen.jpg" />
       <img src="../assets/wolverine.jpg" />
-      <!-- <p>You must be authenticated to see this</p> -->
-    </div>
+   
+    </div> -->
     <p>The best Comic Book collection manager!</p>
   </div>
   <!-- <div class="links"></div> -->
@@ -130,12 +131,17 @@ export default {
 }
 
 .home {
+
   display: flexbox;
-  background-color: rgba(45, 136, 240, 0.938);
+  /* background-color: rgba(45, 136, 240, 0.938); */
   color: rgb(249, 243, 243);
   text-shadow: 2px 2px black;
   text-align: center;
   margin: 0;
+  background-image: url("../assets/bg3.jpg");
+  background-size:100%;
+    background-attachment: scroll;
+    /* background-repeat: repeat; */
 }
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -144,10 +150,12 @@ h1 {
   font-size: 40px;
 }
 .content-box p {
+
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
   color: white;
+  
 }
 .test-comic {
     display: grid;
