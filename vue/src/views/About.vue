@@ -1,7 +1,6 @@
 <template>
   <div class="about-main">
     <h1>ABOUT</h1>
-<<<<<<< HEAD
     <div class="about-welcome">
       <div class="about-welcome-header">WELCOME TO LONGBOX!</div>
       <div class="about-welcome-content">
@@ -19,26 +18,6 @@
           many more.
         </p>
       </div>
-=======
-
-<div class = "welcome">
-  <h2>Welcome to LONGBOX!</h2>
-        <p>The main purpose of this application is to give you access to a variety of comicbook collections and issues from different publishers including but not
-          limited to; Marvel, DC Comics, Fox Comics(US), Timely, Fiction House, Ace Magazines, Atlas, Gold Key, 
-          Red Circle, Epic, Dark Horse Comics and many more.</p>
-</div>
-
-<div class = "team">
-  <h2> The Team</h2>
-</div>
-<div class="images">
-  
-  <div class="abt-img">
-      <img src="../assets/bg2.jpg" > 
-    <div class="name">
-      <h2> BLASE </h2>
-       <h3> ComicBook Collector</h3>
->>>>>>> defe37e54248d0ea929fbb58b753f1b8d9108197
     </div>
 
     <div class="about-function">
