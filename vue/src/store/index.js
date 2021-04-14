@@ -130,6 +130,14 @@ export default new Vuex.Store({
       localStorage.removeItem('user');
       state.token = '';
       state.user = {};
+      state.volumeResults = [];
+      state.activeVolume = 0;
+      state.activeCollection = 0;
+      state.activeIssue = 0;
+      state.showAllCollections = true;
+      state.currentCollection = [];
+      state.issuesFromSearch = [];
+      state.userCollections = [];
       axios.defaults.headers.common = {};
     }
   }
