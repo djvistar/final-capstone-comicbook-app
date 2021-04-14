@@ -64,7 +64,7 @@ export default {
 
 <style>
 .about-main{
-  /* background-image: url("../assets/blue backgd.jpg"); */
+  background-image: url("../assets/bg7.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   opacity: 1;
