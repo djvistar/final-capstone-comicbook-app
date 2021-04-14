@@ -44,7 +44,7 @@ public class CollectionController {
 	}
 
 	// RETURNS COLLECTION OBJECT BASED ON GIVEN ID
-	@PreAuthorize("isAuthenticated()")
+	// commented out to test share a link functionality @PreAuthorize("isAuthenticated()")  
 	@RequestMapping(value = "/collections/{collectionId}", method = RequestMethod.GET)
 	public Collection getCollectionById(@PathVariable int collectionId) {
 		Collection collection = collectionDAO.getCollectionById(collectionId);
@@ -52,7 +52,7 @@ public class CollectionController {
 	}
 
 	// RETURNS LIST OF COMICS BASED ON COLLECTION ID
-	@PreAuthorize("isAuthenticated()")
+	// commented out to test share a link functionality @PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/collections/{collectionId}/issues", method = RequestMethod.GET)
 	public List<ComicBook> getCollectionContentsById(@PathVariable int collectionId) {
 		List<ComicBook> collectionContents = collectionDAO.listCollectionContentsById(collectionId);

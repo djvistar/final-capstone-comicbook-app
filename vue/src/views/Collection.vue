@@ -11,8 +11,16 @@
       <button
         v-on:click="backToCollections()"
         class="button-block col-back-btn"
+        v-if="$store.state.user.id===currentCollection.user_id"
       >
         View {{ currentCollection.username }}'s Other Collections
+      </button>
+      <button
+        v-on:click="registerToday()"
+        class="button-block col-back-btn"
+        v-if="$store.state.token == ''"
+      >
+        Register and Make Your Own!
       </button>
 
       <div class="col-info-piece">
@@ -30,6 +38,7 @@
         v-bind:key="issue.id"
         class="comic-card-server-single"
         v-bind:collectionId="currentCollection.collection_id"
+        v-bind:collectionOwner="currentCollection.user_id"
       />
     </div>
     <div class="empty-issues" v-if="currentCollectionIssues.length == 0">
@@ -63,6 +72,9 @@ export default {
     backToCollections() {
       this.$router.push("../collections");
     },
+    registerToday() {
+      this.$router.push("../register");
+    }
   },
   mounted() {
     this.$store.commit("SET_ACTIVE_COLLECTION", this.activeCollectionID);
@@ -114,6 +126,8 @@ export default {
   background-color: #ff165d;
   width: 20%;
   height: 60%;
+  font-size: 16px;
+  padding: 10px;
 }
 /* .col-back-btn:active {
   top: 0.2em;

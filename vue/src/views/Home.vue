@@ -9,34 +9,36 @@
       <img src ="../assets/wolverineorigins.jpg">-->
     </div>
     <div class="panel-2">
-      <div class="LongBox">LongBox </div><div id = "info">
-        your digital comic collection management system!
-        </div></div>
+      <div class ="panel-2-grid">
+      <!-- <div class="LongBox"> </div><div id = "info"> -->
+        <p id ="longboxtitle">LongBox</p>  <p id="info"> Your Digital Comic Collection Management System!</p>
+        </div> </div>
       
       
     <div class="panel-3">&nbsp;</div>
     <div class="panel-4">&nbsp;</div>
     <div class="panel-5">
       <div>At LongBox, you can digitally track and display your collections to your friends, family, colleagues, and nemeses while expressing your inner fan.</div>
-      <!-- <img src = "../assets/lockjaw.jpg"> -->
+      
       </div>
       </div>
       <div class="content-box">
+      <h2 class="aboutLongbox">Meet LongBox</h2>
       <p>
-        Meet LongBox, your digital comic collection management system! Want to
+        We're your digital comic collection management system! Want to
         display your comics, but you're worried about wrinkling the cover while
         removing them from their hermetically sealed boxes in the climate
         controlled comic storage facility you rented at Xavier’s School for
         Gifted Youngsters to protect all of your precious issues?
       </p>
-      <p class="action">BAM!</p>
+      <h2 class="action">BAM!</h2>
       <p>We’ve got you covered!</p>
       <p>
         Fretting about fading the special edition holographic foil variant
         covers by accidentally overexposing them to possible sunlight caused by
         Lex Luthor’s newest plot?
       </p>
-      <p class="action">POW!</p>
+      <h2 class="action">POW!</h2>
       <p>You’re in the right place!</p>
       <p>
         We don’t just handle the big name publishing houses, We cover everything
@@ -44,69 +46,21 @@
         we probably don’t have your Second Cousin’s comic strip he wrote for
         that one Zine in Saskatchewan in 1987...sorry.
       </p>
-      <p class="action">BIFF!</p>
+      <h2 class="action">BIFF!</h2>
       <p>
         At LongBox, you can digitally track and display your collections to your
         friends, family, colleagues, and nemeses while expressing your inner
         fan.
       </p>
-      <p>
-        <router-link :to="{ name: 'register' }">Register Now</router-link> and
+      
+        <h2 class="aboutLongbox"> <router-link :to="{ name: 'register' }">Register Now</router-link></h2> 
+        <p>and
         Join like minded heroes in the battle to Cherish, Preserve, and Show-Off
-        these masterpieces.
+        these masterpieces with the best Comic Book collection manager!
       </p>
+      
     </div>
-
-    <!-- <div class="home">
-    <h1>Welcome To LongBox Comics</h1>
-    <div class="main">
-      <div class="sizzle">
-        <div class = "experiment">
-        <div class="spot-1"><div>
-          Meet LongBox, your digital comic collection management system! Want to
-          display your comics, but you're worried about wrinkling the cover
-          while removing them from their hermetically sealed boxes in the
-          climate controlled comic storage facility you rented at Xavier’s
-          School for Gifted Youngsters to protect all of your precious issues?
-          </div>
-        </div>
-        <div class="spot-2"><div id="action1">BAM!</div></div>
-        <div class="spot-3"> <div id="answer1">We’ve got you covered!</div></div>
-        <div class="spot-4">
-          Fretting about fading the special edition holographic foil variant
-          covers by accidentally overexposing them to possible sunlight caused
-          by Lex Luthor’s newest plot?
-        </div>
-        <div class="spot-5" id="action2">POW!</div>
-        <div class="spot-6" id="answer2">You’re in the right place!</div>
-        <div class="spot-7">
-          We don’t just handle the big name publishing houses, We cover
-          everything from your golden age mythical issues to obscure one off
-          issues, although we probably don’t have your Second Cousin’s comic
-          strip he wrote for that one Zine in Saskatchewan in 1987...sorry.
-        </div>
-        
-        <div class="spot-8" id="action3">BIFF!</div>
-        </div>
-        <div class="spot-9" id="answer3">
-          At LongBox, you can digitally track and display your collections to
-          your friends, family, colleagues, and nemeses while expressing your
-          inner fan.
-        </div>
-        <div class="CTA">
-          <router-link :to="{ name: 'register' }">Register Now</router-link> and
-          Join like minded heroes in the battle to Cherish, Preserve, and
-          Show-Off these masterpieces.
-        </div> -->
-
-    <!-- <div class="image-card">
-
-      <img src="../assets/spiderman.jpg" />
-      <img src="../assets/xmen.jpg" />
-      <img src="../assets/wolverine.jpg" />
-   
-    </div> -->
-    <p>The best Comic Book collection manager!</p>
+    
   </div>
   <!-- <div class="links"></div> -->
 </template>
@@ -166,6 +120,8 @@ h1 {
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 0.8rem;
     margin-top: 0px;
+    box-sizing: border-box;
+    
     /*need to narrow container*/
     
   }
@@ -185,45 +141,14 @@ h1 {
     background-size:cover;
     height: 100% auto;
   }
-/* .panel-1 h2{
-  padding: 10px;
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    color: #000;
-}
-.panel-1 img{
-  position:absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  opacity: 0.3;
-} */
-   /* .panel::after{
-    content:"LongBox";
-    background-image: url("../assets/wolverine.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; /*need to adjust from contain */
-    /* height: 100% auto;
-    opacity: 0.5;  */
- /*   transform: rotate(18deg);
-    overflow: hidden; 
-    color:mediumslateblue;
-    background-color:transparent;
-    font-size: 450%; */
-  /* } */
-   
-   
+
   .panel-2 {
     display:grid;
     display:flex;
     grid-column: span 5;
     border: solid 3px Black;
     font-size: 25px;
-    align-items: center;
+    align-content: center;
     text-align: center;
     justify-content:center;
     color:black;
@@ -233,42 +158,28 @@ h1 {
     background-image: url("../assets/comic-explosion-bubble-2.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:cover;
+    background-size:contain;
     height: 100% auto;
-    grid-auto-rows: auto;
-    grid-template-areas: 
-    "longbox"
-    "info"
-    ;
   }
-  /* .panel-2 div{
-  padding: 20px;
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    color: #000;
-     */
-  /* } */
-  .LongBox{
-font-size: 45px;
+  .panel-2-grid{
+    display:grid;
+    grid-gap: .1rem;
+  }
+
+  #longboxtitle{
+font-size: 40px;
 text-shadow: 3px 3px rgb(192, 139, 139);
-font-weight:bold;
+font-weight: bold;
+
 grid-area: longbox;
   }
   #info{
     grid-area: info;
+    font-size: 15px;
+    font-weight: bold;
+   
   } 
-  /* .panel-2 img{
   
-  position:absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  opacity: 0.3;
-  
-  } */
   
   .panel-3 {
     display:flex;
@@ -310,24 +221,6 @@ grid-area: longbox;
     background-size:cover;
     height: 100% auto;
   }
-
-  /* } */
-  /* .panel-5 div{
- padding: 50px;
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    color: #000;
-  }
-  .panel-5 img{
-  position:absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
-  opacity: 0.3;
-  } */
   
   
   
@@ -346,13 +239,9 @@ grid-area: longbox;
     width: 100%;
     height: 465px;
     padding: 1rem;
-    margin: 2rem 0;
+    margin: 5px 5 5px 5px /*2rem 0; */;
     background-color: #fff;
     box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  [class^="panel-"] {
-    
   }
   
   .collection {
@@ -366,12 +255,10 @@ grid-area: longbox;
     text-decoration: none;
     font-weight: 700;
     
-   /*&:hover {
-      background-color: #F07739;
-      color: #333745;
-    }*/
   }
-
+/* .action{
+  color:red;
+} */
 .CTA {
   display: flexbox;
   background-color: rgba(89, 162, 247, 0.938);
