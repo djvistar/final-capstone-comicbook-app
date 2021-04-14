@@ -1,6 +1,7 @@
 <template>
   <div class="user-collections-main">
-    <h1>{{ $store.state.user.username }}'S COLLECTIONS</h1>
+    <h1>MY COLLECTIONS</h1>
+    <!-- <h1 v-if="$store.state.user.id != currentCollection.user_id">{{ $store.state.user.username }}'S COLLECTIONS</h1> -->
     <div class="user-coll-list-cont">
       <collections-list />
     </div>

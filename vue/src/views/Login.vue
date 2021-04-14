@@ -43,6 +43,7 @@
 
 <script>
 import authService from "../services/AuthService";
+import CollectionService from "@/services/CollectionService.js";
 
 export default {
   name: "login",
@@ -65,6 +66,9 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
+            CollectionService.getUserCollections().then((response) => {
+              this.$store.state.userCollections = response.data;
+            });
           }
         })
         .catch((error) => {
@@ -79,7 +83,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .login-content {
   margin: 30px auto;
   padding: 20px 40px;
@@ -89,7 +92,8 @@ export default {
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 
-.login-content input[type="text"], .login-content input[type="password"] {
+.login-content input[type="text"],
+.login-content input[type="password"] {
   padding: 5px 10px;
   margin: 8px 10px;
   width: 35%;

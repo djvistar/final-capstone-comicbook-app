@@ -166,7 +166,8 @@ export default {
   padding: 15px;
   color: #fff;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: bolder;
+  text-transform: uppercase;
   background-color: #ff165d;
   text-align: center;
   width: 50%;
