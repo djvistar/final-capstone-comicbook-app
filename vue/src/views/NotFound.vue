@@ -16,7 +16,7 @@ name: 'not-found'
 }
 </script>
 
-<style>
+<style scoped>
 
 .text-box{
      margin: 15vw;
