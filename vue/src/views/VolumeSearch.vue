@@ -1,5 +1,6 @@
 <template>
   <div class="comic-search-main">
+    <home-image-slides />
     <h1>SEARCH</h1>
     <div id="searchVolumes">
       <div class="vol-search-form-box">
@@ -37,12 +38,14 @@
 
 <script>
 import VolumeCard from "@/components/VolumeCard.vue";
+import HomeImageSlides from '../components/HomeImageSlides.vue';
 // import SearchService from "@/services/SearchService.js";
 
 export default {
   name: "volume-search",
   components: {
     VolumeCard,
+    HomeImageSlides,
   },
   data() {
     return {

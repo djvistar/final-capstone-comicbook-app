@@ -10,6 +10,7 @@
       <div class="panel-2">
         <div class="panel-2-grid">
           <!-- <div class="LongBox"> </div><div id = "info"> -->
+
           <p id="longboxtitle">LONGBOX</p>
           <p id="info">Your Digital Comic Collection Management System!</p>
         </div>
@@ -26,7 +27,7 @@
       </div>
     </div>
     <div class="lowercontent">
-      <h2 class="aboutLongbox" id="aboutLongbox">Meet LONGBOX</h2>
+      <h2 class="aboutLongbox" id="aboutLongbox">MEET LONGBOX</h2>
       <div class="content-box">
         <p>
           We're your digital comic collection management system! Want to display
@@ -48,7 +49,7 @@
         <h2 class="action">POW!</h2>
         <p>You’re in the right place!</p>
       </div>
-      <div class ="content-box">
+      <div class="content-box">
         <p>
           We don’t just handle the big name publishing houses, We cover
           everything from your golden age mythical issues to obscure one off
@@ -100,9 +101,11 @@ export default {
   display: flexbox;
   /* background-color: rgba(45, 136, 240, 0.938); */
   color: rgb(249, 243, 243);
-  text-shadow: 2px 2px black;
+  /* text-shadow: 2px 2px black; */
   text-align: center;
   margin: 0;
+  margin-top: -20px;
+
   /* background-image: url("../assets/bg3.jpg");
   background-size:100%;
     background-attachment: scroll; */
@@ -131,7 +134,7 @@ h1 {
   justify-content: center;
   align-items: center;
   grid-column: span 6;
-  border: solid 3px Black;
+  border: solid 5px #fff;
   position: relative;
   overflow: hidden;
   background-image: url("../assets/wolverineorigins.jpg");
@@ -145,7 +148,7 @@ h1 {
   display: grid;
   display: flex;
   grid-column: span 5;
-  border: solid 3px Black;
+  border: solid 5px #fff;
   font-size: 25px;
   align-content: center;
   text-align: center;
@@ -159,6 +162,7 @@ h1 {
   background-position: center;
   background-size: contain;
   height: 100% auto;
+  background-color: #fff;
 }
 .panel-2-grid {
   display: grid;
@@ -181,7 +185,7 @@ h1 {
 .panel-3 {
   display: flex;
   grid-column: span 5;
-  border: solid 3px Black;
+  border: solid 5px #fff;
 
   background-image: url("../assets/spidergwen1.jpg");
   background-repeat: no-repeat;
@@ -193,7 +197,7 @@ h1 {
 .panel-4 {
   display: flex;
   grid-column: span 7;
-  border: solid 3px Black;
+  border: solid 5px #fff;
   background-image: url("../assets/Thor.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -204,11 +208,11 @@ h1 {
 .panel-5 {
   display: flex;
   grid-column: span 9;
-  border: solid 3px Black;
+  border: solid 5px #fff;
   font-size: 25px;
   align-items: center;
   justify-content: baseline;
-  color: black;
+  color: #fff;
   text-shadow: none;
   position: relative;
   overflow: hidden;
@@ -232,10 +236,10 @@ body {
 
 .test-comic {
   width: 100%;
-  height: 465px;
-  padding: 1rem;
+  height: 535px;
+  padding: 40px 1rem;
   margin: 5px 5 5px 5px /*2rem 0; */;
-  background-color: #fff;
+  background-color: #000;
   box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -261,19 +265,19 @@ body {
   text-align: center;
   margin: 0;
   font-size: 24px;
-  padding:50px
+  padding: 50px;
 }
 /* .content-box {
   padding: 50px;
   color:black */
-  /* background-color:rgba(0, 0, 0, 0.8); */
-  /* display:grid; */
+/* background-color:rgba(0, 0, 0, 0.8); */
+/* display:grid; */
 /* } */
 .content-box p {
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
-  color:black;
+  color: black;
   justify-content: center;
 }
 .content-box h2 {
@@ -282,7 +286,7 @@ body {
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
-  color:black
+  color: black;
 }
 .content-box {
   margin: 30px auto;
@@ -292,17 +296,17 @@ body {
   width: 80%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
-.aboutLongbox{
+.aboutLongbox {
   font-size: 50px;
   min-height: 60px;
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 0;
+  padding: 5px;
   margin: 0;
   justify-content: space-around;
   align-items: center;
-  background-color: #2B80D3;
-  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  background-color: #FF9A00;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 </style>
