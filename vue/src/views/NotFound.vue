@@ -21,12 +21,16 @@ name: 'not-found'
 .text-box{
      margin: 15vw;
     font-size: 40px;
+     color: white;
 }
   h1 {
     color: var(--border);
     font-size: 2em;
   }
-
+.not-found{
+    background-color: black;
+   
+}
 
 
 
