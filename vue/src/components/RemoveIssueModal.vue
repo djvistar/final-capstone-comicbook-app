@@ -1,19 +1,33 @@
 <template>
   <div class="modal-backdrop">
-    <div class="modal">
-      <section class="modal-body">
-        <slot name="body">
-          <p>Remove This Issue?</p>
-          <form
-            v-on:submit.prevent="deleteIssue(issueId, collectionId)"
-            class="collectionForm"
-          >
-            <br />
-            <button class="btn btn-submit" @click="closeFinish">Yes!</button>
-            <button class="btn" type="button" @click="close">No!</button>
-          </form>
-        </slot>
-      </section>
+    <div class="remove-issue-border">
+      <div class="remove-issue-modal">
+        <div class="remove-issue-content">
+          <section class="remove-issue-modal-body">
+            <slot name="body">
+              <p>Remove This Issue?</p>
+              <form
+                v-on:submit.prevent="deleteIssue(issueId, collectionId)"
+                class="collectionForm"
+              >
+                <button
+                  class="button-block confirm-remove-btn"
+                  @click="closeFinish"
+                >
+                  Confirm
+                </button>
+                <button
+                  class="button-block confirm-remove-btn"
+                  type="button"
+                  @click="close"
+                >
+                  Cancel
+                </button>
+              </form>
+            </slot>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,14 +48,14 @@ export default {
       this.$emit("close");
     },
     deleteIssue(issueId, collectionId) {
-        console.log(issueId);
-        console.log(collectionId);
+      console.log(issueId);
+      console.log(collectionId);
       CollectionService.removeIssueFromCollection(issueId, collectionId);
       console.log("success");
-    //   CollectionService.getUserCollections().then((response) => {
-    //     this.$store.state.userCollections = response.data;
-        
-    //   });
+      //   CollectionService.getUserCollections().then((response) => {
+      //     this.$store.state.userCollections = response.data;
+
+      //   });
     },
   },
 };
@@ -58,58 +72,35 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.modal {
-  background: #ffffff;
-  box-shadow: 2px 2px 20px 1px;
-  overflow-x: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 35px 10px 10px 10px;
-  display: flex;
-}
-
-.modal-header {
-  position: relative;
-  color: #4aae9b;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.modal-body {
-  position: relative;
+.remove-issue-modal-body {
   padding: 0px 10px 10px 10px;
+  margin: 0;
+}
+.remove-issue-border {
+  border: 5px solid #fff;
+  box-shadow: 2px 2px 20px 1px;
+}
+.remove-issue-modal {
+  background: #ffffff;
+  width: 300px;
+  height: 150px;
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.remove-issue-modal p{
+  margin: 10px;
+}
+.remove-issue-content {
+  margin: 0;
+  padding: 0;
+}
+.confirm-remove-btn {
+  background-color: #ff165d;
+  margin:0 10px;
+  color: #fff;
+  width: 35%;
 }
 
-.btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4aae9b;
-  background: transparent;
-}
-
-.btn-green {
-  color: white;
-  background: #4aae9b;
-  border: 1px solid #4aae9b;
-  border-radius: 2px;
-}
 </style>
