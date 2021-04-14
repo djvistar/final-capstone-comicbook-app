@@ -10,7 +10,7 @@
       <div class="panel-2">
         <div class="panel-2-grid">
           <!-- <div class="LongBox"> </div><div id = "info"> -->
-          <p id="longboxtitle">LongBox</p>
+          <p id="longboxtitle">LONGBOX</p>
           <p id="info">Your Digital Comic Collection Management System!</p>
         </div>
       </div>
@@ -19,7 +19,7 @@
       <div class="panel-4">&nbsp;</div>
       <div class="panel-5">
         <div>
-          At LongBox, you can digitally track and display your collections to
+          At LONGBOX, you can digitally track and display your collections to
           your friends, family, colleagues, and nemeses while expressing your
           inner fan.
         </div>
@@ -57,7 +57,7 @@
         </p>
         <h2 class="action">BIFF!</h2>
         <p>
-          At LongBox, you can digitally track and display your collections to
+          At LONGBOX, you can digitally track and display your collections to
           your friends, family, colleagues, and nemeses while expressing your
           inner fan.
         </p>
