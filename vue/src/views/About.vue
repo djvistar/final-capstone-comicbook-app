@@ -1,6 +1,43 @@
 <template>
   <div class="about-main">
     <h1>ABOUT</h1>
+
+<!-- <div class = "gallery">
+    <div class = "abt-img">
+<img src = "../assets/bg2.jpg" />
+<div class="desc">Add a description of the image here</div>
+  </div>
+  </div> -->
+<div class="images">
+  <div class="abt-img">
+      <img src="../assets/bg2.jpg" > 
+    <div class="name">
+      <h2> BLASE </h2>
+       <h3> ComicBook Collector</h3>
+    </div>
+  </div>
+
+
+  <div class="abt-img">
+      <img src="../assets/bg2.jpg" > 
+    <div class="name"> 
+      <h2> EM </h2>
+      <h3> ComicBook Collector</h3>
+    </div>
+ 
+</div>
+
+
+  <div class="abt-img">
+      <img src="../assets/bg2.jpg" > 
+    <div class="name">
+      <h2> VIC </h2>
+       <h3> ComicBook Collector</h3>
+    </div>
+  </div>
+</div>
+
+  
     <div class="text-content">
       
         <p>Welcome to LongBox Comics!.</p>
@@ -44,4 +81,20 @@ export default {
   font-size: 18px;
   color: #000;
 }
+.images{
+ 
+   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.abt-img img{
+ border-radius: 70%;
+  width: 50%;
+  min-height: 175px;
+  margin: 20px;
+}
+
+
 </style>
