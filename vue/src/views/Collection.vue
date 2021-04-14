@@ -170,7 +170,7 @@ export default {
   background-color: #ff165d;
   text-align: center;
   width: 75%;
-  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -0.5em 0 -0.2em rgba(0, 0, 0, 0.3);
 }
 
 .share-link input[type="text"]
