@@ -1,7 +1,7 @@
 <template>
   <div class="header-main">
     <div class="header-image-box">
-      <img src="../assets/app-logo-temp.png" />
+      <img src="../assets/LongBoxLogo.png" />
       <div id="login-box">
         <div id="not-logged" v-if="$store.state.token == ''">
           <router-link
