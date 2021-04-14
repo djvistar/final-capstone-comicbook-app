@@ -109,7 +109,7 @@ export default {
   justify-content: space-around;
   width: 90%;
   margin: 10px auto;
-  background: #ff9a00;
+  background:#3ec1d3;
   /* flex: 0 0 25; */
 }
 .vol-search-form-box {

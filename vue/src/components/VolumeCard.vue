@@ -1,15 +1,27 @@
 <template>
   <div class="volume-card-main">
-    <router-link v-bind:to="{ name: 'issue-list', params: { id: volume.id } }">
-      <div class="single-volume-card">
-        <div class="volume-card-info">
-          <div id="vol-name">{{ volume.name }}</div>
-          <img id= "image" v-bind:src="volume.image.small_url" />
-          <div id= "issue-count"># of Issues: {{ volume.count_of_issues }}</div>
-          <div id= "publisher">{{ volume.publisher.name }}</div>
+    <!-- <router-link v-bind:to="{ name: 'issue-list', params: { id: volume.id } }"> -->
+    <div class="volume-card-box">
+      <div class="volume-card-img">
+        <img v-bind:src="volume.image.small_url" />
+      </div>
+      <div class="volume-card-content-box">
+        <div class="volume-card-content">
+          <router-link
+            v-bind:to="{ name: 'issue-list', params: { id: volume.id } }"
+            
+          >
+            <span class="router-click"></span
+          ></router-link>
+          <div class="overflow-text"><strong>{{ volume.name }}</strong></div>
+          
+          <em>{{ volume.count_of_issues }}</em> Issues
+          <br />
+          <em>{{ volume.publisher.name }}</em>
         </div>
-      </div></router-link
-    >
+      </div>
+    </div>
+    <!-- </router-link> -->
   </div>
 </template>
 
@@ -20,20 +32,82 @@ export default {
   props: {
     volume: Object,
   },
-
-
 };
 </script>
 
 <style>
-.volume-card-info img {
- max-height: 212px;
- max-width: 138px;
+.router-click {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
 }
 .volume-card-main {
- 
+  margin: 20px;
+  padding: 0;
+  position: relative;
 }
-.volume-card-info {
+.volume-card-box {
+  width: 200px;
+  height: 300px;
+  background-color: #ff9a00;
+  margin: 0;
+  padding: 0;
+  border: 5px solid #fff;
+  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.6);
+  background-color: #f8f59b;
+}
+.volume-card-img {
+  width: 100%;
+  height: 65%;
+  border-bottom: 5px solid #fff;
+}
+.volume-card-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: 50% 50%;
+}
+
+.volume-card-content-box {
+  width: 100%;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.volume-card-content {
+  color: #000;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px;
+
+  height: 100%;
+}
+
+.volume-card-content,
+.volume-card-content a,
+.volume-card-content a:hover,
+.volume-card-content a:visited,
+.volume-card-content a:active {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.overflow-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  
+}
+/* .volume-card-info {
   padding: 2px 2px;
   display: grid;
   grid-template-rows: 15% 75% 5% 5%;
@@ -45,85 +119,17 @@ export default {
   justify-content: center;
   align-content: center;
 }
-.single-volume-card {
-  width: 200px;
-  min-width: auto;
-  height: 307px;
-  background-color: #00afef;
-  color: rgb(0, 0, 0);
-  border: solid 1px #777;
-  display: flex;
-  align-items: center;
-  justify-content:center ;
-  flex-flow: row wrap;
 
-  /* height: 95%;
-  width: 95%; */
-  /* background-color: lightgray;
-  border: solid 3px black; */
-  /* display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-  ". vol . "
-  "image image image"
-  ". count ."
-  ". pub ."; */
-}
-/* .comic-card-main img {
-  max-width: 120px;
-  grid-area: image;
-}
-.comic-card-main {
-  max-width: 240px;
-  max-height: 240px;
-  margin: 15px 0;
-  padding: 10px;
-  background-color: #00afef;
-  color: rgb(0, 0, 0);
-  border: solid 1px #777;
-  display: flex;
-  justify-items: center;
-  align-content: flex-start;
-}
-.comic-card-info {
-  padding: 2px 2px;
-  display: grid;
-  background-color: #b1ee0b;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 0.5fr;
-  grid-template-areas:
-    "image issue_number"
-    "image name"
-    "image name"
-    "image volume";
-} */
-.volume-card a:hover,
-.volume-card a:visited,
-.volume-card a:link,
-.volume-card a:active {
-  color: #020202;
-  text-decoration: none;
-  margin: 10px;
-}
-
-
-
-#publisher {
-  grid-area: pub;
-  /* font-size: 075%; */
-}
 #vol-name {
   grid-area: volume;
   word-wrap: break-word;
-  
 }
 #issue-count {
   grid-area: count;
 }
 #image {
-  /* max-width: 138px;
-  max-height: 213px;  */
+  max-width: 138px;
+  max-height: 213px; 
   grid-area: image;
-}
+} */
 </style>
