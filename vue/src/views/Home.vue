@@ -25,9 +25,9 @@
         </div>
       </div>
     </div>
-    <div class="content-box">
+    <div class="lowercontent">
       <h2 class="aboutLongbox" id="aboutLongbox">Meet LONGBOX</h2>
-      <div class="info1">
+      <div class="content-box">
         <p>
           We're your digital comic collection management system! Want to display
           your comics, but you're worried about wrinkling the cover while
@@ -39,7 +39,7 @@
         <h2 class="action">BAM!</h2>
         <p>We’ve got you covered!</p>
       </div>
-      <div class="info2">
+      <div class="content-box">
         <p>
           Fretting about fading the special edition holographic foil variant
           covers by accidentally overexposing them to possible sunlight caused
@@ -48,7 +48,7 @@
         <h2 class="action">POW!</h2>
         <p>You’re in the right place!</p>
       </div>
-      <div>
+      <div class ="content-box">
         <p>
           We don’t just handle the big name publishing houses, We cover
           everything from your golden age mythical issues to obscure one off
@@ -261,16 +261,48 @@ body {
   text-align: center;
   margin: 0;
   font-size: 24px;
+  padding:50px
 }
-.content-box {
+/* .content-box {
   padding: 50px;
+  color:black */
   /* background-color:rgba(0, 0, 0, 0.8); */
   /* display:grid; */
-}
+/* } */
 .content-box p {
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
-  color: rgba(3, 3, 3, 0);
+  color:black;
+  justify-content: center;
+}
+.content-box h2 {
+  justify-content: center;
+  align-content: center;
+  text-shadow: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-size-adjust: 22px;
+  color:black
+}
+.content-box {
+  margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  text-align: justify;
+  width: 80%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
+.aboutLongbox{
+  font-size: 50px;
+  min-height: 60px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2B80D3;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 </style>

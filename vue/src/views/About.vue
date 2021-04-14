@@ -3,7 +3,7 @@
     <h1>ABOUT</h1>
 
 <div class = "welcome">
-  <h2>Welcome to LongBox Comics!.</h2>
+  <h2>Welcome to LONGBOX Comics!.</h2>
         <p>The main purpose of this application is to give you access to a variety of comicbook collections and issues from different publishers including but not
           limited to; Marvel, DC Comics, Fox Comics(US), Timely, Fiction House, Ace Magazines, Atlas, Gold Key, 
           Red Circle, Epic, Dark Horse Comics and many more.</p>
@@ -51,7 +51,7 @@
     remove comics from your collections and even delete your collections.</p>
     <p> To get the best experience of this application, we highly recommend that you create an account to best utilize all the resources
       that we offer.</p>
-      <p>Thank you for visiting LongBox Comics!</P>
+      <p>Thank you for visiting LONGBOX!</P>
     </div>
   </div>
 </template>
