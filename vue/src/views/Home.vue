@@ -370,5 +370,11 @@ body {
   width: 138px;
   display: flex;
   border: 2px solid black;
+  background-color: #ff9a00;
+  margin: 0;
+  padding: 0;
+  border: 5px solid #fff;
+  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.6);
+  background-color: #f8f59b;
 }
 </style>
