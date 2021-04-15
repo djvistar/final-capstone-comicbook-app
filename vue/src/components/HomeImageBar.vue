@@ -1,20 +1,14 @@
 <template>
   <div class="home-images-slides-main">
-    <!-- <VueSlickCarousel v-bind="setting">
-      <div>HI</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-    </VueSlickCarousel> -->
+
   </div>
 </template>
 
 <script>
-// import VueSlickCarousel from "vue-slick-carousel";
+
 
 export default {
-  name: "home-image-slides",
-//   components: { VueSlickCarousel },
+  name: "home-image-bar",
   data() {
     return {
       settings: {
