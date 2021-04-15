@@ -61,11 +61,10 @@ export default {
 }
 .comic-card-server-box {
   width: 200px;
-  height: 300px;
-  background-color: #ff9a00;
+  height: 350px;
+  background-color: #000;
   margin: 0;
-  padding: 0;
-  
+  padding: 0;  
   border: 5px solid #fff;
   box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.6);
 }
@@ -82,18 +81,20 @@ export default {
   justify-content: center;
   margin: 0;
   padding: 0;
+  background-color: #ff9a00;
 }
 .comic-card-server-content {
   color: #000;
   font-size: 16px;
   margin: 0;
   padding: 0;
+  
 }
 .comic-card-server-img img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
-  object-position: 100% 50%;
+  object-position: 50% 50%;
 }
  .remove-issue-btn {
    margin-top: 15px;

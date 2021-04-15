@@ -66,7 +66,7 @@ export default {
 }
 .comic-card-import-box {
   width: 200px;
-  height: 300px;
+  height: 350px;
   background-color: #ff9a00;
   margin: 0;
   padding: 0;
@@ -80,7 +80,7 @@ export default {
   background-color: #000;
 }
 .comic-card-import-img img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
   object-position: 50% 50%;
