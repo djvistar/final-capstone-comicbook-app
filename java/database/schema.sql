@@ -84,6 +84,8 @@ insert into user_collections (user_id, collection_name)
 values(3, 'Em Collection 3');
 insert into user_collections (user_id, collection_name)
 values(4, 'Blase Collection 2');
+insert into user_collections (user_id, collection_name)
+values(3, 'Em Collection 4');
 
 --COMIC DAO
 --inserts issue into db- works fine as long as pk is good
