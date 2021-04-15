@@ -37,37 +37,41 @@
           that you create an account to best utilize all the resources that we
           offer.
         </p>
-        <!-- <p>Thank you for visiting LONGBOX!</p> -->
       </div>
     </div>
 
-    <div class="team">
-      <h2>The Team</h2>
+    <div class="about-team">
+      <div class="about-team-header">HELLO FROM THE TEAM</div>
+      <div class="about-team-content">
+        <!-- <div class="images"> -->
+        <div class="abt-img">
+          <img src="../assets/bg2.jpg" />
+          <div class="name">
+            <h2 style="background-color: #ff165d">BLASE</h2>
+            <h3>ComicBook Collector</h3>
+          </div>
+        </div>
+
+        <div class="abt-img">
+          <img src="../assets/bg2.jpg" />
+          <div class="name">
+            <h2 style="background-color: #3ec1d3">EM</h2>
+            <h3>ComicBook Collector</h3>
+          </div>
+        </div>
+
+        <div class="abt-img">
+          <img src="../assets/bg2.jpg" />
+          <div class="name">
+            <h2 style="background-color: #ff9a00">VIC</h2>
+            <h3>ComicBook Collector</h3>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
     </div>
-    <div class="images">
-      <div class="abt-img">
-        <img src="../assets/bg2.jpg" />
-        <div class="name">
-          <h2>BLASE</h2>
-          <h3>ComicBook Collector</h3>
-        </div>
-      </div>
-
-      <div class="abt-img">
-        <img src="../assets/bg2.jpg" />
-        <div class="name">
-          <h2>EM</h2>
-          <h3>ComicBook Collector</h3>
-        </div>
-      </div>
-
-      <div class="abt-img">
-        <img src="../assets/bg2.jpg" />
-        <div class="name">
-          <h2>VIC</h2>
-          <h3>ComicBook Collector</h3>
-        </div>
-      </div>
+    <div class="about-thanks">
+      <div class="about-thanks-header">Thank you for visiting LONGBOX!</div>
     </div>
   </div>
 </template>
@@ -82,7 +86,7 @@ export default {
 .about-main {
   background-image: url("../assets/bg7.jpg");
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   opacity: 1;
   margin-bottom: -20px;
 }
@@ -91,7 +95,9 @@ export default {
   color: #000;
 }
 .about-welcome,
-.about-function {
+.about-function,
+.about-team,
+.about-thanks {
   margin: 30px auto;
   padding: 20px 0;
   background-color: #f8f59b;
@@ -118,34 +124,64 @@ export default {
   text-transform: uppercase;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
+.about-team-header {
+  padding: 10px 20px;
+  background-color: #3ec1d3;
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
 
 .about-welcome-content,
 .about-function-content {
   padding: 5px 40px;
 }
+.about-team-content {
+  padding: 5px 40px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 
-.team h2 {
-  width: 50%;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: none;
+.about-team-content h2 {
+  margin: 0;
+  padding: 5px;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
   /* box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17), 4px 4px 0px 0px rgba(0, 0, 0, 0.6); */
   text-transform: uppercase;
-  color: rgb(24, 18, 18);
+  color: #fff;
   font-size: 30px;
 }
 
-.images {
+/* .images {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
+} */
 
+.abt-img {
+  width: 30%;
+  text-align: center;
+}
 .abt-img img {
-  border-radius: 70%;
-  width: 50%;
-  min-height: 175px;
-  margin: 20px;
+  /* border-radius: 50%; */
+  width: 100%;
+  margin: 20px 0 0 0;
+  min-height: auto;
+  /* margin: 20px; */
+  /* box-shadow: .2em .2em .4em 0 rgba(0, 0, 0, 0.25); */
 }
 
+.about-thanks-header {
+  padding: 10px 20px;
+  background-color: #2b80d3;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
 </style>
