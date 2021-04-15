@@ -318,9 +318,11 @@ body {
 }
 .content-box {
   display: flex;
+  /* height:142px; */
   margin: 30px auto;
   padding: 20px 40px;
-  background-color: #f8f59b;
+  align-items: center;
+  justify-content:center;
   text-align: justify;
   width: 80%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
@@ -344,6 +346,14 @@ body {
   align-items: center;
   background-color: #FF165D;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+}
+.text-elements{
+  margin: 30px auto;
+  padding: 20px 40px;
+  background-color: #f8f59b;
+  width: 80%;
+  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  
 }
 /* .images1{
   margin: 30px auto;
