@@ -53,7 +53,7 @@
         </div>
 
         <div class="abt-img">
-          <img src="../assets/bg2.jpg" />
+          <img src="../assets/Team_Em.jpg" />
           <div class="name">
             <h2 style="background-color: #3ec1d3">EM</h2>
             <h3>ComicBook Collector</h3>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="abt-img">
-          <img src="../assets/bg2.jpg" />
+          <img src="../assets/Team_Vic.jpg" />
           <div class="name">
             <h2 style="background-color: #ff9a00">VIC</h2>
             <h3>ComicBook Collector</h3>
