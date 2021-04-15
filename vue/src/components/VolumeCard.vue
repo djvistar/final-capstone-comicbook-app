@@ -52,7 +52,7 @@ export default {
 }
 .volume-card-box {
   width: 200px;
-  height: 300px;
+  height: 350px;
   background-color: #ff9a00;
   margin: 0;
   padding: 0;
@@ -64,9 +64,10 @@ export default {
   width: 100%;
   height: 65%;
   border-bottom: 5px solid #fff;
+  background-color: #000;
 }
 .volume-card-img img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
   object-position: 50% 50%;

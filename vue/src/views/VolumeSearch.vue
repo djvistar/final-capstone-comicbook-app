@@ -19,7 +19,8 @@
       </div>
       <div class="volume-results-content">
         <div class="volume-search-term" v-if="searchComplete == true">
-          Searching for '{{ volumeName }}'
+          Click on a series below to see its issues...
+          <!-- Searching for '{{ volumeName }}' -->
         </div>
         <div class="volume-results">
           <volume-card
