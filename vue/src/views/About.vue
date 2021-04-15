@@ -43,7 +43,7 @@
     <div class="about-team">
       <div class="about-team-header">HELLO FROM THE TEAM</div>
       <div class="about-team-content">
-        <!-- <div class="images"> -->
+        <!-- <div class="images"><img src= "../assets/Blase_processed.jpg" /> </div> -->
         <div class="abt-img">
           <img src="../assets/bg2.jpg" />
           <div class="name">
@@ -155,11 +155,11 @@ export default {
   font-size: 30px;
 }
 
-/* .images {
+ /* .images {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-} */
+}  */
 
 .abt-img {
   width: 30%;
