@@ -96,13 +96,13 @@ insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, co
 values(44384, 14, 'Stop the Presses!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39448-5767-44384-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
-values(43963, 10, 'Don't Try This at Home', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39102-5767-43963-1-superman-adventures.jpg')
+values(43963, 10, 'Dont Try This at Home', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39102-5767-43963-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
 values(44553, 15, 'Maximum Effort!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39585-5767-44553-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
-values(44667, 16, 'Clark Kent, You're A Nobody!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39688-5767-44667-1-superman-adventures.jpg')
+values(44667, 16, 'Clark Kent, Youre A Nobody!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/39688-5767-44667-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
 values(71017, 31, 'Family Reunion: Part Two', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/73827-5767-71017-1-superman-adventures.jpg')
@@ -112,7 +112,7 @@ values(48247, 17, 'Superman's Pal's Pal', 5767, 'Superman Adventures', 'https://
 
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
-values(71018, 32, 'Sullivan's Girl Friend, Lois Lane', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/73828-5767-71018-1-superman-adventures.jpg')
+values(71018, 32, 'Sullivans Girl Friend, Lois Lane', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/73828-5767-71018-1-superman-adventures.jpg')
 
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
@@ -123,11 +123,11 @@ insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, co
 values(71020, 34, 'Sanctuary', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/74103-5767-71020-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
-values(71021, 35, 'Never Play With the Toyman's Toys!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/74104-5767-71021-1-superman-adventures.jpg')
+values(71021, 35, 'Never Play With the Toymans Toys!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/74104-5767-71021-1-superman-adventures.jpg')
 
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
-values(48248, 18, 'It's A Super Life!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/42343-5767-48248-1-superman-adventures.jpg')
+values(48248, 18, 'Its A Super Life!', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/42343-5767-48248-1-superman-adventures.jpg')
 
 insert into issue(issue_id, issue_number, issue_name, volume_id, volume_name, cover_url)
 values(48249, 19, 'The Bodyguard of Steel', 5767, 'Superman Adventures', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/4/42344-5767-48249-1-superman-adventures.jpg')
