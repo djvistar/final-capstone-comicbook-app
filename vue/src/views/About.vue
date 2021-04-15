@@ -147,4 +147,5 @@ export default {
   min-height: 175px;
   margin: 20px;
 }
+
 </style>
