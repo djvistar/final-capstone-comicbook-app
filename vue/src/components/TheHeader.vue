@@ -54,7 +54,7 @@ export default {
   background-color: #f6f7d7;
   background-image: url("../assets/SL-090119-22970-03.jpg");
   background-repeat: repeat;
-  background-size: 2000px auto;
+  background-size: 1700px auto;
   background-position: center;
 }
 .header-image-box {

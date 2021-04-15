@@ -1,6 +1,5 @@
 <template>
   <div class="comic-search-main">
-    <home-image-bar />
     <h1>SEARCH</h1>
     <div id="searchVolumes">
       <div class="vol-search-form-box">
@@ -19,7 +18,9 @@
         </form>
       </div>
       <div class="volume-results-content">
-        <div class="volume-search-term" v-if="searchComplete ==true">Searching for '{{volumeName}}'</div>
+        <div class="volume-search-term" v-if="searchComplete == true">
+          Searching for '{{ volumeName }}'
+        </div>
         <div class="volume-results">
           <volume-card
             v-bind:volume="volume"
@@ -30,7 +31,10 @@
         </div>
       </div>
     </div>
-    <div class="empty-issues" v-if="searchComplete ==true && volumes.length ==0">
+    <div
+      class="empty-issues"
+      v-if="searchComplete == true && volumes.length == 0"
+    >
       Oops! Nothing to see here...<br />Please try a different search!
     </div>
   </div>
@@ -38,14 +42,13 @@
 
 <script>
 import VolumeCard from "@/components/VolumeCard.vue";
-import HomeImageBar from '../components/HomeImageBar.vue';
+
 // import SearchService from "@/services/SearchService.js";
 
 export default {
   name: "volume-search",
   components: {
     VolumeCard,
-    HomeImageBar,
   },
   data() {
     return {
@@ -82,7 +85,7 @@ export default {
         .catch((err) => {
           console.log("Fetch Error", err);
         });
-        this.searchComplete = true;
+      this.searchComplete = true;
     },
     // search by Volume:
     // searchVolumes() {

@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <!-- <h1>Welcome To LongBox Comics</h1> -->
-
     <div class="test-comic">
       <div class="panel-1">
         <!--<h2>LongBox</h2>
@@ -29,80 +27,76 @@
     <div class="lowercontent">
       <h2 class="aboutLongbox" id="aboutLongbox">MEET LONGBOX</h2>
       <div class="content-box">
-        <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
-        <div class= "text-elements"> 
-        <p>
-          We're your digital comic collection management system! Want to display
-          your comics, but you're worried about wrinkling the cover while
-          removing them from their hermetically sealed boxes in the climate
-          controlled comic storage facility you rented at Xavier’s School for
-          Gifted Youngsters to protect all of your precious issues?
-        </p>
-
-        <h2 class="action">BAM!</h2>
-        <p>We’ve got you covered!</p>
+        <div class="img-1">
+          <img class="cbimg" src="../assets/spiderman.jpg" />
         </div>
-        
-      </div>
-      <!-- <div class = "images1"> 
-         
-        <img class= "img2" src= "../assets/spiderman.jpg">
-        <img class= "img3" src= "../assets/spiderman.jpg">
-        <img class= "img4" src= "../assets/spiderman.jpg">
-        <img class= "img5" src= "../assets/spiderman.jpg">
-        
-        </div> -->
-      <div class="content-box">
-        
-        <div class= "text-elements">
-        <p>
-          Fretting about fading the special edition holographic foil variant
-          covers by accidentally overexposing them to possible sunlight caused
-          by Lex Luthor’s newest plot?
-        </p>
-        <h2 class="action">POW!</h2>
-        <p>You’re in the right place!</p>
-        
-      </div>
-      <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
-      </div>
-      
+        <div class="text-elements">
+          <p>
+            We're your digital comic collection management system! Want to
+            display your comics, but you're worried about wrinkling the cover
+            while removing them from their hermetically sealed boxes in the
+            climate controlled comic storage facility you rented at Xavier’s
+            School for Gifted Youngsters to protect all of your precious issues?
+          </p>
 
-      <div class="content-box">
-        <div class = "img-1"> <img class= "cbimg" src= "../assets/spiderman.jpg"></div>
-        <div class= "text-elements">
-        <p>
-          We don’t just handle the big name publishing houses, We cover
-          everything from your golden age mythical issues to obscure one off
-          issues, although we probably don’t have your Second Cousin’s comic
-          strip he wrote for that one Zine in Saskatchewan in 1987...sorry.
-        </p>
-        <h2 class="action">BIFF!</h2>
-        <p>
-          At LONGBOX, you can digitally track and display your collections to
-          your friends, family, colleagues, and nemeses while expressing your
-          inner fan.
-        </p>
+          <h2 class="action">BAM!</h2>
+          <p>We’ve got you covered!</p>
         </div>
       </div>
+      <div class="content-box">
+        <div class="text-elements">
+          <p>
+            Fretting about fading the special edition holographic foil variant
+            covers by accidentally overexposing them to possible sunlight caused
+            by Lex Luthor’s newest plot?
+          </p>
+          <h2 class="action">POW!</h2>
+          <p>You’re in the right place!</p>
+        </div>
+        <div class="img-1">
+          <img class="cbimg" src="../assets/spiderman.jpg" />
+        </div>
+      </div>
+
+      <div class="content-box">
+        <div class="img-1">
+          <img class="cbimg" src="../assets/spiderman.jpg" />
+        </div>
+        <div class="text-elements">
+          <p>
+            We don’t just handle the big name publishing houses, We cover
+            everything from your golden age mythical issues to obscure one off
+            issues, although we probably don’t have your Second Cousin’s comic
+            strip he wrote for that one Zine in Saskatchewan in 1987...sorry.
+          </p>
+          <h2 class="action">BIFF!</h2>
+          <p>
+            At LONGBOX, you can digitally track and display your collections to
+            your friends, family, colleagues, and nemeses while expressing your
+            inner fan.
+          </p>
+        </div>
+      </div>
+      <h2 class="aboutLongbox">JOIN US</h2>
       <div class="CTA">
-        <h2 class="aboutLongbox">
-          <router-link :to="{ name: 'register' }">Register Now</router-link>
-        </h2>
         <p>
-          and Join like minded heroes in the battle to Cherish, Preserve, and
-          Show-Off these masterpieces with the best Comic Book collection
-          manager!
+          <router-link :to="{ name: 'register' }">REGISTER NOW</router-link> and
+          join like minded heroes in the battle to Cherish, Preserve, and
+          Show-Off these masterpieces with LONGBOX - the best Comic Book collection
+          manager in the multiverse.
         </p>
       </div>
     </div>
+    <home-image-bar />
   </div>
   <!-- <div class="links"></div> -->
 </template>
 
 <script>
+import HomeImageBar from "@/components/HomeImageBar.vue";
 export default {
   name: "home",
+  components: { HomeImageBar },
 };
 </script>
 
@@ -283,11 +277,14 @@ body {
   display: flexbox;
   background-color: rgba(89, 162, 247, 0.938);
   color: white;
-  text-shadow: 2px 2px black;
+  /* text-shadow: 2px 2px black; */
   text-align: center;
   margin: 0;
   font-size: 24px;
-  padding: 50px;
+  padding: 10px 75px;
+  background: url("../assets/SL-090119-22970-03.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 /* .content-box {
   padding: 50px;
@@ -295,17 +292,23 @@ body {
 /* background-color:rgba(0, 0, 0, 0.8); */
 /* display:grid; */
 /* } */
+
+.CTA p {
+  background-color: rgb(0, 0, 0, .5);
+  padding: 20px;
+  
+}
 .content-box p {
   text-shadow: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-size-adjust: 22px;
   color: black;
-    align-content: center;
+  align-content: center;
   text-align: center;
-  justify-content: center
+  justify-content: center;
 }
 .content-box h2 {
-    align-content: center;
+  align-content: center;
   text-align: center;
   justify-content: center;
   text-shadow: none;
@@ -314,15 +317,14 @@ body {
   color: black;
 }
 .content-box {
-  display:flex;
+  display: flex;
   margin: 30px auto;
   padding: 20px 40px;
   background-color: #f8f59b;
   text-align: justify;
   width: 80%;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
-  justify-content: space-between
-  
+  justify-content: space-between;
 }
 /* .text-elements{
   display:flex;
@@ -340,7 +342,7 @@ body {
   margin: 0;
   justify-content: space-around;
   align-items: center;
-  background-color: #FF9A00;
+  background-color: #FF165D;
   box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
 }
 /* .images1{
@@ -353,11 +355,10 @@ body {
   margin-top: 0px;
 } */
 
-.cbimg{
-  height:212px;
+.cbimg {
+  height: 212px;
   width: 138px;
   display: flex;
   border: 2px solid black;
 }
-
 </style>
