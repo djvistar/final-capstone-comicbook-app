@@ -28,7 +28,7 @@
       <h2 class="aboutLongbox" id="aboutLongbox">MEET LONGBOX</h2>
       <div class="content-box">
         <div class="img-1">
-          <img class="cbimg" src="../assets/spiderman.jpg" />
+          <img class="cbimg" src="https://comicvine1.cbsistatic.com/uploads/scale_small/6/68811/1745110-chew.jpg" />
         </div>
         <div class="text-elements">
           <p>
@@ -54,13 +54,13 @@
           <p>You’re in the right place!</p>
         </div>
         <div class="img-1">
-          <img class="cbimg" src="../assets/spiderman.jpg" />
+          <img class="cbimg" src="https://comicvine1.cbsistatic.com/uploads/scale_small/6/67663/3855006-01a.jpg" />
         </div>
       </div>
 
       <div class="content-box">
         <div class="img-1">
-          <img class="cbimg" src="../assets/spiderman.jpg" />
+          <img class="cbimg" src="https://comicvine1.cbsistatic.com/uploads/scale_small/6/67663/5571252-02.jpg" />
         </div>
         <div class="text-elements">
           <p>
@@ -325,7 +325,7 @@ body {
   justify-content:center;
   text-align: justify;
   width: 80%;
-  box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17);
+  /* box-shadow: inset 0 -0.5em 0 -0.35em rgba(0, 0, 0, 0.17); */
   justify-content: space-between;
 }
 /* .text-elements{
