@@ -45,7 +45,7 @@
       <div class="about-team-content">
         <!-- <div class="images"><img src= "../assets/Blase_processed.jpg" /> </div> -->
         <div class="abt-img">
-          <img src="../assets/bg2.jpg" />
+          <img src="../assets/Team_Blase.jpg" />
           <div class="name">
             <h2 style="background-color: #ff165d">BLASE</h2>
             <h3>ComicBook Collector</h3>
